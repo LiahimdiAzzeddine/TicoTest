@@ -1,6 +1,6 @@
 import React from "react";
-import Transparence from "../components/sectionsHome/transparence";
-import Etap1 from "../components/sectionsHome/etap1";
+import Transparence from "../components/sectionsHome/Transparence";
+import Etap1 from "../components/sectionsHome/Etap1";
 import HomeSection from "../Templates/HomeSection";
 import HomeContent from "../components/sectionsHome/HomeContent";
 import Etape2Et3 from "../components/sectionsHome/Etape2Et3";
@@ -10,7 +10,6 @@ import Bonus from "../components/sectionsHome/Bonus";
 import TestimonialSlider from "../components/sectionsHome/TestimonialSlider";
 import { CarouselLogos } from "../components/sectionsHome/CarouselLogos";
 import CarouselTestimonials from "../components/sectionsHome/CarouselTestimonials";
-
 export default function Home() {
   return (
     <>

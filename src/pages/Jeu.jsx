@@ -1,5 +1,5 @@
 import JeuPage from "../components/JeuPage";
-import StartSection from "../Templates/StartSection";
+import StartSection from "..//StartSection";
 
 
 export default function Jeu() {
