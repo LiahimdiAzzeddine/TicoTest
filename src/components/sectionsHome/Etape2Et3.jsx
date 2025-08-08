@@ -1,5 +1,5 @@
 import React from "react";
-import StepTitle from "../ui/stepTitle";
+import StepTitle from "../ui/StepTitle";
 
 export default function Etape2Et3() {
     return (

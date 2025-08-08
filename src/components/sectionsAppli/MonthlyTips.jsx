@@ -1,4 +1,4 @@
-import StepTitle from "../ui/stepTitle";
+import StepTitle from "../ui/StepTitle";
 
 export default function MonthlyTips() {
   return (

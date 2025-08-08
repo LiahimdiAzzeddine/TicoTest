@@ -1,5 +1,5 @@
 import React from "react";
-import StepTitle from "../ui/stepTitle";
+import StepTitle from "../ui/StepTitle";
 import { useNavigate } from "react-router-dom";
 
 export default function Bonus() {

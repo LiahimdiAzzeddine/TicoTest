@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import StepTitle from "../ui/stepTitle";
+import StepTitle from "../ui/StepTitle";
 import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const infoItems = [

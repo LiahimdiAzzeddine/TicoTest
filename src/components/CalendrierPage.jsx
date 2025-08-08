@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import StepTitle from "./ui/stepTitle";
+import StepTitle from "./ui/StepTitle";
 
 export default function CalendrierPage() {
     return (

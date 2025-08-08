@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import StepTitle from "./ui/stepTitle";
+import StepTitle from "./ui/StepTitle";
 import ProgrammePopup from "./ui/ProgrammePopup";
 import { useState } from "react";
 
