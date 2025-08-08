@@ -9,7 +9,7 @@ import Eengagement from "../components/sectionsAppli/Eengagement";
 import MonthlyTips from "../components/sectionsAppli/MonthlyTips";
 import TitRecipes from "../components/sectionsAppli/TitRecipes";
 import StartSection from "../Templates/StartSection";
-import StepTitle from "../components/ui/StepTitle2";
+import StepTitle from "../components/ui/stepTitle";
 export default function Application() {
   return <>
     <StartSection>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import parse from 'html-react-parser';
 import SubTitle from '../components/ui/SubTitle';
 import { Search, MessageCircle, ChevronDown, HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Faq = () => {
   const [faqs, setFaqs] = useState([]);
@@ -120,12 +121,12 @@ const Faq = () => {
               </p>
               <p className="text-gray-600 text-sm sm:text-base">
                 Posez-la nous directement via notre{' '}
-                <a 
-                  href="/contact" 
+                <Link 
+                  to={"/contact"}
                   className="text-[#ff8300] hover:text-[#e6750a] font-medium underline decoration-2 underline-offset-2 hover:underline-offset-4 transition-all duration-200"
                 >
                   formulaire de contact
-                </a>
+                </Link>
               </p>
             </div>
           </div>
