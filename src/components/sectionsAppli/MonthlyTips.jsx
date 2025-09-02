@@ -6,7 +6,7 @@ export default function MonthlyTips() {
       {/* Texte étape 4 */}
       <div
         className="text-[#0a548d] max-w-md text-center md:text-left flex flex-col gap-10 flex-1"
-      
+
       >
         <div className="flex flex-col justify-start items-start gap-8 md:gap-14">
           <StepTitle center={false}>
@@ -19,7 +19,7 @@ export default function MonthlyTips() {
             <img
               src="/images/conseils.png"
               alt="Ti’conseils"
-              className="w-52 drop-shadow-md"
+              className="w-52 "
             />
           </div>
 <div className="flex flex-col gap-4">
@@ -41,7 +41,7 @@ export default function MonthlyTips() {
         <img
           src="/images/conseils.png"
           alt="Ti’conseils"
-          className="2xl:w-[26rem] w-96 drop-shadow-md"
+          className="2xl:w-[26rem] w-96"
         />
       </div>
     </div>

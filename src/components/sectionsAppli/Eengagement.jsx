@@ -14,7 +14,7 @@ const Eengagement = () => {
         <img
           src={"/images/cadeaux.png"}
           alt="Cadeaux"
-          className="w-60 drop-shadow-2xl"
+          className="w-60 "
         />
       </div>
 
@@ -24,7 +24,7 @@ const Eengagement = () => {
         <div className="flex-1 text-left">
           <div
             className="space-y-4 text-[#50916e] text-base md:text-lg leading-relaxed ArchivoLight"
-            
+
           >
             <p>
               Des stories stylées pour les réseaux, un calendrier de fruits
@@ -48,7 +48,7 @@ const Eengagement = () => {
           <img
             src={"/images/cadeaux.png"}
             alt="Smartphone app"
-            className="2xl:w-[26rem] lg:w-[25rem] w-96 drop-shadow-2xl"
+            className="2xl:w-[26rem] lg:w-[25rem] w-96 "
           />
         </div>
       </div>

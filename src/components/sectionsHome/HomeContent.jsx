@@ -34,8 +34,9 @@ export default function HomeContent() {
                     {/* Sous-titre */}
                     <div className="w-full flex justify-center items-center md:justify-start">
                         <p className="text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-[#0a548d] leading-relaxed px-3 py-2 md:px-0 md:py-0 bg-gray-50 rounded-xl md:bg-transparent border border-gray-200 md:border-none shadow-sm md:shadow-none">
-                            Scannez, découvrez et choisissez en toute connaissance de cause avec TiCO,
-                            votre compagnon pour une alimentation transparente.
+                         Scannez et demandez aux marques la
+transparence TiCO en dehors de toutes
+perturbations marketing.
                         </p>
                     </div>
 
@@ -44,7 +45,7 @@ export default function HomeContent() {
                         <StoreLinks />
                     </div>
 
-                    {/* Lien dossier de presse */}
+                    {/* Lien dossier de presse
                     <div className="flex justify-center md:justify-start mt-2">
                         <a
                             href="/pdfs/TiCO_DP_2025.pdf"
@@ -59,7 +60,7 @@ export default function HomeContent() {
                                 Dossier de Presse
                             </span>
                         </a>
-                    </div>
+                    </div>*/}
                 </div>
 
                 {/* Section image */}
@@ -77,7 +78,7 @@ export default function HomeContent() {
                 </div>
             </div>
 
-            {/* Section statistiques */}
+            {/* Section statistiques
             <div className="pt-4 md:pt-6 lg:pt-8 border-t border-gray-200">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-center">
                     <div className="bg-blue-50 p-3 md:p-4 lg:p-5 xl:p-6 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
@@ -97,7 +98,7 @@ export default function HomeContent() {
                         <div className="text-xs md:text-sm lg:text-base xl:text-lg text-gray-600 mt-1">Recettes</div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
        </StartSection>
     );
 }

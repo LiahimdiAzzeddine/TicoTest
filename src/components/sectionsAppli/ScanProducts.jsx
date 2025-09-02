@@ -14,7 +14,7 @@ const ScanProducts = () => {
           <img
             src={"/images/4.png"}
             alt="Smartphone app"
-            className="w-40 md:w-44 drop-shadow-2xl"
+            className="w-40 md:w-48 "
           />
         </div>
 
@@ -23,9 +23,9 @@ const ScanProducts = () => {
           <div className="space-y-2 md:space-y-4 text-[#0a548d] text-base md:text-lg leading-relaxed Archivo">
             <p className="ArchivoLight font-bold">
               <span className="text-[#ff8300] ArchivoBold font-bold">Transparence</span> <br />
-              <span className="font-semibold">TiCO</span> définit et évalue la
-              transparence des marques en détaillant toutes les informations
-              essentielles à connaître.
+              <span className="font-semibold">TiCO</span> propose de définir et d’évaluer la transparence des marques en
+détaillant toutes les informations essentielles à connaître.
+
             </p>
 
             <p className="ArchivoLight font-bold">

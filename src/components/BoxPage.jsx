@@ -5,18 +5,24 @@ import { useState } from "react";
 import BoxPopup from "./ui/BoxPopup";
 
 export default function BoxPage() {
-        const [isPopupOpen, setIsPopupOpen] = useState(false);
-    
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
     return (
         <div className="flex flex-col md:flex-row items-center justify-start md:justify-between gap-y-8 md:gap-x-10 w-full max-w-6xl md:mt-16">
-
             {/* Texte étape 4 */}
             <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1">
-                <div className="flex flex-col justify-start items-start gap-8 md:gap-14">
+                <div className="flex flex-col justify-start items-start gap-8 md:gap-10">
                     <StepTitle center={false}>
-                        <span className="text-[#0a548d]">Graine de Ti’Conso,&nbsp;</span>
-                        <span className="text-[#ff8300] font-bold">la box clé en mains&nbsp;​</span>
-                        <span className="text-[#0a548d]">pour sensibiliser les plus jeunes dans la joie et la bonne humeur !</span>
+                        <span className="text-[#0a548d]">
+                            Graine de Ti’Conso,&nbsp;
+                        </span>
+                        <span className="text-[#ff8300] font-bold">
+                            la box clé en mains&nbsp;
+                        </span>
+                        <span className="text-[#0a548d]">
+                            pour sensibiliser les plus jeunes dans la joie et la
+                            bonne humeur&nbsp;!
+                        </span>
                     </StepTitle>
 
                     {/* Image visible uniquement sur mobile */}
@@ -28,29 +34,53 @@ export default function BoxPage() {
 
                     <StatsComponent />
                     <div className="flex flex-col gap-4">
-                    <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                        Les enfants sont les cibles privilégiées du marketing alimentaire...
-                    </p>
-                    <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                        Proposez cette activité en temps scolaire ou périscolaire...
-                    </p>
-                    <div   onClick={() => setIsPopupOpen(true)} className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline">
-                        Voir le contenu​
-                    </div>
-                    <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                        Recevez-la pour toute participation de 96€ à notre <Link to={'/crowdfunding​'} className="font-bold underline"> crowdfunding</Link>.
-                    </p>
+                        <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
+                            Les enfants sont les cibles privilégiées du
+                            marketing alimentaire. Couleurs vives, jeux, fausses
+                            promesses santé… Notre rôle ? Les protéger, les
+                            accompagner pour qu’ils puissent grandir en
+                            connaissant l’impact de leur alimentation sur leur
+                            santé et l’environnement.
+                        </p>
+                        <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
+                            Proposez ces activités en temps scolaire ou
+                            périscolaire, tout est prévu pour vous guider pas à
+                            pas dans l’organisation et l’animation des activités
+                            et des dégustations. ​ Kit co-construit avec
+                            l’expertise de Kelly Frank, fondatrice de{" "}
+                            <span className="font-bold">Goûm</span>, spécialiste
+                            de la naturalité des ingrédients et du vrai goût des
+                            aliments.
+                        </p>
+                        <div
+                            onClick={() => setIsPopupOpen(true)}
+                            className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
+                        >
+                            Voir le contenu​
+                        </div>
+                        <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
+                            Recevez-la pour toute participation de 96€ à notre{" "}
+                            <Link
+                                to={"/crowdfunding​"}
+                                className="font-bold underline"
+                            >
+                                {" "}
+                                crowdfunding
+                            </Link>
+                            .
+                        </p>
                     </div>
                 </div>
 
                 <div className="mt-1">
-                    <button className="text-xl bg-[#0a548d] text-white px-9 py-2 rounded-lg hover:bg-[#084b7a] transition ArchivoLight"
-                       onClick={() => {
-                        window.open(
-                            "https://app.mymoojo.com/project/tico",
-                            "_blank"
-                        );
-                    }}
+                    <button
+                        className="text-xl bg-[#0a548d] text-white px-9 py-2 rounded-lg hover:bg-[#084b7a] transition ArchivoLight"
+                        onClick={() => {
+                            window.open(
+                                "https://app.mymoojo.com/project/tico",
+                                "_blank"
+                            );
+                        }}
                     >
                         J’en veux une !
                     </button>
@@ -62,13 +92,13 @@ export default function BoxPage() {
                 <img
                     src="/images/box.png"
                     alt="Suivi des demandes"
-                    className="w-52 md:w-96 lg:w-[25rem] 2xl:w-[26rem] drop-shadow-md"
+                    className="w-52 md:w-96 lg:w-[23rem] 2xl:w-[26rem]"
                 />
             </div>
-              <BoxPopup
-        isOpen={isPopupOpen} 
-        onClose={() => setIsPopupOpen(false)} 
-      />
+            <BoxPopup
+                isOpen={isPopupOpen}
+                onClose={() => setIsPopupOpen(false)}
+            />
         </div>
     );
 }

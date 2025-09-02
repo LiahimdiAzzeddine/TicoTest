@@ -11,9 +11,9 @@ export default function Etape4() {
             <div className="flex-1 md:flex justify-center hidden">
                 {/* Image téléphone */}
                 <img
-                    src="/images/step4.png" 
+                    src="/images/step4.png"
                     alt="Suivi des demandes"
-                    className="w-52 md:w-96 drop-shadow-md"
+                    className="w-52 md:w-[21rem]"
                 />
             </div>
             {/* Texte étape 4 */}
@@ -23,30 +23,30 @@ export default function Etape4() {
                         Étape 4 :<br />
                         Suivez vos demandes
                     </StepTitle>
-                    
+
                     <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start">
-                        Restez informés, découvrez si les marques jouent le jeu et les informations renseignées.
-                        Et insistez s’il le faut&nbsp;!
+                        Restez informés et découvrez si les marques jouent le
+                        jeu. Et insistez s’il le faut&nbsp;!
                     </p>
                     <div className="flex-1 flex justify-center md:hidden w-full items-center ">
-                {/* Image téléphone */}
-                <img
-                    src="/images/step4.png" 
-                    alt="Suivi des demandes"
-                    className="w-52 md:w-96 drop-shadow-md"
-                />
-            </div>
+                        {/* Image téléphone */}
+                        <img
+                            src="/images/step4.png"
+                            alt="Suivi des demandes"
+                            className="w-52 md:w-96"
+                        />
+                    </div>
                 </div>
 
                 <div>
-                    <button className="bg-[#0a548d] text-white shadow text-xl px-8 py-3 rounded-lg hover:bg-[#084b7a] transition ArchivoLight font-bold" onClick={() => navigate("/application#solliciter")}>
+                    <button
+                        className="bg-[#0a548d] text-white shadow text-xl px-8 py-3 rounded-lg hover:bg-[#084b7a] transition ArchivoLight font-bold"
+                        onClick={() => navigate("/application#solliciter")}
+                    >
                         En savoir plus
                     </button>
                 </div>
-
             </div>
-
         </div>
-
     );
 }

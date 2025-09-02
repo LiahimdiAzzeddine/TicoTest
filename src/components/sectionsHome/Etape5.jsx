@@ -15,15 +15,15 @@ export default function Etape5() {
                         Étape 5 :<br />
                         Votre engagement est récompensé                    </StepTitle>
                     <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start">
-                        Plus vous faites de demandes aux marques plus votre engagement dans la transparence est récompensé&nbsp;!
-                    </p>
+Plus vous faites de demandes aux marques
+plus vous débloquez des profils dans TiCO.                     </p>
                     {/* Illustration + Statuts */}
             <div className="flex-1 flex md:hidden justify-center w-full items-center">
                 {/* Image téléphone */}
                 <img
                     src="/images/step5.png" // remplace par le bon chemin
                     alt="Suivi des demandes"
-                    className="w-52 md:w-80 drop-shadow-md"
+                    className="w-52 md:w-80"
                 />
             </div>
                 </div>
@@ -40,7 +40,7 @@ export default function Etape5() {
                 <img
                     src="/images/step5.png" // remplace par le bon chemin
                     alt="Suivi des demandes"
-                    className="w-52 md:w-80 drop-shadow-md"
+                    className="w-52 md:w-80"
                 />
             </div>
         </div>

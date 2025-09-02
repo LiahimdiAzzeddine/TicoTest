@@ -4,20 +4,20 @@ import StepTitle from "./ui/StepTitle";
 export default function JeuPage() {
     return (
         <div className="flex flex-col md:flex-row items-center gap-y-8 md:gap-x-10 justify-between w-full max-w-6xl mx-auto " >
-            
+
             {/* Image desktop à gauche */}
             <div className="hidden md:flex justify-center">
                 <img
                     src="/images/info ou pipeau le jeu.png"
                     alt="Suivi des demandes"
-                    className="w-96 lg:w-[25rem] 2xl:w-[26rem] drop-shadow-md"
+                    className="w-96 lg:w-[25rem] 2xl:w-[26rem]"
                 />
             </div>
 
             {/* Texte étape 4 */}
             <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1">
                 <div className="flex flex-col justify-start items-start gap-8 md:gap-14">
-                    
+
                     {/* Titre */}
                     <StepTitle center={false}>
                         <span className="text-[#0a548d]">Info ou pipeau : le jeu de cartes pour&nbsp;</span>
@@ -30,7 +30,7 @@ export default function JeuPage() {
                         <img
                             src="/images/info ou pipeau le jeu.png"
                             alt="Suivi des demandes"
-                            className="w-72 drop-shadow-md"
+                            className="w-72"
                         />
                     </div>
                     <div className="flex flex-col gap-4">

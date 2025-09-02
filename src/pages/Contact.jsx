@@ -18,7 +18,7 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
-    
+
     // Effacer l'erreur du champ modifié
     if (errors[name]) {
       setErrors(prev => ({
@@ -30,7 +30,7 @@ const Contact = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     // Validation email
     const emailRegex = /^[\w\.-]+@[a-zA-Z0-9\.-]+\.(com|ma)$/;
     if (!formData.email) {
@@ -38,36 +38,36 @@ const Contact = () => {
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = 'L\'email doit se terminer par .com ou .ma';
     }
-    
+
     // Validation titre
     if (!formData.titre) {
       newErrors.titre = 'Le titre est requis';
     } else if (formData.titre.length > 255) {
       newErrors.titre = 'Le titre ne peut pas dépasser 255 caractères';
     }
-    
+
     // Validation message
     if (!formData.message) {
       newErrors.message = 'Le message est requis';
     }
-    
+
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validation côté client
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    
+
     setIsSubmitting(true);
     setErrors({});
     setSubmitStatus(null);
-    
+
     try {
       const response = await fetch('https://tico.foodhea.com/api/auth/contact', {
         method: 'POST',
@@ -77,10 +77,10 @@ const Contact = () => {
         },
         body: JSON.stringify(formData)
       });
-      
+
       const data = await response.json();
       console.log("🚀 ~ handleSubmit ~ data:", data,response.ok)
-      
+
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ email: '', titre: '', message: '' });
@@ -102,23 +102,23 @@ const Contact = () => {
   return (
     <>
       <div className="md:h-16 lg:h-20 h-14"></div>
-      
+
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 min-h-screen pb-16">
-        
+
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <SubTitle center={true}>
             <span className="text-[#0a548d]">Contactez&nbsp;</span>
             <span className="text-[#ff8300] font-bold">nous</span>
           </SubTitle>
-          
+
           <p className="mt-4 text-base sm:text-lg text-[#0a548d] max-w-2xl mx-auto leading-relaxed ArchivoLight ">
             Une question, une suggestion ou besoin d'aide ? Nous sommes là pour vous accompagner dans votre expérience TiCO.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          
+
           {/* Informations de contact */}
           <div className="space-y-6">
             <div className="bg-gradient-to-br from-blue-50 to-orange-50 p-6 rounded-2xl border border-blue-100">
@@ -126,7 +126,7 @@ const Contact = () => {
                 <MessageCircle className="w-6 h-6 text-[#ff8300]" />
                 Pourquoi nous contacter ?
               </h3>
-              
+
               <div className="space-y-4 ArchivoLight">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
@@ -157,7 +157,7 @@ const Contact = () => {
 
           {/* Formulaire de contact */}
           <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-6 sm:p-8">
-            
+
             {/* Messages de statut */}
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3">
@@ -168,7 +168,7 @@ const Contact = () => {
                 </div>
               </div>
             )}
-            
+
             {submitStatus === 'error' && (
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
                 <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
@@ -180,7 +180,7 @@ const Contact = () => {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              
+
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-[#0a548d] mb-2 flex items-center gap-2">
@@ -194,8 +194,8 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all duration-300 ${
-                    errors.email 
-                      ? 'border-red-300 focus:border-red-500' 
+                    errors.email
+                      ? 'border-red-300 focus:border-red-500'
                       : 'border-gray-200 focus:border-[#0a548d]'
                   }`}
                   placeholder="votre.email@exemple.com"
@@ -222,8 +222,8 @@ const Contact = () => {
                   onChange={handleChange}
                   maxLength={255}
                   className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all duration-300 ${
-                    errors.titre 
-                      ? 'border-red-300 focus:border-red-500' 
+                    errors.titre
+                      ? 'border-red-300 focus:border-red-500'
                       : 'border-gray-200 focus:border-[#0a548d]'
                   }`}
                   placeholder="Question sur l'application, bug signalé, suggestion..."
@@ -254,8 +254,8 @@ const Contact = () => {
                   onChange={handleChange}
                   rows={6}
                   className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all duration-300 resize-vertical ${
-                    errors.message 
-                      ? 'border-red-300 focus:border-red-500' 
+                    errors.message
+                      ? 'border-red-300 focus:border-red-500'
                       : 'border-gray-200 focus:border-[#0a548d]'
                   }`}
                   placeholder="Décrivez votre question, problème ou suggestion en détail..."

@@ -4,23 +4,23 @@ export default function TitRecipes() {
   return (
     <div
       className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-8 md:gap-14"
-     
+
     >
       {/* Image visible sur desktop uniquement */}
       <div className="hidden md:flex flex-1  justify-center">
         <img
           src="/images/recettes.png"
           alt="Recettes"
-          className="2xl:w-[26rem] w-96 drop-shadow-md"
+          className="2xl:w-[26rem] w-96"
         />
       </div>
 
       {/* Texte avec image mobile insérée entre le titre et le texte */}
       <div className="text-[#0a548d] max-w-md text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1">
-    
+
           <StepTitle center={false}>
             <span className="text-[#0a548d]">Des Tit’ recettes&nbsp;</span>
-            <span className="text-[#ff8300] font-bold">sans publicité</span>
+            <span className="text-[#c22823] font-bold">sans publicité</span>
           </StepTitle>
 
           {/* Image visible uniquement sur mobile */}
@@ -28,7 +28,7 @@ export default function TitRecipes() {
             <img
               src="/images/recettes.png"
               alt="Recettes mobile"
-              className="w-52 drop-shadow-md"
+              className="w-52"
             />
           </div>
           <div className="flex flex-col gap-4">

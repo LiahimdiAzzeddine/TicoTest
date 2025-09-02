@@ -10,7 +10,7 @@ const Decryptages = () => {
         <img
           src="/images/aile-et-telephone.png"
           alt="Smartphone app"
-          className="w-60 md:w-[26rem] drop-shadow-2xl"
+          className="w-60 md:w-[26rem] "
         />
         <StoreLinks />
       </div>

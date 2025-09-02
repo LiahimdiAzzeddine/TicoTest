@@ -19,7 +19,7 @@ export default function Home() {
         <Transparence />
       </HomeSection>
 
-      <HomeSection pb={"pb-14"}>
+      <HomeSection >
         <Etap1 />
       </HomeSection>
       <div
@@ -38,10 +38,10 @@ export default function Home() {
 
           }}
         >
-          <HomeSection pb={"pb-14"}>
+          <HomeSection >
             <Etape2Et3 />
           </HomeSection>
-          <HomeSection pb={"pb-14"}>
+          <HomeSection pb={"pb-16"}>
             <Etape4 />
           </HomeSection></div>
         <HomeSection >
@@ -50,15 +50,18 @@ export default function Home() {
       <HomeSection>
         <Bonus />
       </HomeSection>
-      <HomeSection>
+      <HomeSection pb={"pb-28"}>
         <TestimonialSlider />
       </HomeSection>
-      <HomeSection>
+      {/* <HomeSection>
         <CarouselLogos />
-      </HomeSection>
+      </HomeSection> */}
       <HomeSection>
         <CarouselTestimonials />
       </HomeSection>
+      <br>
+      </br>
+      <br></br>   <br></br>
     </>
 
   );

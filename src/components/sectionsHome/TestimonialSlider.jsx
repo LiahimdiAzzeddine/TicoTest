@@ -8,21 +8,21 @@ const TestimonialSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Données des témoignages
-  const testimonials = [
-    {
+  const testimonials = [ {
       id: 1,
-      name: "Perline",
-      text: "Je suis noyée dans le marketing, je ne sais plus ce que je dois croire. TiCO permet enfin d’accéder à une transparence totale sur les produits et les marques. Pour moi, c’est indispensable si on veut améliorer les choses.​",
-      avatar: "/images/Perline.png", // Remplacez par votre image
-      backgroundImage: "/images/visuels-site-web-V8.1-10.png" // Remplacez par votre image de fond
-    },
-    {
-      id: 2,
       name: "Matthieu​",
       text: "TiCO est l’application qui manquait. Enfin une solution qui ne se contente pas d’un score simpliste mais qui pousse les marques à dévoiler toutes les informations sur leurs produits. Très beau projet ! ​PS: j’ai appris que je ne faisais pas bien cuire les pâtes 😅  Merci les ti conseils 👍🏼",
       avatar: "/images/Matthieu.png",
       backgroundImage: "/images/visuels-site-web-V8.1-10.png"
     },
+    {
+      id: 2,
+      name: "Perline",
+      text: "Je suis noyée dans le marketing, je ne sais plus ce que je dois croire. TiCO permet enfin d’accéder à une transparence totale sur les produits et les marques. Pour moi, c’est indispensable si on veut améliorer les choses.​",
+      avatar: "/images/Perline.png", // Remplacez par votre image
+      backgroundImage: "/images/visuels-site-web-V8.1-10.png" // Remplacez par votre image de fond
+    },
+
     {
       id: 3,
       name: "Solenne",
@@ -186,7 +186,7 @@ const TestimonialSlider = () => {
                     <img
                       src={currentTestimonial.avatar}
                       alt={currentTestimonial.name}
-                      className="w-32 h-32 md:h-44 object-contain drop-shadow-lg"
+                      className="w-32 h-32 md:h-44 object-contain"
                     />
                   </div>
                 </div>

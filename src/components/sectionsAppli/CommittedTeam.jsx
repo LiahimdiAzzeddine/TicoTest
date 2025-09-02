@@ -34,7 +34,7 @@ const CommittedTeam = () => {
           <img
             src={"/images/coteconso2_1.png"}
             alt="Smartphone app"
-            className="w-full h-44 drop-shadow-2xl"
+            className="w-full h-44 "
           />
         </div>
       </div>

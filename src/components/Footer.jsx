@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 pt-16 pb-10 relative bg-no-repeat bg-contain"
+    <footer className="bg-whitept-16 pb-10 relative bg-no-repeat bg-contain"
     style={{
           backgroundImage: "url('/images/fond_footer.png')",
           backgroundPosition: "bottom",
@@ -72,10 +72,10 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 <li><a  onClick={() => {
             window.open("https://www.foodhea.com/origine#team", "_blank");
-          }} className="text-blue-600 hover:text-blue-800">Équipe</a></li>
-                <li><Link to="/application" className="text-blue-600 hover:text-blue-800">Transparence</Link></li>
-                <li><Link to="/calendrier" className="text-blue-600 hover:text-blue-800">Calendrier</Link></li>
-                <li><Link to="/calendrier#guide" className="text-blue-600 hover:text-blue-800">Guide</Link></li>
+          }} className="text-[#0a548d] hover:text-blue-950">Équipe</a></li>
+                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Transparence</Link></li>
+                <li><Link to="/calendrier" className="text-[#0a548d] hover:text-blue-950">Calendrier</Link></li>
+                <li><Link to="/calendrier#guide" className="text-[#0a548d] hover:text-blue-950">Guide</Link></li>
               </ul>
             </div>
 
@@ -83,11 +83,11 @@ export default function Footer() {
             <div>
               <h3 className="text-orange-500 font-bold text-lg mb-2">Application</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/application" className="text-blue-600 hover:text-blue-800">Descriptif</Link></li>
-                <li><Link to="/application" className="text-blue-600 hover:text-blue-800">Évaluations</Link></li>
-                <li><Link to="/application" className="text-blue-600 hover:text-blue-800">Ti'Conseils</Link></li>
-                <li><Link to="/application" className="text-blue-600 hover:text-blue-800">Tit'Recettes</Link></li>
-                <li><Link to="/faqs" className="text-blue-600 hover:text-blue-800">FAQ</Link></li>
+                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Descriptif</Link></li>
+                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Évaluations</Link></li>
+                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Ti'Conseils</Link></li>
+                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Tit'Recettes</Link></li>
+                <li><Link to="/faqs" className="text-[#0a548d] hover:text-blue-950">FAQ</Link></li>
               </ul>
             </div>
 
@@ -95,8 +95,12 @@ export default function Footer() {
             <div>
               <h3 className="text-orange-500 font-bold text-lg mb-2">Liens utiles</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/contact" className="text-blue-600 hover:text-blue-800">Contact</Link></li>
-                <li>  <Link to="/legalNotices" className="text-blue-600 hover:text-blue-800">Mentions légales</Link></li>
+                <li><Link to="/contact" className="text-[#0a548d] hover:text-blue-950">Contact</Link></li>
+                <li>  <Link to="/legalNotices" className="text-[#0a548d] hover:text-blue-950">Mentions légales</Link></li>
+                <li> <a  onClick={() => {
+            window.open("/pdfs/TiCO_DP_2025.pdf", "_blank");
+          }} className="text-[#0a548d] hover:text-blue-950">Dossier de Presse</a></li>
+
               </ul>
             </div>
           </div>

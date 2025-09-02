@@ -1,0 +1,28 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-ChoALelR.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/ClashDisplay-Bold.ttf": {
+    "file": "assets/ClashDisplay-Bold-5hYeFSJJ.ttf",
+    "src": "resources/fonts/ClashDisplay-Bold.ttf"
+  },
+  "resources/fonts/ClashDisplay-Regular.ttf": {
+    "file": "assets/ClashDisplay-Regular-zoOY6xZw.ttf",
+    "src": "resources/fonts/ClashDisplay-Regular.ttf"
+  },
+  "resources/js/main.jsx": {
+    "file": "assets/main-BZEzSz1X.js",
+    "name": "main",
+    "src": "resources/js/main.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/app-ChoALelR.css"
+    ],
+    "assets": [
+      "assets/ClashDisplay-Regular-zoOY6xZw.ttf",
+      "assets/ClashDisplay-Bold-5hYeFSJJ.ttf"
+    ]
+  }
+}

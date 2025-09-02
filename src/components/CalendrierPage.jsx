@@ -10,7 +10,7 @@ export default function CalendrierPage() {
                 <img
                     src="/images/calendrier1.png"
                     alt="Suivi des demandes"
-                    className="w-60 md:w-96 drop-shadow-md"
+                    className="w-60 md:w-96"
                 />
             </div>
 
@@ -31,7 +31,7 @@ export default function CalendrierPage() {
                         <img
                             src="/images/calendrier1.png"
                             alt="Suivi des demandes"
-                            className="w-96 sm:w-60 drop-shadow-md"
+                            className="w-96 sm:w-60"
                         />
                     </div>
 

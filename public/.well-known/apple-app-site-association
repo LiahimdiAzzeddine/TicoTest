@@ -1,0 +1,14 @@
+{
+    "applinks": {
+     "apps": [],
+     "details": [
+      {
+       "appID": "838K9QGBDW.com.tico.foodhea.tico",
+       "paths": [ "*" ]
+      }
+     ]
+    },
+    "webcredentials": {
+        "apps": ["838K9QGBDW.com.tico.foodhea.tico"]
+      }
+   }

@@ -49,7 +49,7 @@ const BoxPopup = ({ isOpen, onClose }) => {
                     <ContentSection2 isMobile={true} />
                 </div>
             </div>
-            
+
         </div>
     );
 };
@@ -77,22 +77,24 @@ const ContentSection2 = ({ isMobile }) => (
             <div className={`text-[#ff8300] text-center font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
                 3 activités :
             </div>
-            
+
             <div className="space-y-1">
                 {/* Recettes Secrètes */}
                 <div className="text-center">
                     <span className={`text-[#0a548d] font-bold ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
-                        Recettes Secrètes :
+                       Mission 1 :
                     </span>
                     <span className={`text-[#0a548d] ${isMobile ? 'text-xs sm:text-sm' : 'text-base'} leading-relaxed px-2`}>
-                        retrouver les ingrédients des produits. Surprises garanties.
+                       : Faites le ménage dans les ingrédients.
+
                     </span>
                 </div>
 
                 {/* Info ou Pipeau */}
                 <div className="text-center">
                     <span className={`text-[#0a548d] font-bold ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
-                        Info ou Pipeau :
+                       Mission 2 :
+
                     </span>
                     <span className={`text-[#0a548d] ${isMobile ? 'text-xs sm:text-sm' : 'text-base'} leading-relaxed px-2`}>
                          le grand jeu des experts qui démasquent les intox alimentaires.
@@ -102,10 +104,11 @@ const ContentSection2 = ({ isMobile }) => (
                 {/* Pub & Vérité */}
                 <div className="text-center">
                     <span className={`text-[#0a548d] font-bold ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
-                        Pub & Vérité : 
+                        Mission 3 :
+
                     </span>
                     <span className={`text-[#0a548d] ${isMobile ? 'text-xs sm:text-sm' : 'text-base'} leading-relaxed px-2`}>
-                   qu'avez-vous vu ? Un produit sain et durable ou une marque qui cherche à vous vendre un produit à tout prix ?
+                  (Re) Découvrez le vrai goût des aliments.
                     </span>
                 </div>
             </div>
@@ -114,10 +117,10 @@ const ContentSection2 = ({ isMobile }) => (
         {/* 3 dégustations guidées */}
         <div className="space-y-1">
                         <div className={`text-[#ff8300] text-center font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
-                3 dégustations guidées :
+               Et en bonus :
             </div>
-            <div className={`text-[#0a548d] ${isMobile ? 'text-xs sm:text-sm' : 'text-base'} leading-relaxed px-2`}>
-                Salé, sucré, à la découverte du vrai goût !
+            <div className={`text-[#0a548d] text-center ${isMobile ? 'text-xs sm:text-sm' : 'text-base'} leading-relaxed px-2`}>
+               Devenez un reporter de transparence TV !
             </div>
         </div>
 

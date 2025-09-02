@@ -38,7 +38,7 @@ const RequestBrands = () => {
             <img
               src="/images/image-removebg.png"
               alt="Smartphone"
-              className="w-full h-auto drop-shadow-xl transform lg:translate-x-8 xl:translate-x-12"
+              className="w-full h-auto transform lg:translate-x-8 xl:translate-x-12"
             />
           </div>
         </div>
@@ -58,10 +58,10 @@ const RequestBrands = () => {
                 key={index}
                 className={`flex items-center justify-between gap-3 ${item.bg} px-3 sm:px-3 py-2 sm:py-0 rounded-lg text-[#50916e] min-h-[48px] sm:min-h-[52px]`}
               >
-                <img 
-                  src={item.icon} 
-                  alt="" 
-                  className="w-10 h-10 flex-shrink-2 " 
+                <img
+                  src={item.icon}
+                  alt=""
+                  className="w-10 h-10 flex-shrink-2 "
                 />
                 <span className="text-xs md:text-sm ArchivoLight font-bold leading-tight ">
                   {item.text}

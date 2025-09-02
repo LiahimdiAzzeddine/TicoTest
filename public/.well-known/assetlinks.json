@@ -1,0 +1,16 @@
+[
+    {
+      "relation": [
+        "delegate_permission/common.handle_all_urls",
+        "delegate_permission/common.get_login_creds"
+      ],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.tico.foodhea.tico",
+        "sha256_cert_fingerprints": [
+          "04:14:A7:84:BC:A1:20:FD:4D:B7:6C:6D:E4:40:8D:99:1F:92:16:E4:A7:A7:19:94:C3:83:7B:70:C1:C5:CB:84",
+          "42:4D:8F:D4:75:D9:6D:CC:A6:01:EE:91:3A:0F:C3:1F:B5:98:8B:2C:9A:D7:80:49:89:65:35:01:74:E7:BD:44"
+        ]
+      }
+    }
+  ]

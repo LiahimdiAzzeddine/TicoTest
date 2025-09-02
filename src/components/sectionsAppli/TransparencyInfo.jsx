@@ -83,14 +83,18 @@ const TransparencyInfo = () => {
     setSelectedIndex(index);
     scrollToCenter(index);
   };
+const scroll = (direction) => {
+  if (direction === "up") {
+    setSelectedIndex(
+      (prev) => (prev - 1 + infoItems.length) % infoItems.length
+    );
+  } else {
+    setSelectedIndex(
+      (prev) => (prev + 1) % infoItems.length
+    );
+  }
+};
 
-  const scroll = (direction) => {
-    if (direction === "up" && selectedIndex > 0) {
-      handleSelect(selectedIndex - 1);
-    } else if (direction === "down" && selectedIndex < infoItems.length - 1) {
-      handleSelect(selectedIndex + 1);
-    }
-  };
 
   // Get the currently selected item
   const selectedItem = infoItems[selectedIndex];
@@ -107,14 +111,14 @@ const TransparencyInfo = () => {
         <div className="w-full flex-1 order-2 lg:order-1">
           <div
             className="relative w-full text-[#0a548d] leading-relaxed px-3 sm:p-5 min-h-[250px] sm:min-h-[280px]"
-            style={{
-              backgroundImage: typeof window !== 'undefined' && window.innerWidth >= 768
-                ? `url("/images/bgAppli1.png")`
-                : 'none',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat'
-            }}
+            // style={{
+            //   backgroundImage: typeof window !== 'undefined' && window.innerWidth >= 768
+            //     ? `url("/images/bgAppli1.png")`
+            //     : 'none',
+            //   backgroundSize: 'contain',
+            //   backgroundPosition: 'center',
+            //   backgroundRepeat: 'no-repeat'
+            // }}
           >
             {/* Selected item title */}
             <h2 className="text-xl font-bold mb-3 sm:mb-4 text-[#ff8300] border-b-2 border-[#ff8300] pb-2">
@@ -132,19 +136,30 @@ const TransparencyInfo = () => {
                 <div className="mt-3 p-3 bg-[#ffe5b4] rounded-lg border-l-4 border-[#ff8300]">
                   <p className="text-xs sm:text-sm">
                     <strong>Focus :</strong> Le{" "}
-                    <a href="#" className="font-bold underline text-[#0a548d] hover:text-[#ff8300] transition-colors">
+                    <a href="https://www.planet-score.org/"  target="_blank" className="font-bold underline text-[#0a548d] hover:text-[#ff8300] transition-colors">
                       Planet-Score
                     </a>{" "}
                     est notre référentiel de choix pour une évaluation complète.
                   </p>
                 </div>
               )}
+               {selectedIndex === 10 && (
+                <div className="mt-3 p-3 bg-[#ffe5b4] rounded-lg border-l-4 border-[#ff8300]">
+                  <p className="text-xs sm:text-sm">
+                    <strong>Focus :</strong> Le{" "}
+                    <a href="https://goum.co/"  target="_blank" className="font-bold underline text-[#0a548d] hover:text-[#ff8300] transition-colors">
+                      Goûm
+                    </a>{" "}
+est notre référentiel de choix pour une évaluation robuste
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Navigation hint */}
+            {/* Navigation hint
             <div className="absolute bottom-2 right-2 text-xs text-gray-500">
               {selectedIndex + 1} / {infoItems.length}
-            </div>
+            </div>*/}
           </div>
         </div>
 
@@ -155,14 +170,10 @@ const TransparencyInfo = () => {
           </h3>
 
           {/* Desktop: Compact 3-item list with icon buttons */}
-          <div className="hidden lg:flex flex-col items-center gap-2">
+          <div className="hidden md:flex flex-col items-center gap-2">
             <button
               onClick={() => scroll("up")}
-              disabled={selectedIndex === 0}
-              className={`p-2 rounded-full transition-all ${selectedIndex === 0
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md'
-                }`}
+              className={`p-2 rounded-full transition-all bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md`}
             >
               <ChevronUp size={16} />
             </button>
@@ -174,54 +185,40 @@ const TransparencyInfo = () => {
 
               {(() => {
                 const getVisibleItems = () => {
-                  const visibleItems = [];
+  const visibleItems = [];
 
-                  // Previous item
-                  if (selectedIndex > 0) {
-                    visibleItems.push({
-                      ...infoItems[selectedIndex - 1],
-                      originalIndex: selectedIndex - 1,
-                      isCenter: false,
-                      position: 'prev'
-                    });
-                  } else {
-                    visibleItems.push({
-                      title: '',
-                      originalIndex: -1,
-                      isCenter: false,
-                      position: 'prev',
-                      isEmpty: true
-                    });
-                  }
+  const prevIndex =
+    selectedIndex === 0 ? infoItems.length - 1 : selectedIndex - 1;
+  const nextIndex =
+    selectedIndex === infoItems.length - 1 ? 0 : selectedIndex + 1;
 
-                  // Center item (selected)
-                  visibleItems.push({
-                    ...infoItems[selectedIndex],
-                    originalIndex: selectedIndex,
-                    isCenter: true,
-                    position: 'center'
-                  });
+  // Previous
+  visibleItems.push({
+    ...infoItems[prevIndex],
+    originalIndex: prevIndex,
+    isCenter: false,
+    position: "prev",
+  });
 
-                  // Next item
-                  if (selectedIndex < infoItems.length - 1) {
-                    visibleItems.push({
-                      ...infoItems[selectedIndex + 1],
-                      originalIndex: selectedIndex + 1,
-                      isCenter: false,
-                      position: 'next'
-                    });
-                  } else {
-                    visibleItems.push({
-                      title: '',
-                      originalIndex: -1,
-                      isCenter: false,
-                      position: 'next',
-                      isEmpty: true
-                    });
-                  }
+  // Center
+  visibleItems.push({
+    ...infoItems[selectedIndex],
+    originalIndex: selectedIndex,
+    isCenter: true,
+    position: "center",
+  });
 
-                  return visibleItems;
-                };
+  // Next
+  visibleItems.push({
+    ...infoItems[nextIndex],
+    originalIndex: nextIndex,
+    isCenter: false,
+    position: "next",
+  });
+
+  return visibleItems;
+};
+
 
                 const visibleItems = getVisibleItems();
 
@@ -239,7 +236,7 @@ const TransparencyInfo = () => {
                     <div
                       key={item.originalIndex}
                       onClick={() => handleSelect(item.originalIndex)}
-                      className={`cursor-pointer text-xs font-medium py-2 px-3 rounded-lg transition-all min-h-[40px] flex items-center justify-center relative z-10 ${
+                      className={`min-w-[240px] cursor-pointer text-xs font-medium py-2 px-3 rounded-lg transition-all min-h-[40px] flex items-center justify-center relative z-10 ${
                         item.isCenter
                           ? "text-white font-bold text-sm"
                           : "hover:bg-[#ffe5b4] bg-white border border-gray-200 hover:border-[#ff8300] text-gray-700"
@@ -254,62 +251,13 @@ const TransparencyInfo = () => {
 
             <button
               onClick={() => scroll("down")}
-              disabled={selectedIndex === infoItems.length - 1}
-              className={`p-2 rounded-full transition-all ${selectedIndex === infoItems.length - 1
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md'
-                }`}
+              className={`p-2 rounded-full transition-all bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md`}
             >
               <ChevronDown size={16} />
             </button>
           </div>
 
-          {/* Tablet: Compact horizontal scroll */}
-          <div className="hidden md:flex lg:hidden flex-col items-center gap-3 w-full">
-            <div className="flex items-center gap-3 w-full max-w-xl">
-              <button
-                onClick={() => scroll("up")}
-                disabled={selectedIndex === 0}
-                className={`flex-shrink-0 p-2 rounded-full transition-all ${selectedIndex === 0
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md'
-                  }`}
-              >
-                <ChevronLeft size={18} />
-              </button>
 
-              <div className="relative flex-1 overflow-hidden">
-                <div className="absolute inset-y-0 left-1/2 transform -translate-x-1/2 w-56 bg-gradient-to-r from-[#ff8300] to-[#ff9500] rounded-lg shadow-lg z-0"></div>
-
-                <div className="flex transition-transform duration-300 ease-in-out relative z-10">
-                  {infoItems.map((item, index) => (
-                    <div
-                      key={index}
-                      onClick={() => handleSelect(index)}
-                      className={`flex-shrink-0 w-56 py-3 px-4 mx-1 rounded-lg cursor-pointer transition-all font-medium text-center flex items-center justify-center min-h-[55px] text-sm ${
-                        index === selectedIndex
-                          ? "text-white font-bold"
-                          : "bg-white shadow-md hover:shadow-lg hover:scale-105"
-                      }`}
-                    >
-                      <span className="truncate">{item.title}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                onClick={() => scroll("down")}
-                disabled={selectedIndex === infoItems.length - 1}
-                className={`flex-shrink-0 p-2 rounded-full transition-all ${selectedIndex === infoItems.length - 1
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md'
-                  }`}
-              >
-                <ChevronRight size={18} />
-              </button>
-            </div>
-          </div>
 
           {/* Mobile: Compact single item */}
           <div className="flex md:hidden flex-col items-center gap-3 w-full">

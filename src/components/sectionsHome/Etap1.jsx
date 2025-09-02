@@ -7,46 +7,67 @@ export default function Etap1() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col lg:flex-row items-center md:justify-between gap-6 md:gap-11 w-full max-w-6xl">
-        {/* Colonne gauche : texte */}
-        <div className="flex flex-col max-w-md gap-6 text-center lg:text-left">
-          <StepTitle>
-            Étape 1 :<br />
-            Téléchargez TiCO et<br />
-            scannez vos produits
-          </StepTitle>
-          <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start">
-            TiCO est le premier référentiel qui peut évaluer la transparence des marques
-          </p>
-        </div>
+            <div className="flex flex-col md:flex-row items-center lg:items-start justify-between gap-8 lg:gap-12 w-full max-w-7xl">
+                {/* Colonne gauche : texte */}
+                <div className="flex flex-col max-w-lg gap-6 text-center lg:text-left lg:flex-1">
+                    <StepTitle>
+                        Étape 1 :<br />
+                        Téléchargez TiCO<br />
+                        et scannez vos<br />
+                        produits
+                    </StepTitle>
+                    <p className="text-lg text-[#0a548d] ArchivoLight leading-relaxed font-bold text-start lg:text-left">
+                        TiCO est le premier référentiel à encadrer la
+                        transparence sur les produits alimentaires.
+                    </p>
+                </div>
 
-        {/* Image téléphone */}
-        <div className="flex items-center justify-center">
-          <img className="w-32 md:w-44" src="/images/4.png" alt="Téléphone TiCO" />
-        </div>
+                {/* Image téléphone - centrée et responsive */}
+                <div className="flex items-center justify-center lg:flex-shrink-0">
+                    <img
+                        className="w-40 h-auto md:w-32 lg:w-36 xl:w-36"
+                        src="/images/4.png"
+                        alt="Application mobile TiCO"
+                    />
+                </div>
 
-        {/* Boutons de critères */}
-        <div className="flex flex-col gap-4 justify-center items-center text-base w-full">
-          {[
-            [["Nutrition", "#4e8983"], ["Additifs", "#4e8983"]],
-            [["Naturalité", "#7ab1ab"], ["Environnement", "#7ab1ab"]],
-            [["Origines", "#add7d1"], ["Labels", "#add7d1"]],
-            [["Emballage", "#c3e7e5"], ["Mentions", "#c3e7e5"]],
-          ].map((row, i) => (
-            <div key={i} className="flex flex-row gap-4 w-full sm:w-auto justify-center">
-              {row.map(([label, color], j) => (
-                <button
-                  key={j}
-                  className="text-white px-6 py-2 rounded w-full sm:w-44 ArchivoLight leading-normal font-bold"
-                  style={{ backgroundColor: color }}
-                >
-                  {label}
-                </button>
-              ))}
+                {/* Boutons de critères - mieux organisés */}
+                <div className="flex flex-col gap-3 justify-start items-center lg:items-end text-base w-full lg:w-auto lg:flex-1">
+                    {[
+                        [
+                            ["Nutrition", "#4e8983"],
+                            ["Additifs", "#4e8983"],
+                        ],
+                        [
+                            ["Naturalité", "#7ab1ab"],
+                            ["Environnement", "#7ab1ab"],
+                        ],
+                        [
+                            ["Origines", "#add7d1"],
+                            ["Labels", "#add7d1"],
+                        ],
+                        [
+                            ["Emballage", "#c3e7e5"],
+                            ["Mentions", "#c3e7e5"],
+                        ],
+                    ].map((row, i) => (
+                        <div
+                            key={i}
+                            className="flex flex-row gap-3 w-full sm:w-auto justify-center lg:justify-end"
+                        >
+                            {row.map(([label, color], j) => (
+                                <button
+                                    key={j}
+                                    className="text-white px-4 py-2.5 rounded-lg w-full sm:w-40 lg:w-36 xl:w-40 ArchivoLight leading-normal font-bold text-sm lg:text-base transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95"
+                                    style={{ backgroundColor: color }}
+                                >
+                                    {label}
+                                </button>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
-          ))}
-        </div>
-      </div>
 
       {/* Jauge de transparence */}
       <div className="flex flex-col items-center justify-center mt-10 w-full max-w-6xl">
@@ -58,11 +79,11 @@ export default function Etap1() {
         <div className="text-[#0a548d] mt-4 text-lg leading-snug relative flex flex-col items-center text-center  ArchivoLight font-bold">
           <img
             src="/images/petitefleche.png"
-            className="w-10 absolute right-2 md:right-4 -top-5"
+            className="w-8 md:w-10 absolute -right-2 md:-right-3 -top-3 md:-top-5"
             alt="Illustration"
           />
           <div>Niveau de</div>
-          <div>transparence de la marque</div>
+          <div>transparence TiCO</div>
         </div>
       </div>
 

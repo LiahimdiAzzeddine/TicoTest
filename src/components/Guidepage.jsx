@@ -26,7 +26,7 @@ export default function Guidepage() {
                             <img
                                 src="/images/19.png"
                                 alt="Suivi des demandes"
-                                className="w-80 drop-shadow-md"
+                                className="w-80"
                             />
                         </div>
 
@@ -37,9 +37,7 @@ export default function Guidepage() {
                                 Grâce à un bon marketing, on peut nous vendre n’importe quoi. Choisir dans les rayons peut vite devenir un calvaire.
                                 Avec ce guide, vous avez les clés pour choisir mieux sans vous prendre la tête.
                             </p>
-                            <p>
-                                En plus d’idées recettes, il contient des astuces et informations qu’il est bon de garder à l’œil, comme un comparatif des huiles de cuisine par exemple.
-                            </p>
+
                             <p>
                                 <span onClick={() => setIsPopupOpen(true)}
                                     className="text-[#0a548d] font-bold underline">Voir le sommaire</span>
@@ -78,7 +76,7 @@ export default function Guidepage() {
                     <img
                         src="/images/19.png"
                         alt="Suivi des demandes"
-                        className="w-96 lg:w-[25rem] 2xl:w-[26rem] drop-shadow-md"
+                        className="w-96 lg:w-[25rem] 2xl:w-[26rem]"
                     />
                 </div>
 
