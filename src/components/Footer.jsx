@@ -3,14 +3,20 @@ import StoreLinks from "./ui/StoreLinks";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+  function openPdf() {
+    // Ajouter un timestamp pour éviter le cache
+    var timestamp = new Date().getTime();
+    var pdfUrl = "/pdfs/TiCO_DP_2025.pdf?t=" + timestamp;
+    window.open(pdfUrl, "_blank");
+  }
   return (
     <footer className="bg-whitept-16 pb-10 relative bg-no-repeat bg-contain"
-    style={{
-          backgroundImage: "url('/images/fond_footer.png')",
-          backgroundPosition: "bottom",
-                    backgroundSize: "100% 150%",
+      style={{
+        backgroundImage: "url('/images/fond_footer.png')",
+        backgroundPosition: "bottom",
+        backgroundSize: "100% 150%",
 
-        }}
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
         {/* Haut du footer */}
@@ -70,9 +76,9 @@ export default function Footer() {
             <div>
               <h3 className="text-orange-500 font-bold text-lg mb-2">Projet</h3>
               <ul className="space-y-2 text-sm">
-                <li><a  onClick={() => {
-            window.open("https://www.foodhea.com/origine#team", "_blank");
-          }} className="text-[#0a548d] hover:text-blue-950">Équipe</a></li>
+                <li><a onClick={() => {
+                  window.open("https://www.foodhea.com/origine#team", "_blank");
+                }} className="text-[#0a548d] hover:text-blue-950 cursor-pointer">Équipe</a></li>
                 <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Transparence</Link></li>
                 <li><Link to="/calendrier" className="text-[#0a548d] hover:text-blue-950">Calendrier</Link></li>
                 <li><Link to="/calendrier#guide" className="text-[#0a548d] hover:text-blue-950">Guide</Link></li>
@@ -83,10 +89,9 @@ export default function Footer() {
             <div>
               <h3 className="text-orange-500 font-bold text-lg mb-2">Application</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Descriptif</Link></li>
-                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Évaluations</Link></li>
-                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Ti'Conseils</Link></li>
-                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Tit'Recettes</Link></li>
+                <li><Link to="/application#evaluation" className="text-[#0a548d] hover:text-blue-950">Évaluations</Link></li>
+                <li><Link to="/application#tips" className="text-[#0a548d] hover:text-blue-950">Ti'Conseils</Link></li>
+                <li><Link to="/application#recipes" className="text-[#0a548d] hover:text-blue-950">Tit'Recettes</Link></li>
                 <li><Link to="/faqs" className="text-[#0a548d] hover:text-blue-950">FAQ</Link></li>
               </ul>
             </div>
@@ -97,9 +102,9 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 <li><Link to="/contact" className="text-[#0a548d] hover:text-blue-950">Contact</Link></li>
                 <li>  <Link to="/legalNotices" className="text-[#0a548d] hover:text-blue-950">Mentions légales</Link></li>
-                <li> <a  onClick={() => {
-            window.open("/pdfs/TiCO_DP_2025.pdf", "_blank");
-          }} className="text-[#0a548d] hover:text-blue-950">Dossier de Presse</a></li>
+                <li className="cursor-pointer"> <a onClick={() => {
+                  window.open("/pdfs/TiCO_DP_2025.pdf", "_blank");
+                }} className="text-[#0a548d] hover:text-blue-950">Dossier de Presse</a></li>
 
               </ul>
             </div>

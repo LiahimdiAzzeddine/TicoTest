@@ -24,7 +24,10 @@ export default function Application() {
     <HomeSection>
       <CommittedTeam />
     </HomeSection>
-    <div className="md:pb-40 pb-24">
+      <HomeSection id="evaluation">
+     <RequestBrands />
+    </HomeSection>
+    {/* <div className="md:pb-40 pb-24">
       <div id="solliciter" className="flex flex-col md:flex-row items-center justify-center px-3 md:px-5 lg:px-6 max-w-screen-xl 2xl:max-w-screen-2xl mx-auto  mb-12 md:mb-0 ">
         <div className="max-w-6xl flex-col flex items-center justify-center w-full">
           <div className="w-full ">
@@ -39,7 +42,6 @@ export default function Application() {
         id="solliciter"
         className="flex flex-col md:flex-row items-center justify-around gap-y-5 md:gap-y-0 px-3 md:px-5 lg:px-6 pb-4 max-w-screen-xl 2xl:max-w-screen-2xl mx-auto md:min-h-[45rem] 2xl:min-h-[50rem] relative "
       >
-        {/* Image de fond pour desktop uniquement */}
         <div
           className="absolute inset-0 hidden md:block"
           style={{
@@ -50,21 +52,17 @@ export default function Application() {
           }}
         ></div>
 
-        {/* Structure en 2 blocs colorés pour mobile uniquement */}
         <div className="absolute inset-0 md:hidden">
-          {/* Bloc vert extérieur */}
           <div className="absolute inset-0 bg-[#50916e]">
-            {/* Bloc blanc centré */}
             <div className="absolute inset-x-4 inset-y-8 bg-white rounded-2xl shadow-lg"></div>
           </div>
         </div>
 
-        {/* Contenu par-dessus le fond */}
         <div className="relative z-10 w-full">
           <RequestBrands />
         </div>
       </div>
-    </div>
+    </div> */}
     <HomeSection id="engagement">
       <Eengagement  />
     </HomeSection>

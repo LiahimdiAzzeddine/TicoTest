@@ -146,7 +146,7 @@ const scroll = (direction) => {
                {selectedIndex === 10 && (
                 <div className="mt-3 p-3 bg-[#ffe5b4] rounded-lg border-l-4 border-[#ff8300]">
                   <p className="text-xs sm:text-sm">
-                    <strong>Focus :</strong> Le{" "}
+                    <strong>Focus :</strong> {"  "}
                     <a href="https://goum.co/"  target="_blank" className="font-bold underline text-[#0a548d] hover:text-[#ff8300] transition-colors">
                       Goûm
                     </a>{" "}
