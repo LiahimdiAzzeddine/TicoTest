@@ -58,7 +58,7 @@ const TestimonialSlider = () => {
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <div className="w-full max-w-6xl flex flex-col justify-center items-center md:items-start gap-8 md:gap-20">
+    <div className="w-full max-w-6xl flex flex-col justify-center items-center md:items-center gap-8 md:gap-20">
       <TitleSection center={false}>
         <div className="leading-none md:leading-tight ">
           Rejoignez les consommateurs engagés
