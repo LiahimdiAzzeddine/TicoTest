@@ -5,7 +5,7 @@ import TitleSection from "../ui/TitleSection";
 const testimonials = [
   {
     name: "Charlotte",
-    title: "Marque engagée dans l’alimentation positive et végétale",
+    title: "Responsable marketing et innovation - L’Atelier V*",
     image: "/images/photo charlotte.png",
     text: `Chez L’Atelier V*, nos racines fondatrices reposent sur une alimentation positive, végétale, revalorisant les filières agricoles locales et de qualité. Mais ce n’est pas toujours simple de faire passer les bons messages au consommateur, surtout face à la complexité des étiquettes (devenues « boules à facettes ») encourageant la méfiance ambiante. Nous sommes par essence très attachés à faire preuve de transparence radicale !\nAvec TiCO, nous avons trouvé un partenaire qui partage cette grande exigence de transparence nous permettant d’informer les consommateurs de manière objective, claire et pédagogique.\nOn est super fiers de faire partie des premiers à faire confiance à TiCO, et on invite toutes les marques à faire de même.. Nourrir nous engage …La transparence ne devrait donc pas être une option !`,
   },
