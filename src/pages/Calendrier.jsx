@@ -26,6 +26,8 @@ export default function Calendrier() {
             <HomeSection id="atelier">
                 <AtelierPage />
             </HomeSection>
+                 <div className="mb-32"></div>
+
         </>
 
     );

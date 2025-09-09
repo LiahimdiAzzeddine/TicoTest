@@ -59,9 +59,7 @@ export default function Home() {
       <HomeSection>
         <CarouselTestimonials />
       </HomeSection>
-      <br>
-      </br>
-      <br></br>   <br></br>
+     <div className="mb-32"></div>
     </>
 
   );

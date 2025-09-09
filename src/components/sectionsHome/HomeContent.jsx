@@ -14,7 +14,7 @@ export default function HomeContent() {
                     <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-[#0a548d] leading-snug ClashDisplayBold">
                         <span className="block mb-1 md:mb-2 bg-gradient-to-r from-[#0a548d] to-[#1e6ba8] bg-clip-text text-transparent leading-tight">La transparence</span>
                         <span className="block mb-1 md:mb-2 md:px-2 lg:px-3 xl:px-4 py-1 md:py-1.5 lg:py-2 bg-blue-50 rounded-lg inline-block leading-none">alimentaire à</span>
-                        <span className="block text-[#ff8300] bg-orange-50 md:px-3 lg:px-4 xl:px-5 py-1.5 md:py-2 lg:py-2.5 rounded-full inline-block shadow-sm leading-none">portée de scan</span>
+                        <span className="block text-[#ff8300] bg-orange-50 md:px-3 lg:px-4 xl:px-5 py-1.5 md:py-2 lg:py-2.5 rounded-lg inline-block shadow-sm leading-none">portée de scan</span>
                     </h1>
 
                     {/* Image uniquement pour mobile */}

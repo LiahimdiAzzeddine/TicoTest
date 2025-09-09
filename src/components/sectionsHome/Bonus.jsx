@@ -18,14 +18,15 @@ export default function Bonus() {
                 </div>
                 {/* Texte Étape 2 */}
                 <div className="flex flex-col justify-start items-start gap-4 md:gap-6 order-2 md:order-2 ">
-                    
                     <StepTitle>
-                                                                    <div>
-                                                                   <div className="text-[#ff8200] pb-2">Bonus n°1</div>
-                                                                    <div>  Découvrez et partagez des astuces pratiques </div>
-                                            
-                                                                    </div>
-                                                                </StepTitle>
+                        <div>
+                            <div className="text-[#ff8200] pb-2">Bonus n°1</div>
+                            <div>
+                                {" "}
+                                Découvrez et partagez des astuces pratiques{" "}
+                            </div>
+                        </div>
+                    </StepTitle>
                     <p className="text-base md:text-lg text-[#0a548d] ArchivoLight leading-relaxed md:leading-tight font-bold text-start">
                         Tous les mois de nouveaux conseils sur des thèmes
                         variés, santé, bien-être, antigaspi, conservation et
@@ -50,17 +51,15 @@ export default function Bonus() {
 
                 {/* Texte Étape 3 */}
                 <div className="flex flex-col justify-start items-start gap-4 md:gap-6 order-4 md:order-3 ">
-                  
                     <StepTitle>
-                                                                    <div>
-                                                                   <div className="text-[#ff8200] pb-2">Bonus n°2</div>
-                                                                    <div> Découvrez et partagez</div>
-                                             <div>des Tit’recettes</div>
-                                                                    </div>
-                                                                </StepTitle>
+                        <div>
+                            <div className="text-[#ff8200] pb-2">Bonus n°2</div>
+                            <div> Découvrez et partagez</div>
+                            <div>des Tit’recettes</div>
+                        </div>
+                    </StepTitle>
                     <p className="text-base md:text-lg text-[#0a548d] ArchivoLight leading-relaxed md:leading-tight font-bold text-start">
-                        Plus vous faites de demandes aux marques plus vous
-                        débloquez des profils dans TiCO.
+                        Une base de données de recettes liées aux produits que tout le monde peut enrichir !
                     </p>
                     <a
                         className="text-[#0a548d] text-base md:text-xl leading-relaxed md:leading-tight max-w-md ArchivoLight underline"

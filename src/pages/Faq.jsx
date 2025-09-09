@@ -63,14 +63,14 @@ const Faq = () => {
       <div className="md:h-16 lg:h-20 h-14"></div>
 
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 min-h-screen pb-16">
-        
+
         {/* Header avec titre et description */}
         <div className="text-center mb-8 sm:mb-12">
           <SubTitle center={true}>
             <span className="text-[#0a548d]">Foire aux&nbsp;</span>
             <span className="text-[#ff8300] font-bold">questions</span>
           </SubTitle>
-          
+
           <p className="mt-4 text-base sm:text-lg text-[#0a548d] max-w-2xl mx-auto leading-relaxed ArchivoLight">
             Trouvez rapidement les réponses à vos questions les plus fréquentes sur TiCO
           </p>
@@ -121,7 +121,7 @@ const Faq = () => {
               </p>
               <p className="text-gray-600 text-sm sm:text-base">
                 Posez-la nous directement via notre{' '}
-                <Link 
+                <Link
                   to={"/contact"}
                   className="text-[#ff8300] hover:text-[#e6750a] font-medium underline decoration-2 underline-offset-2 hover:underline-offset-4 transition-all duration-200"
                 >
@@ -177,8 +177,8 @@ const Faq = () => {
               </div>
             ) : (
               filteredFaqs.map((faq, index) => (
-                <div 
-                  key={faq.id} 
+                <div
+                  key={faq.id}
                   className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
                 >
                   {/* Titre de la question */}
@@ -220,6 +220,8 @@ const Faq = () => {
           </div>
         )}
       </div>
+           <div className="mb-32"></div>
+
     </>
   );
 };

@@ -13,19 +13,14 @@ const testimonials = [
     name: "Stéphane DOUENCE",
     title: "Président de l'ARIA Nouvelle Aquitaine, Directeur Général de VINAIGRERIE GÉNÉRALE",
     image: "/images/stephanedouence.png",
-    text: `À l'ARIA, nous n'avons de cesse d'accompagner au mieux les entreprises agro-alimentaires dans leur développement. Dans ce contexte, proposer une communication digitale clé en main, permettant de valoriser les produits et de créer du lien avec le consommateur, représente une réelle valeur ajoutée pour nos adhérents. FOODHEA répond parfaitement à ces attentes avec une solution innovante et accessible.`,
+    text: `À l'ARIA, nous n'avons de cesse d'accompagner au mieux les entreprises agro-alimentaires dans leur développement. Dans ce contexte, proposer une communication digitale clé en main, permettant de valoriser les produits et de créer du lien avec le consommateur, représente une réelle valeur ajoutée pour nos adhérents. TiCO répond parfaitement à ces attentes avec une solution innovante et accessible.`,
   },
-  {
-    name: "Christophe CORTÈS",
-    title: "Président de NATURAE FRANCE",
-    image: "/images/christophecortes.png",
-    text: `FOODHEA est l'outil parfait pour expliquer le produit au-delà des contraintes de place sur l'emballage. Nos consommateurs peuvent enfin découvrir l'histoire, les valeurs et la qualité de nos produits bio. La plateforme nous permet de créer une véritable connexion émotionnelle avec nos clients. Cerise sur le gâteau, l'équipe est dynamique et toujours à l'écoute de nos besoins !`,
-  },
+
   {
     name: "Laurent DULAU",
     title: "Président du Réseau des ARIA de France, Vice-président de l'ARIA Nouvelle Aquitaine, Directeur Général de KAVIAR",
     image: "/images/laurentdulau.png",
-    text: `Après avoir vu se développer de nombreuses solutions dans le digital alimentaire, je suis convaincu de l'intérêt de FOODHEA. Cette plateforme offre une approche unique qui répond aux vrais besoins des entreprises agroalimentaires. Elle permet de valoriser le savoir-faire français et de créer une transparence appréciée des consommateurs. Un outil indispensable pour l'avenir de notre secteur.`,
+    text: `Après avoir vu se développer de nombreuses solutions dans le digital alimentaire, je suis convaincu de l'intérêt de TiCO. Cette plateforme offre une approche unique qui répond aux vrais besoins des entreprises agroalimentaires. Elle permet de valoriser le savoir-faire français et de créer une transparence appréciée des consommateurs. Un outil indispensable pour l'avenir de notre secteur.`,
   },
 ];
 
@@ -60,7 +55,7 @@ const CarouselTestimonials = () => {
         Témoignages de <span className="text-[#ff8200]">pro qui jouent le jeu</span>
         </div>
       </TitleSection>
-      
+
       <div className="flex flex-col items-center w-full ">
         <div className="relative w-full ">
           {/* Carte principale */}

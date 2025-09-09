@@ -18,13 +18,13 @@ export default function Application() {
     <HomeSection >
       <TransparencyInfo />
     </HomeSection>
-    <HomeSection>
+    <HomeSection  id="evaluation">
       <Decryptages />
     </HomeSection>
     <HomeSection>
       <CommittedTeam />
     </HomeSection>
-      <HomeSection id="evaluation">
+      <HomeSection>
      <RequestBrands />
     </HomeSection>
     {/* <div className="md:pb-40 pb-24">
@@ -73,6 +73,7 @@ export default function Application() {
       <TitRecipes />
     </HomeSection>
 
+     <div className="mb-32"></div>
 
   </>;
 }

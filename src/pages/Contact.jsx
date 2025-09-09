@@ -299,6 +299,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+           <div className="mb-32"></div>
+
     </>
   );
 };
