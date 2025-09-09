@@ -52,15 +52,16 @@ const CarouselTestimonials = () => {
   const currentTestimonial = testimonials[index];
 
   return (
-    <div className="flex flex-col text-center max-w-6xl mx-auto gap-8 md:gap-16">
+        <div className="w-full max-w-6xl flex flex-col justify-center items-center md:items-start gap-8 md:gap-24">
 
-      <TitleSection center={true}>
+
+      <TitleSection center={false}>
         <div className="leading-none md:leading-tight">
-          Témoignages de pro
+        Témoignages de <span className="text-[#ff8200]">pro qui jouent le jeu</span>
         </div>
       </TitleSection>
       
-      <div className="flex flex-col items-center ">
+      <div className="flex flex-col items-center w-full ">
         <div className="relative w-full ">
           {/* Carte principale */}
           <div

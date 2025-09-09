@@ -2,11 +2,11 @@ import TitleSection from "../ui/TitleSection";
 
 function Transparence() {
   return (
-    <div className="max-w-6xl flex flex-col md:flex-col items-center justify-start gap-12 lg:gap-28 2xl:gap-32">
+    <div className="max-w-6xl flex flex-col md:flex-col items-center justify-start gap-12 lg:gap-12 2xl:gap-14">
       {/* Titre principal */}
       <TitleSection center={true}>
       <div className="leading-none md:leading-tight">
-        La transparence, pour l'avoir il faut la<br></br>
+        La transparence, pour l'avoir<br></br> il faut la
         demander
         </div>
       </TitleSection>
@@ -16,7 +16,7 @@ function Transparence() {
         {/* 1. Ampoule */}
         <div className="flex flex-col items-center text-center max-w-xs gap-1 md:mt-28">
           <div className="relative mb-2">
-            <img className="2xl:w-48 2xl:h-48 md:w-40 md:h-40 w-32 h-32" src="/images/20.png" alt="Ampoule" />
+            <img className="2xl:w-44 2xl:h-48 md:w-40 md:h-40 w-32 h-32" src="/images/20.png" alt="Ampoule" />
           </div>
           <p className="text-base 2xl:text-xl text-[#0a548d] leading-4 ArchivoLight ">
             Seules les marques ont<br />les informations sur<br />leurs produits

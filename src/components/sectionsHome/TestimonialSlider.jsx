@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import TitleSection from '../ui/TitleSection';
 
-
-
 const TestimonialSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -11,37 +9,35 @@ const TestimonialSlider = () => {
   const testimonials = [ {
       id: 1,
       name: "Matthieu​",
-      text: "TiCO est l’application qui manquait. Enfin une solution qui ne se contente pas d’un score simpliste mais qui pousse les marques à dévoiler toutes les informations sur leurs produits. Très beau projet ! ​PS: j’ai appris que je ne faisais pas bien cuire les pâtes 😅  Merci les ti conseils 👍🏼",
+      text: "TiCO est l'application qui manquait. Enfin une solution qui ne se contente pas d'un score simpliste mais qui pousse les marques à dévoiler toutes les informations sur leurs produits. Très beau projet ! ​PS: j'ai appris que je ne faisais pas bien cuire les pâtes 😅  Merci les ti conseils👍🏼",
       avatar: "/images/Matthieu.png",
       backgroundImage: "/images/visuels-site-web-V8.1-10.png"
     },
     {
       id: 2,
       name: "Perline",
-      text: "Je suis noyée dans le marketing, je ne sais plus ce que je dois croire. TiCO permet enfin d’accéder à une transparence totale sur les produits et les marques. Pour moi, c’est indispensable si on veut améliorer les choses.​",
-      avatar: "/images/Perline.png", // Remplacez par votre image
-      backgroundImage: "/images/visuels-site-web-V8.1-10.png" // Remplacez par votre image de fond
+      text: "Je suis noyée dans le marketing, je ne sais plus ce que je dois croire. TiCO permet enfin d'accéder à une transparence totale sur les produits et les marques. Pour moi, c'est indispensable si on veut améliorer les choses.​",
+      avatar: "/images/Perline.png",
+      backgroundImage: "/images/visuels-site-web-V8.1-10.png"
     },
-
     {
       id: 3,
       name: "Solenne",
-      text: "TiCO est une vraie révolution pour l’information alimentaire. En demandant toutes les infos les marques sont obligées de devenir transparence, l’application nous donne un vrai pouvoir. J’ai déjà fait 72 demandes et j’ai hâte de voir le comportement des marques !​",
+      text: "TiCO est une vraie révolution pour l'information alimentaire. En demandant toutes les infos les marques sont obligées de devenir transparence, l'application nous donne un vrai pouvoir. J'ai déjà fait 72 demandes et j'ai hâte de voir le comportement des marques!​",
       avatar: "/images/Solenne.png",
       backgroundImage: "/images/visuels-site-web-V8.1-10.png"
     },
     {
       id: 4,
       name: "Émilie",
-      text: "Oui on veut plus de clarté, et TiCO nous offre une solution concrète. Ce n’est plus aux marques de décider ce qu’elles veulent bien nous dire, c’est à nous d’exiger qu’elles rendent des comptes. Et pour les recettes j’adore pouvoir garder les ingrédients à l’œil pendant que je cuisine ça change tout ! ​​",
+      text: "Oui on veut plus de clarté, et TiCO nous offre une solution concrète. Ce n'est plus aux marques de décider ce qu'elles veulent bien nous dire, c'est à nous d'exiger qu'elles rendent des comptes. Et pour les recettes j'adore pouvoir garder les ingrédients à l'œil pendant que je cuisine ça change tout! ​​",
       avatar: "/images/Émilie.png",
       backgroundImage: "/images/visuels-site-web-V8.1-10.png"
-    }
-    ,
+    },
     {
       id: 5,
       name: "Benjamin",
-      text: "Les marques manquent de transparence, je n’ai plus confiance. TiCO permet de remettre la vérité au centre du débat et pousse les marques à s’engager sincèrement. Bravo c’est une super initiative ! ​​",
+      text: "Les marques manquent de transparence, je n'ai plus confiance. TiCO permet de remettre la vérité au centre du débat et pousse les marques à s'engager sincèrement. Bravo c'est une super initiative!​​",
       avatar: "/images/Benjamin.png",
       backgroundImage: "/images/visuels-site-web-V8.1-10.png"
     }
@@ -58,22 +54,22 @@ const TestimonialSlider = () => {
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <div className="w-full max-w-6xl flex flex-col justify-center items-center md:items-center gap-8 md:gap-20">
+    <div className="w-full max-w-6xl flex flex-col justify-center items-center md:items-start gap-8 md:gap-24">
       <TitleSection center={false}>
         <div className="leading-none md:leading-tight ">
-          Rejoignez les consommateurs engagés
+          Rejoignez les <span className='text-[#ff8200]'>consommateurs engagés</span>
         </div>
       </TitleSection>
-      <div className=' flex flex-col justify-center items-center w-full'>
+      <div className='flex flex-col justify-center items-center w-full'>
         {/* Container principal responsive */}
-        <div className='flex flex-col justify-between h-full max-w-4xl'>
+        <div className='flex flex-col justify-between h-full max-w-6xl'>
           <div className="relative overflow-visible">
             {/* Fond avec image - hauteur responsive */}
             <div
-              className={`relative rounded-2xl sm:rounded-3xl h-full md:h-[450px] w-full flex items-center
+              className={`relative rounded-2xl sm:rounded-3xl h-full md:h-[390px] w-full flex items-center
     bg-[#d9f2f2] md:bg-transparent`}
               style={{
-                backgroundImage: window.innerWidth >= 768
+                backgroundImage: typeof window !== 'undefined' && window.innerWidth >= 768
                   ? `url(${currentTestimonial.backgroundImage})`
                   : 'none',
                 backgroundSize: 'contain',
@@ -95,7 +91,7 @@ const TestimonialSlider = () => {
                     <img
                       src={currentTestimonial.avatar}
                       alt={currentTestimonial.name}
-                      className="w-auto h-24 mr-3"
+                      className="w-auto h-24 mr-4"
                     />
                     <h3 className="text-xl lg:text-2xl ClashDisplayBold text-[#0a548d] ">
                       {currentTestimonial.name}
@@ -110,53 +106,11 @@ const TestimonialSlider = () => {
                       </p>
                     </div>
                   </div>
-
-                  {/* Navigation en bas - hauteur fixe */}
-                  <div className="flex justify-between items-center mt-1 h-12 flex-shrink-0">
-                    <button
-                      onClick={prevSlide}
-                      className="p-2 transition-colors duration-200"
-                      aria-label="Témoignage précédent"
-                    >
-                      <ChevronLeft className="w-8 h-8 text-teal-600" />
-                    </button>
-
-                    <div className="flex space-x-2">
-                      {testimonials.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentSlide(index)}
-                          className={`w-2 h-2 rounded-full transition-colors duration-200 ${index === currentSlide
-                            ? 'bg-teal-600'
-                            : 'bg-gray-300 hover:bg-gray-400'
-                            }`}
-                          aria-label={`Aller au témoignage ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-
-                    <button
-                      onClick={nextSlide}
-                      className="p-2 transition-colors duration-200"
-                      aria-label="Témoignage suivant"
-                    >
-                      <ChevronRight className="w-8 h-8 text-teal-600" />
-                    </button>
-                  </div>
                 </div>
 
                 {/* Layout Desktop (md et plus) */}
                 <div className="hidden md:block px-12 py-8 h-full">
-                  <div className="flex items-center justify-between h-full">
-                    {/* Bouton précédent */}
-                    <button
-                      onClick={prevSlide}
-                      className="p-3 transition-colors duration-200 z-20 flex-shrink-0"
-                      aria-label="Témoignage précédent"
-                    >
-                      <ChevronLeft className="w-10 h-10 md:w-12 lg:h-12 text-teal-600" />
-                    </button>
-
+                  <div className="flex items-center justify-center h-full">
                     {/* Contenu central */}
                     <div className="flex-1 mx-4 md:mx-8">
                       <div className="w-full h-48 md:h-56 flex items-center justify-center">
@@ -167,19 +121,10 @@ const TestimonialSlider = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* Bouton suivant */}
-                    <button
-                      onClick={nextSlide}
-                      className="p-3 transition-colors duration-200 z-20 flex-shrink-0"
-                      aria-label="Témoignage suivant"
-                    >
-                      <ChevronRight className="w-10 h-10 md:w-12 lg:h-12 text-teal-600" />
-                    </button>
                   </div>
 
                   {/* Avatar et nom positionnés en haut à droite (desktop uniquement) */}
-                  <div className="absolute -top-12 md:-top-5 right-2 z-30 flex items-end gap-2 md:gap-3">
+                  <div className="absolute -top-12 md:-top-11 right-12 z-30 flex items-end gap-2 md:gap-3">
                     <h3 className="text-xl md:text-2xl ClashDisplayBold text-[#0a548d] mb-4 md:mb-7">
                       {currentTestimonial.name}
                     </h3>
@@ -191,23 +136,57 @@ const TestimonialSlider = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Flèches de navigation - Desktop uniquement */}
+              <button
+                onClick={prevSlide}
+                className="absolute -left-16 top-1/2 transform -translate-y-1/2 hidden md:flex items-center justify-center w-12 h-12 bg-white hover:bg-blue-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 hover:border-[#0a548d] group"
+                aria-label="Témoignage précédent"
+              >
+                <ChevronLeft className="w-6 h-6 text-[#0a548d] transition-transform duration-300 group-hover:-translate-x-1" />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                className="absolute -right-16 top-1/2 transform -translate-y-1/2 hidden md:flex items-center justify-center w-12 h-12 bg-white hover:bg-blue-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 hover:border-[#0a548d] group"
+                aria-label="Témoignage suivant"
+              >
+                <ChevronRight className="w-6 h-6 text-[#0a548d] transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
             </div>
 
-            {/* Indicateurs de pagination (desktop uniquement)
-          <div className="hidden md:flex justify-center -mt-2 space-x-2">
-            {testimonials.map((_, index) => (
+            {/* Navigation mobile */}
+            <div className="flex justify-center md:hidden mt-6 space-x-4">
               <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentSlide
-                    ? 'bg-teal-600'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Aller au témoignage ${index + 1}`}
-              />
-            ))}
-          </div> */}
+                onClick={prevSlide}
+                className="flex items-center justify-center w-12 h-12 bg-white hover:bg-blue-50 rounded-full shadow-lg transition-all duration-300 border border-blue-100 hover:border-[#0a548d] group"
+                aria-label="Témoignage précédent"
+              >
+                <ChevronLeft className="w-6 h-6 text-[#0a548d] transition-transform duration-300 group-hover:-translate-x-1" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="flex items-center justify-center w-12 h-12 bg-white hover:bg-blue-50 rounded-full shadow-lg transition-all duration-300 border border-blue-100 hover:border-[#0a548d] group"
+                aria-label="Témoignage suivant"
+              >
+                <ChevronRight className="w-6 h-6 text-[#0a548d] transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
+
+            {/* Indicateurs de pagination */}
+            <div className="flex justify-center mt-6 md:-mt-4 space-x-3">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlide(i)}
+                  className={`transition-all duration-300 rounded-full ${i === currentSlide
+                    ? "w-8 h-3 bg-[#0a548d] shadow-lg"
+                    : "w-3 h-3 bg-[#5ca5dc] hover:bg-[#5e96c0]"
+                  }`}
+                  aria-label={`Aller au témoignage ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 

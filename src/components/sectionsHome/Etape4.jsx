@@ -19,9 +19,13 @@ export default function Etape4() {
             {/* Texte étape 4 */}
             <div className="text-[#0a548d] max-w-md text-center md:text-left flex flex-col gap-6  md:gap-16 flex-1">
                 <div className="flex flex-col justify-start items-start gap-6  ">
-                    <StepTitle>
-                        Étape 4 :<br />
-                        Suivez vos demandes
+     
+                      <StepTitle>
+                        <div>
+                       <div className="text-[#ff8200] pb-2">Étape 4 :</div>
+                        <div>  Suivez vos demandes</div>
+
+                        </div>
                     </StepTitle>
 
                     <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start">

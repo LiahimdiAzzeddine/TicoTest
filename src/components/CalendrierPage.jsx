@@ -3,7 +3,7 @@ import StepTitle from "./ui/StepTitle";
 
 export default function CalendrierPage() {
     return (
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-20">
             <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-y-8 md:gap-x-10 w-full max-w-6xl" >
                 <div className="text-[#0a548d] text-center ArchivoBold flex flex-col gap-4">
                     <div>

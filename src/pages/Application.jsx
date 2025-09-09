@@ -12,7 +12,7 @@ import StartSection from "../Templates/StartSection";
 import StepTitle from "../components/ui/StepTitle";
 export default function Application() {
   return <>
-    <StartSection>
+    <StartSection pb={'md:pb-20 pb-16'}>
       <ScanProducts />
     </StartSection>
     <HomeSection >

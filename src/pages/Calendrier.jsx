@@ -11,7 +11,7 @@ import StartSection from "../Templates/StartSection";
 export default function Calendrier() {
     return (
         <>
-            <StartSection id="calendrier">
+            <StartSection  pb={'md:pb-32 pb-16'} id="calendrier">
                 <CalendrierPage />
             </StartSection>
             <HomeSection id="guide">

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 export default function Header() {
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const path = location.pathname;
   const hash = location.hash;
   const navigationItems = [
@@ -38,6 +40,34 @@ export default function Header() {
     return () => window.removeEventListener('scroll', controlNavbar);
   }, [lastScrollY]);
 
+  // Détection de la section active lors du scroll
+  useEffect(() => {
+    if (path !== '/calendrier') return;
+
+    const handleScroll = () => {
+      const sections = ['calendrier', 'guide', 'jeu', 'box', 'atelier'];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    // Vérifier la section active au chargement
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [path]);
   // Fermer le menu mobile quand on redimensionne vers desktop
   useEffect(() => {
     const handleResize = () => {
@@ -85,10 +115,20 @@ export default function Header() {
           {/* Desktop Navigation - Amélioré */}
           <nav className="hidden md:flex items-center space-x-2 lg:space-x-4 xl:space-x-6">
       {navigationItems.map((item) => {
-        const isActive =
-          path === "/calendrier"
-            ? item.path === `/calendrier${hash}`
-            : item.path.includes(path) && path!='/';
+        let isActive = false;
+
+        if (path === "/calendrier") {
+          // Pour la page calendrier, utiliser la section active détectée par le scroll
+          if (item.path === "/calendrier") {
+            isActive = activeSection === 'calendrier';
+          } else if (item.path.includes('#')) {
+            const sectionName = item.path.split('#')[1];
+            isActive = activeSection === sectionName;
+          }
+        } else {
+          // Pour les autres pages, utiliser la logique existante
+          isActive = item.path.includes(path) && path !== '/';
+        }
 
         return item.external ? (
           <a
@@ -101,7 +141,7 @@ export default function Header() {
             {item.name}
           </a>
         ) : (
-          <Link
+          <HashLink
             key={item.name}
             to={item.path}
             className={`text-sm lg:text-base xl:text-lg 2xl:text-xl font-medium transition-all duration-200 ClashDisplayBold px-2 py-1 rounded-md whitespace-nowrap ${
@@ -111,7 +151,7 @@ export default function Header() {
             }`}
           >
             {item.name}
-          </Link>
+          </HashLink>
         );
       })}
     </nav>
@@ -169,8 +209,23 @@ export default function Header() {
 
           {/* Navigation mobile */}
           <nav className="flex flex-col p-4 space-y-2 overflow-y-auto max-h-[calc(100vh-100px)]">
-            {navigationItems.map((item, index) =>
-              item.external ? (
+            {navigationItems.map((item, index) => {
+              let isActive = false;
+
+              if (path === "/calendrier") {
+                // Pour la page calendrier, utiliser la section active détectée par le scroll
+                if (item.path === "/calendrier") {
+                  isActive = activeSection === 'calendrier';
+                } else if (item.path.includes('#')) {
+                  const sectionName = item.path.split('#')[1];
+                  isActive = activeSection === sectionName;
+                }
+              } else {
+                // Pour les autres pages, utiliser la logique existante
+                isActive = item.path.includes(path) && path !== '/';
+              }
+
+              return item.external ? (
                 <a
                   key={item.name}
                   href={item.path}
@@ -188,21 +243,21 @@ export default function Header() {
                   </div>
                 </a>
               ) : (
-                <Link
+                <HashLink
                   key={item.name}
                   to={item.path}
                   onClick={closeMobileMenu}
                   className={`text-base font-medium px-4 py-3 rounded-lg transition-all duration-200 border-l-4 transform hover:translate-x-1 ClashDisplayBold ${
-                    location.pathname === item.path
+                    isActive
                       ? 'text-[#ff8300] bg-orange-50 border-orange-300'
                       : 'text-[#0a548d] hover:text-[#ff8300] hover:bg-orange-50 border-transparent hover:border-orange-300'
                   }`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.name}
-                </Link>
+                </HashLink>
               )
-            )}
+            })}
           </nav>
 
           {/* Footer du menu mobile */}

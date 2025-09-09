@@ -1,6 +1,7 @@
 import React from "react";
-import StoreLinks from "./ui/StoreLinks";
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
+
 
 export default function Footer() {
   function openPdf() {
@@ -79,9 +80,11 @@ export default function Footer() {
                 <li><a onClick={() => {
                   window.open("https://www.foodhea.com/origine#team", "_blank");
                 }} className="text-[#0a548d] hover:text-blue-950 cursor-pointer">Équipe</a></li>
-                <li><Link to="/application" className="text-[#0a548d] hover:text-blue-950">Transparence</Link></li>
-                <li><Link to="/calendrier" className="text-[#0a548d] hover:text-blue-950">Calendrier</Link></li>
-                <li><Link to="/calendrier#guide" className="text-[#0a548d] hover:text-blue-950">Guide</Link></li>
+                <li><HashLink to="/application" className="text-[#0a548d] hover:text-blue-950">Transparence</HashLink></li>
+                <li><HashLink to="/calendrier" className="text-[#0a548d] hover:text-blue-950">Calendrier</HashLink></li>
+                <li><HashLink className="text-[#0a548d] hover:text-blue-950" smooth to="/calendrier#guide">Guide</HashLink></li>
+
+
               </ul>
             </div>
 
@@ -89,9 +92,9 @@ export default function Footer() {
             <div>
               <h3 className="text-orange-500 font-bold text-lg mb-2">Application</h3>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/application#evaluation" className="text-[#0a548d] hover:text-blue-950">Évaluations</Link></li>
-                <li><Link to="/application#tips" className="text-[#0a548d] hover:text-blue-950">Ti'Conseils</Link></li>
-                <li><Link to="/application#recipes" className="text-[#0a548d] hover:text-blue-950">Tit'Recettes</Link></li>
+                <li><HashLink to="/application#evaluation" className="text-[#0a548d] hover:text-blue-950">Évaluations</HashLink></li>
+                <li><HashLink to="/application#tips" className="text-[#0a548d] hover:text-blue-950">Ti'Conseils</HashLink></li>
+                <li><HashLink to="/application#recipes" className="text-[#0a548d] hover:text-blue-950">Tit'Recettes</HashLink></li>
                 <li><Link to="/faqs" className="text-[#0a548d] hover:text-blue-950">FAQ</Link></li>
               </ul>
             </div>

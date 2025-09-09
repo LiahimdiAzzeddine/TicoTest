@@ -41,7 +41,7 @@ export default function Home() {
           <HomeSection >
             <Etape2Et3 />
           </HomeSection>
-          <HomeSection pb={"pb-16"}>
+          <HomeSection >
             <Etape4 />
           </HomeSection></div>
         <HomeSection >
@@ -50,7 +50,7 @@ export default function Home() {
       <HomeSection>
         <Bonus />
       </HomeSection>
-      <HomeSection pb={"pb-28"}>
+      <HomeSection >
         <TestimonialSlider />
       </HomeSection>
       {/* <HomeSection>

@@ -11,9 +11,14 @@ export default function Etape5() {
             <div className="text-[#0a548d] max-w-md text-center md:text-left flex flex-col  gap-6  md:gap-16 flex-1">
 
                 <div className="flex flex-col justify-start items-start gap-6  ">
-                    <StepTitle>
-                        Étape 5 :<br />
-                        Votre engagement est récompensé                    </StepTitle>
+          
+                          <StepTitle>
+                                                <div>
+                                               <div className="text-[#ff8200] pb-2">Étape 5 :</div>
+                                                <div> Votre engagement est récompensé </div>
+                        
+                                                </div>
+                                            </StepTitle>
                     <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start">
 Plus vous faites de demandes aux marques
 plus vous débloquez des profils dans TiCO.                     </p>

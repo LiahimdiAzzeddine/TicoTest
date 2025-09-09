@@ -11,10 +11,12 @@ export default function Etap1() {
                 {/* Colonne gauche : texte */}
                 <div className="flex flex-col max-w-lg gap-6 text-center lg:text-left lg:flex-1">
                     <StepTitle>
-                        Étape 1 :<br />
-                        Téléchargez TiCO<br />
-                        et scannez vos<br />
-                        produits
+                        <div>
+                       <div className="text-[#ff8200] pb-2">Étape 1 :</div>
+                        <div>Téléchargez TiCO</div>
+                        <div>et scannez vos</div>
+                        <div>produits</div>
+                        </div>
                     </StepTitle>
                     <p className="text-lg text-[#0a548d] ArchivoLight leading-relaxed font-bold text-start lg:text-left">
                         TiCO est le premier référentiel à encadrer la
