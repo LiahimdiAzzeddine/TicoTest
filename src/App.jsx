@@ -19,7 +19,7 @@ import { SelectedIndexProvider } from './contexts/SelectedIndexProvider';
 import Inscription from './pages/Inscription';
 import AtHome from './pages/AtHome';
 import Cart from './pages/Cart';
-import AtSchool from './pages/atSchool';
+import AtSchool from './pages/AtSchool';
 import Organizations from './pages/organizations';
 import Organization from './pages/Organization';
 import { CartProvider } from './contexts/CartContext';
