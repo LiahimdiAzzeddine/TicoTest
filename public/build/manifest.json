@@ -1,8 +1,32 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-ChoALelR.css",
+    "file": "assets/app-Ca2EQvS7.css",
     "src": "resources/css/app.css",
     "isEntry": true
+  },
+  "resources/fonts/Archivo-Bold.ttf": {
+    "file": "assets/Archivo-Bold-DCq3kH7j.ttf",
+    "src": "resources/fonts/Archivo-Bold.ttf"
+  },
+  "resources/fonts/Archivo-ExtraBold.ttf": {
+    "file": "assets/Archivo-ExtraBold-C60nIlSK.ttf",
+    "src": "resources/fonts/Archivo-ExtraBold.ttf"
+  },
+  "resources/fonts/Archivo-Italic.ttf": {
+    "file": "assets/Archivo-Italic-DJTHr5ci.ttf",
+    "src": "resources/fonts/Archivo-Italic.ttf"
+  },
+  "resources/fonts/Archivo-Light.ttf": {
+    "file": "assets/Archivo-Light-DaU7d7oz.ttf",
+    "src": "resources/fonts/Archivo-Light.ttf"
+  },
+  "resources/fonts/Archivo-Regular.ttf": {
+    "file": "assets/Archivo-Regular-0xdipIZB.ttf",
+    "src": "resources/fonts/Archivo-Regular.ttf"
+  },
+  "resources/fonts/Archivo-Thin.ttf": {
+    "file": "assets/Archivo-Thin-BzH3JouM.ttf",
+    "src": "resources/fonts/Archivo-Thin.ttf"
   },
   "resources/fonts/ClashDisplay-Bold.ttf": {
     "file": "assets/ClashDisplay-Bold-5hYeFSJJ.ttf",
@@ -13,16 +37,22 @@
     "src": "resources/fonts/ClashDisplay-Regular.ttf"
   },
   "resources/js/main.jsx": {
-    "file": "assets/main-BZEzSz1X.js",
+    "file": "assets/main-QfNAlR7c.js",
     "name": "main",
     "src": "resources/js/main.jsx",
     "isEntry": true,
     "css": [
-      "assets/app-ChoALelR.css"
+      "assets/app-Ca2EQvS7.css"
     ],
     "assets": [
       "assets/ClashDisplay-Regular-zoOY6xZw.ttf",
-      "assets/ClashDisplay-Bold-5hYeFSJJ.ttf"
+      "assets/ClashDisplay-Bold-5hYeFSJJ.ttf",
+      "assets/Archivo-Bold-DCq3kH7j.ttf",
+      "assets/Archivo-ExtraBold-C60nIlSK.ttf",
+      "assets/Archivo-Italic-DJTHr5ci.ttf",
+      "assets/Archivo-Light-DaU7d7oz.ttf",
+      "assets/Archivo-Regular-0xdipIZB.ttf",
+      "assets/Archivo-Thin-BzH3JouM.ttf"
     ]
   }
 }

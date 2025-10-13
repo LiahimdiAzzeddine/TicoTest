@@ -10,14 +10,19 @@ import Bonus from "../components/sectionsHome/Bonus";
 import TestimonialSlider from "../components/sectionsHome/TestimonialSlider";
 import { CarouselLogos } from "../components/sectionsHome/CarouselLogos";
 import CarouselTestimonials from "../components/sectionsHome/CarouselTestimonials";
+import TransparenceTri from "../components/TransparenceTri";
 export default function Home() {
   return (
     <>
 
       <HomeContent />
       <HomeSection>
+      <TransparenceTri/>
+      </HomeSection>
+      <HomeSection>
         <Transparence />
       </HomeSection>
+      
 
       <HomeSection >
         <Etap1 />

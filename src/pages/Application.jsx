@@ -15,7 +15,7 @@ export default function Application() {
     <StartSection pb={'md:pb-20 pb-16'}>
       <ScanProducts />
     </StartSection>
-    <HomeSection >
+    <HomeSection id="transparence">
       <TransparencyInfo />
     </HomeSection>
     <HomeSection  id="evaluation">
@@ -64,7 +64,7 @@ export default function Application() {
       </div>
     </div> */}
     <HomeSection id="engagement">
-      <Eengagement  />
+      <Eengagement/>
     </HomeSection>
     <HomeSection   id="tips">
       <MonthlyTips />
