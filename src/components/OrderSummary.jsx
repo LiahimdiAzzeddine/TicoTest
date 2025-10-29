@@ -76,7 +76,10 @@ export default function OrderSummary({ isOpen, onClose }) {
                               alt={item.name}
                               className="w-auto h-16 object-cover rounded-md border"
                             />
+                            <div>
                             <h4 className="font-semibold text-gray-800">{item.name}</h4>
+                            <p>{item.description}</p>
+                            </div>
                           </div>
 
                           <button
@@ -90,6 +93,7 @@ export default function OrderSummary({ isOpen, onClose }) {
 
                         <div className="flex items-center justify-between">
                           <QtyControl
+                          id={item.id}
                             qty={item.qty}
                             inc={() => updateQty("maison", item.id, item.qty + 1)}
                             dec={() => updateQty("maison", item.id, item.qty - 1)}
@@ -140,7 +144,7 @@ export default function OrderSummary({ isOpen, onClose }) {
                       alt={item.orgName}
                       className="w-auto h-16 object-cover rounded-md border"
                     />
-                    <h4 className="font-semibold text-gray-800">{item.orgName}</h4>
+                    <h4 className="font-semibold text-gray-800">Box(s) pour {item.orgName}</h4>
                   </div>
 
                   <button
@@ -178,7 +182,7 @@ export default function OrderSummary({ isOpen, onClose }) {
       </button>
 
 
-                    
+
                   </div>
                   <p className="text-lg font-bold text-[#ff8300]">
                     {(item.unitPrice * item.childrenCount).toFixed(2)} €

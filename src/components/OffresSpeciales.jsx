@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "../contexts/CartContext";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { AddButton, QtyControl } from "./TesComposants";
 
 /* ---------- Styles communs ---------- */
@@ -16,7 +16,7 @@ function BundleVisuals({ url }) {
     <div className="flex items-center">
       <img
               src={url}
-              className="max-h-20 md:max-h-28 max-w-full object-contain"
+              className="w-full md:max-h-40 max-w-full object-contain"
               loading="lazy"
             />
     </div>
@@ -26,6 +26,7 @@ function BundleVisuals({ url }) {
 /* Une ligne d'offre */
 function BundleRow({
   visual,
+  id,
   title,
   lines = [],
   oldPrice,
@@ -69,7 +70,7 @@ function BundleRow({
 
       {/* Actions */}
       <div className="flex items-center gap-4 self-center md:self-auto">
-        <QtyControl title={title} qty={qty} inc={inc} dec={dec} />
+        <QtyControl id={id} title={title} qty={qty} inc={inc} dec={dec} />
         <AddButton onClick={() => onAdd?.(qty)} />
       </div>
     </div>
@@ -80,11 +81,12 @@ const BUNDLES = {
   tiPackPdf: {
     id: "tipack-pdf",
     name: "Le Ti'Pack (PDF)",
-    price: 19.99, 
+    price: 19.99,
     image:"/images/packpdfcarre.webp",
     frais:0,
     originalPrice:24.90,
-    description:"Calendrier et guide"
+    description:"Calendrier et guide",
+    poids:0
   },
   starterPackPrint: {
     id: "starterpack-print",
@@ -93,7 +95,8 @@ const BUNDLES = {
     image:"/images/Packimprime.webp",
     frais:0,
     originalPrice:59.97,
-    description:"Calendrier, guide et jeu"
+    description:"Calendrier, guide et jeu",
+    poids:700
   },
 };
 
@@ -123,28 +126,29 @@ export default function OffresSpeciales({
   };
 
   const handleAddTiPack = (qty) => {
-    addMaison(BUNDLES.tiPackPdf.id, BUNDLES.tiPackPdf.name, BUNDLES.tiPackPdf.price,BUNDLES.tiPackPdf.image,qty,BUNDLES.tiPackPdf.frais,BUNDLES.tiPackPdf.originalPrice,BUNDLES.tiPackPdf.description);
+    addMaison(BUNDLES.tiPackPdf.id, BUNDLES.tiPackPdf.name, BUNDLES.tiPackPdf.price,BUNDLES.tiPackPdf.image,qty,BUNDLES.tiPackPdf.frais,BUNDLES.tiPackPdf.originalPrice,BUNDLES.tiPackPdf.description,BUNDLES.tiPackPdf.poids);
     showNotification(`${qty}x Le Ti'Pack (PDF) ajouté au panier !`);
   };
 
   const handleAddStarterPack = (qty) => {
-    addMaison(BUNDLES.starterPackPrint.id, BUNDLES.starterPackPrint.name, BUNDLES.starterPackPrint.price,BUNDLES.starterPackPrint.image,qty,BUNDLES.starterPackPrint.frais,BUNDLES.starterPackPrint.originalPrice,BUNDLES.starterPackPrint.description);
+    addMaison(BUNDLES.starterPackPrint.id, BUNDLES.starterPackPrint.name, BUNDLES.starterPackPrint.price,BUNDLES.starterPackPrint.image,qty,BUNDLES.starterPackPrint.frais,BUNDLES.starterPackPrint.originalPrice,BUNDLES.starterPackPrint.description,BUNDLES.starterPackPrint.poids);
     showNotification(`${qty}x Le Starter Pack Ti'Conso (Imprimé) ajouté au panier !`);
   };
 
   return (
-    <>      
+    <>
       <div className="max-w-6xl flex flex-col md:flex-col items-center justify-end gap-4 md:gap-14 lg:gap-14 2xl:gap-16 md:mt-8">
-        <div className="flex justify-center mb-12">
-          <div className="bg-[#FFECA7] px-6 py-2 rounded-xl shadow-md">
-            <h2 className="ml-0 text-3xl lg:text-2xl xl:text-3xl 2xl:text-5xl leading-none md:leading-tight ClashDisplayBold text-[#0a548d]">Offre spéciale</h2>
+        {/* <div className="flex justify-center mb-12">
+          <div className="bg-[#FFECA7] px-6 py-2 rounded-xl">
+            <h2 className="ml-0 text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-none md:leading-tight ClashDisplayBold text-[#0a548d]">Offre spéciale</h2>
           </div>
-        </div>
+        </div> */}
 
         <div className=" space-y-0 md:space-y-4">
           <BundleRow
             visual={"/images/packpdfcarre.webp"}
             title="Le Ti'Pack"
+            id={"tipack-pdf"}
             lines={["Calendrier et guide", "Version PDF"]}
             oldPrice="24,90€"
             newPrice="19,99€"
@@ -154,6 +158,7 @@ export default function OffresSpeciales({
           <BundleRow
             visual={"/images/Packimprime.webp"}
             title="Le Starter Pack Ti'Conso"
+            id={"starterpack-print"}
             lines={["Calendrier, guide et jeu", "Version imprimé"]}
             oldPrice="59,97€"
             newPrice="49,99€"

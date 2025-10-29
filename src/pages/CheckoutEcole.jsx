@@ -15,13 +15,13 @@ export default function CheckoutEcole() {
     if (cart.ecole.length === 0) return;
 
     const item = cart.ecole[0];
+    console.log("🚀 ~ handleSubmit ~ item:", item)
     const orderData = {
       organisation_id: item.id,
       product_name: item.orgName,
       product_price: item.unitPrice,
       quantity: item.childrenCount,
       shipping_cost: item.frais ?? 0,
-      customer_email: 'client@example.com',
     };
 
     createCheckoutOrgSession(orderData);

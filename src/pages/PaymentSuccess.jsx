@@ -6,19 +6,23 @@ import { useCart } from '../contexts/CartContext';
 export default function PaymentSuccess() {
   const { clearMaison, clearEcole } = useCart();
   const location = useLocation();
-  const [Type,SetType]=useState();
+  const [type, setType] = useState();
+  const [hasPdf, setHasPdf] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const type = params.get('type'); // récupère ?type=home ou ?type=org
-    console.log("🚀 ~ PaymentSuccess ~ type:", type== 'home')
-SetType(type);
-    if (type == 'home') {
+    const t = params.get('type'); // home ou org
+    const pdf = params.get('pdf'); // 1 ou 0
+
+    setType(t);
+    setHasPdf(pdf === '1');
+
+    if (t === 'home') {
       clearMaison();
-    } else if (type == 'org') {
+    } else if (t === 'org') {
       clearEcole();
     }
-  }, [Type]);
+  },[type,hasPdf]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br flex items-center justify-center">
@@ -33,15 +37,25 @@ SetType(type);
           Paiement réussi
         </h1>
 
-        <p className="text-gray-600 mb-8 text-lg">
-          Merci pour votre commande ! Nous avons bien reçu votre paiement et nous préparons votre commande.
+        <p className="text-gray-600 mb-4 text-lg">
+          {type === 'org'
+            ? "Merci pour votre don !"
+            : "Merci pour votre commande ! Nous avons bien reçu votre paiement et nous préparons votre commande."}
         </p>
 
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
-          <p className="text-sm text-green-800">
-            Vous recevrez un e-mail de confirmation avec les détails de votre commande dans quelques instants.
-          </p>
-        </div>
+        {type !== 'org' && (
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
+            <p className="text-sm text-green-800">
+              Vous recevrez un e-mail de confirmation avec les détails de votre commande dans quelques instants.
+            </p>
+
+            {hasPdf && (
+              <p className="text-sm text-green-800 mt-2 font-medium">
+                ⚠️ Votre commande contient des fichiers PDF. Vérifiez votre email pour les télécharger.
+              </p>
+            )}
+          </div>
+        )}
 
         <div className="space-y-3">
           <Link

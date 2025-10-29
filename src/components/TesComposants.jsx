@@ -1,31 +1,45 @@
 import { Minus, Plus } from "lucide-react";
 
-export function QtyControl({ title, qty, inc, dec }) {
-  return (
-       <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-1">
-        <button
-          type="button"
-          aria-label={`Diminuer la quantité de ${title}`}
-          onClick={dec}
-          style={{backgroundColor:"#0a548d"}}
-          className="w-8 h-6 rounded-lg bg-[#0a548d] text-white flex items-center justify-center font-bold hover:bg-blue-400 active:scale-95 shadow-2xl p-1"
-        >
-          <Minus className="w-4 h-4 text-white" />
-        </button>
-        <div className="w-12 h-6 border bg-gray-50 rounded-lg border-gray-300  flex items-center justify-center  shadow-2xl">
-          <span className="text-[#0a548d] font-semibold text-sm">{qty}</span>
-        </div>
-        <button
-          type="button"
-          aria-label={`Augmenter la quantité de ${title}`}
-          onClick={inc}
-          style={{backgroundColor:"#0a548d"}}
-          className="w-8 h-6 rounded-lg bg-[#0a548d] text-white flex items-center justify-center font-bold hover:bg-blue-400 active:scale-95 shadow-2xl"
-        >
-         <Plus className="w-4 h-4 text-white" />
-        </button>
 
+export function QtyControl({ id, qty, inc, dec }) {
+  const isPdfProduct = id.includes("-pdf"); // ✅ vérifie si l'id contient "-pdf"
+
+  return (
+    <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-1">
+      <button
+        type="button"
+        aria-label={`Diminuer la quantité de ${id}`}
+        onClick={!isPdfProduct ? dec : undefined}
+        disabled={isPdfProduct}
+        style={{ backgroundColor: isPdfProduct ? "#ccc" : "#0a548d" }}
+        className={`w-8 h-6 rounded-lg text-white flex items-center justify-center font-bold shadow-2xl p-1 transition-all ${
+          isPdfProduct
+            ? "cursor-not-allowed opacity-60"
+            : "hover:bg-blue-400 active:scale-95"
+        }`}
+      >
+        <Minus className="w-4 h-4 text-white" />
+      </button>
+
+      <div className="w-12 h-6 border bg-gray-50 rounded-lg border-gray-300 flex items-center justify-center shadow-2xl">
+        <span className="text-[#0a548d] font-semibold text-sm">{qty}</span>
       </div>
+
+      <button
+        type="button"
+        aria-label={`Augmenter la quantité de ${id}`}
+        onClick={!isPdfProduct ? inc : undefined}
+        disabled={isPdfProduct}
+        style={{ backgroundColor: isPdfProduct ? "#ccc" : "#0a548d" }}
+        className={`w-8 h-6 rounded-lg text-white flex items-center justify-center font-bold shadow-2xl transition-all ${
+          isPdfProduct
+            ? "cursor-not-allowed opacity-60"
+            : "hover:bg-blue-400 active:scale-95"
+        }`}
+      >
+        <Plus className="w-4 h-4 text-white" />
+      </button>
+    </div>
   );
 }
 export function QtyControlEuro({ title, qty, inc, dec }) {
@@ -76,7 +90,7 @@ export function AddButton({ onClick }) {
         bg-gradient-to-b from-[#FFECA7] to-[#f4de8f]
         hover:from-[#f4de8f] hover:to-[#e8d180]
         active:from-[#e8d180] active:to-[#dcc670]
-        rounded-lg 
+        rounded-lg
         px-4 py-1
         flex items-center justify-center flex-col gap-1
         shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06),inset_0_-2px_4px_rgba(0,0,0,0.1)]
@@ -87,7 +101,7 @@ export function AddButton({ onClick }) {
         transition-all duration-150
         relative
         overflow-hidden
-        before:absolute before:inset-0 before:bg-white before:opacity-0 
+        before:absolute before:inset-0 before:bg-white before:opacity-0
         hover:before:opacity-10
         active:translate-y-[1px]
       "

@@ -3,7 +3,7 @@ import { Info, Minus, Plus } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import { AddButton } from "./TesComposants";
 import BoxPopup from "./ui/BoxPopup";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const currencyNoCents = (v) =>
   new Intl.NumberFormat("fr-FR", {
@@ -123,13 +123,13 @@ export default function SelectableDonationBox({
           {/* Contrôles */}
      <div className="flex flex-col sm:flex-row items-center gap-4">
   <div className="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-3 shadow-md">
-    
+
     {/* Bouton - */}
     <button
       type="button"
       aria-label="Diminuer la quantité"
       onClick={dec}
-      className="w-9 h-9 rounded-lg bg-[#0a548d] text-white flex items-center justify-center 
+      className="w-9 h-9 rounded-lg bg-[#0a548d] text-white flex items-center justify-center
                  font-bold hover:bg-[#073f69] active:scale-95 transition-all shadow"
     >
       <Minus className="w-4 h-4" />
@@ -150,7 +150,7 @@ export default function SelectableDonationBox({
       type="button"
       aria-label="Augmenter la quantité"
       onClick={inc}
-      className="w-9 h-9 rounded-lg bg-[#0a548d] text-white flex items-center justify-center 
+      className="w-9 h-9 rounded-lg bg-[#0a548d] text-white flex items-center justify-center
                  font-bold hover:bg-[#073f69]  active:scale-95 transition-all shadow"
     >
       <Plus className="w-4 h-4" />

@@ -5,6 +5,8 @@ import DeuxBlocsActions from "../components/DeuxBlocsActions";
 import OrganismesGrid from "../components/OrganismesGrid";
 import HomeSection from "../Templates/HomeSection";
 import StartSection from "../Templates/StartSection";
+import TeacherTestimonial from "../components/ui/TeacherTestimonial";
+import Kit from "../components/Kit";
 
 
 export default function AtSchool() {
@@ -15,16 +17,17 @@ export default function AtSchool() {
             <StartSection pb={'md:pb-32 pb-16'} id="box">
                 <BoxPage />
             </StartSection>
-
             <HomeSection>
-                 <div className="flex flex-col gap-14 w-full max-w-6xl">
+                <div className="flex flex-col gap-12 md:gap-16">
+                <TeacherTestimonial />
+                <Kit /></div>
+            </HomeSection>
+            <HomeSection>
+                <div className="flex flex-col gap-14 w-full max-w-6xl">
                     <DeuxBlocsActions onFundClick={() => navigate('/organizations')} onOrgClick={() => navigate('/inscription')} />
                 </div>
             </HomeSection>
-
-
             <div className="mb-32"></div>
-
         </>
 
     );

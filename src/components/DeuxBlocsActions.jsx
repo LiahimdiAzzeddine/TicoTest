@@ -13,7 +13,7 @@ function BlobCard({
 }) {
   return (
     <div
-      className="relative w-[320px] h-[285px] md:h-[365px] md:w-[360px] grid place-items-center text-center"
+      className="relative w-full h-[310px] md:h-[500px] md:w-full grid place-items-center text-center"
       style={{
         backgroundImage: `url(${bg})`,
         backgroundSize: "contain",
@@ -21,9 +21,9 @@ function BlobCard({
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="px-8 -mt-28">
+      <div className="-mt-12 md:-mt-16">
         <h3
-          className="font-extrabold leading-tight tracking-tight text-2xl"
+          className="ClashDisplayBold  leading-tight tracking-normal text-2xl"
           style={{ color: BLUE }}
         >
           {title}
@@ -32,10 +32,10 @@ function BlobCard({
         <button
           type="button"
           onClick={onClick}
-          className="mx-auto mt-6 inline-flex items-center justify-center rounded-xl px-5 py-3 text-white font-semibold shadow-sm"
+          className="mx-auto mt-16 md:mt-24 inline-flex items-center justify-center rounded-xl px-5 py-3 text-white font-semibold shadow-sm text-xl"
           style={{ backgroundColor: BLUE }}
         >
-         {buttonText}
+          {buttonText}
         </button>
       </div>
     </div>
@@ -46,37 +46,39 @@ function BlobCard({
 
 /* --- Composant principal --- */
 export default function DeuxBlocsActions({
-  fondImg = "/images/fondbeige.png",
+  fondImg = "/images/fond11.png",
+  fondImg2 = "/images/fond22.png",
   onOrgClick = () => { },
   onFundClick = () => { },
 }) {
   return (
-    <div className="flex flex-col justify-start items-start gap-20 md:gap-16 lg:gap-20">
+    <div className="flex flex-col justify-start items-center  gap-8 md:gap-10">
       <StepTitle center={true}>
         <span className="text-[#0a548d]">
-          Déjà&nbsp;
+          Achat participatif&nbsp;
         </span>
         <span className="text-[#ff8300] font-bold">
-          3 structures équipées&nbsp;
+          pour aider des&nbsp;
         </span>
         <span className="text-[#0a548d]">
-          grâce à vous&nbsp;!
+          organisations à bénéficier du kit TiCO
         </span>
       </StepTitle>
+      <div className="ComicNeueBold text-xl text-center md:text-4xl">
+        <span className="text-[#0a548d]">Déjà</span> <span className="text-[#ff8300] ">3 structures équipées</span> <span className="text-[#0a548d]">grâce à vous&nbsp;!</span>
+      </div>
 
-                 <div className="flex flex-col md:flex-row-reverse items-center justify-start md:justify-around gap-y-8 md:gap-x-10 w-full max-w-6xl ">
+      <div className="flex flex-col md:flex-row-reverse items-center justify-start md:justify-center gap-y-8 md:gap-x-11 w-full max-w-6xl ">
 
         <BlobCard
-          bg={fondImg}
+          bg={fondImg2}
           title={
             <>
               J’inscris mon
               <br />
-              organisation
+              organisation pour
               <br />
-              pour recevoir
-              <br />
-              une box
+            obtenir un kit
             </>
           }
           onClick={onOrgClick}
@@ -86,13 +88,11 @@ export default function DeuxBlocsActions({
           bg={fondImg}
           title={
             <>
-              J’aide à financer
+            Je participeà
               <br />
-              une box pour
+             l’achat d’un kit pour
               <br />
-              un groupe
-              <br />
-              d’enfants
+            un groupe d’enfants
             </>
           }
           onClick={onFundClick}

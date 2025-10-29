@@ -70,6 +70,8 @@ export default function App() {
               <Route path="/paiement-reussi" element={<PaymentSuccess />} />
               <Route path="/paiement-annule" element={<PaymentCancel />} />
             </Routes>
+
+          
           </main>
           <Footer />
         </Router>

@@ -17,11 +17,16 @@ const StatsComponent = () => {
       number: "2",
       label: "dégustations"
     },
+     {
+      icon: "images/horloge-removebg-preview.png",
+      number: "5",
+      label: "heures"
+    },
    
   ];
 
   return (
-    <div className="bg-[#FFECA7] rounded-lg p-3 sm:p-4 md:p-2 shadow-sm w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-lg mx-auto md:mx-0">
+    <div className="bg-[#FFECA7] rounded-lg p-3 sm:p-4 md:p-3 shadow-sm w-full">
       {/* Version mobile : 2x2 grid */}
       <div className="grid grid-cols-2 gap-3 sm:hidden">
         {statsData.map((stat, index) => (
@@ -65,13 +70,13 @@ const StatsComponent = () => {
       </div>
 
       {/* Version desktop : ligne horizontale compacte */}
-      <div className="hidden md:flex items-center justify-between gap-4">
+      <div className="hidden md:flex items-center justify-between gap-6 w-full">
         {statsData.map((stat, index) => (
           <div key={index} className="flex items-center gap-2">
             <img 
               src={stat.icon} 
               alt={stat.label}
-              className="w-9 h-8 opacity-80"
+              className="h-9 opacity-80"
             />
             <span className="font-bold text-[#ff8300] text-lg">
               {stat.number}

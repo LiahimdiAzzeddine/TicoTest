@@ -12,8 +12,7 @@ export default function Visio() {
 
                         {/* Titre */}
                         <StepTitle center={false}>
-                            <span className="text-[#0a548d]">« La Vérité si J’mange » , apprendre à&nbsp;</span>
-                            <span className="text-[#ff8300] font-bold">Sors tes couverts&nbsp;​​!</span>
+                            <span className="text-[#ff8300] font-bold">Sors tes couverts&nbsp;​​!&nbsp;</span>
                             <span className="text-[#0a548d]">La visio conférence pour tous​</span>
                         </StepTitle>
 
@@ -29,8 +28,8 @@ export default function Visio() {
                         {/* Paragraphes */}
                         <div class="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6">
                             <ul class="flex flex-col gap-2 list-disc list-inside">
-                                <li>Webinar d’1h, animée par un expert TiCO</li>
-                                <li>Objectif : sensibiliser au lien entre l’alimentation, la santé et le bien-être au travail</li>
+                                <li >Webinar d’1h, animée par un expert TiCO</li>
+                                <li className="whitespace-nowrap">Objectif : sensibiliser au lien entre l’alimentation, la santé et le bien-être au travail</li>
                                 <li>Quiz et sondages dynamiques favorisant l’engagement</li>
                                 <li>Tips et pistes concrètes à mettre en place</li>
                                 <li>Défis et suivis des participants</li>

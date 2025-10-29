@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-Ca2EQvS7.css",
+    "file": "assets/app-r2-BVLhZ.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -37,12 +37,12 @@
     "src": "resources/fonts/ClashDisplay-Regular.ttf"
   },
   "resources/js/main.jsx": {
-    "file": "assets/main-QfNAlR7c.js",
+    "file": "assets/main-D-Tc59_4.js",
     "name": "main",
     "src": "resources/js/main.jsx",
     "isEntry": true,
     "css": [
-      "assets/app-Ca2EQvS7.css"
+      "assets/app-r2-BVLhZ.css"
     ],
     "assets": [
       "assets/ClashDisplay-Regular-zoOY6xZw.ttf",

@@ -227,6 +227,8 @@ export default function CommandeGrid({
 
   return (
     <>
+      
+
       <VersionModal
         isOpen={modalState.isOpen}
         onClose={closeModal}
@@ -236,12 +238,7 @@ export default function CommandeGrid({
       />
 
       <div className="max-w-6xl flex flex-col md:flex-col items-center justify-end gap-4 md:gap-14 lg:gap-14 2xl:gap-16 md:mt-8">
-        <div className="flex justify-center mb-12">
-          <div className="bg-[#FFECA7] px-6 py-2 rounded-xl shadow-md">
-            <h2 className="ml-0 text-3xl lg:text-2xl xl:text-3xl 2xl:text-5xl leading-none md:leading-tight ClashDisplayBold text-[#0a548d]">Commander</h2>
-          </div>
-        </div>
-
+     
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 w-full">
           <ProductCard
             title="Le calendrier"

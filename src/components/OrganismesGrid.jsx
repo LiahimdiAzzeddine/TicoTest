@@ -7,7 +7,7 @@ const ORANGE = "#ff7a00";
 
 /* ---- Carte organisme ---- */
 
-function OrgCard({ org, bg = "/images/fondbeige.png", pricePerBox = 120 }) {
+function OrgCard({ org, bg = "/images/fondbeige-old.png", pricePerBox = 120 }) {
   const target = (org.boxes ?? 1) * pricePerBox;
   const navigate = useNavigate();
 
@@ -64,12 +64,12 @@ function SearchBar({ value, onChange, placeholder = "Rechercher", resultCount })
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
           className="w-full rounded-2xl border-[1px] px-12 py-3 text-slate-800 placeholder:text-slate-400 text-center transition-all duration-300 focus:outline-none focus:shadow-lg"
-          style={{ 
+          style={{
             borderColor: isFocused ? ORANGE : BLUE,
             backgroundColor: isFocused ? '#fffbf5' : 'white'
           }}
         />
-        
+
         {/* Icône de recherche */}
         <div className={`absolute left-4 top-1/2 -translate-y-1/2 transition-transform duration-300 ${isFocused ? 'scale-110' : ''}`}>
           <svg
@@ -132,7 +132,7 @@ function EmptyState({ hasSearch }) {
         >
           <circle cx="12" cy="12" r="10" />
           <line x1="12" y1="8" x2="12" y2="12" />
-          <line x1="12" y1="16" x2="12" y2="16" /> 
+          <line x1="12" y1="16" x2="12" y2="16" />
           {/* point d’info (utiliser x2=y2= même coord pour avoir un vrai point) */}
         </svg>
       </div>
@@ -152,7 +152,7 @@ function EmptyState({ hasSearch }) {
 /* ---- Composant principal ---- */
 export default function OrganismesGrid({
   pricePerBox = 120,
-  fondPath = "/images/fondbeige.png",
+  fondPath = "/images/fondbeige-old.png",
   onSelect = (org) => console.log("select org:", org),
 }) {
   const [q, setQ] = useState("");
@@ -203,9 +203,9 @@ export default function OrganismesGrid({
 
   return (
     <div className="flex flex-col items-center justify-start gap-y-8 w-full max-w-6xl px-4">
-      <SearchBar 
-        value={q} 
-        onChange={setQ} 
+      <SearchBar
+        value={q}
+        onChange={setQ}
         placeholder="Rechercher par nom, type, ville..."
         resultCount={filtered.length}
       />

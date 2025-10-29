@@ -3,7 +3,6 @@ import StepTitle from "./ui/StepTitle";
 import StatsComponent from "./ui/StatsComponent";
 import { useState } from "react";
 import BoxPopup from "./ui/BoxPopup";
-import DeuxBlocsActions from "./DeuxBlocsActions";
 
 export default function BoxPage() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -43,23 +42,14 @@ export default function BoxPage() {
                         <div className="flex flex-col gap-4">
                             <StatsComponent />
                             <div className="flex flex-col gap-4">
+                            
                                 <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                                    Les enfants sont les cibles privilégiées du
-                                    marketing alimentaire. Couleurs vives, jeux, fausses
-                                    promesses santé… Notre rôle ? Les protéger, les
-                                    accompagner pour qu’ils puissent grandir en
-                                    connaissant l’impact de leur alimentation sur leur
-                                    santé et l’environnement.
-                                </p>
-                                <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                                    Proposez ces activités en temps scolaire ou
-                                    périscolaire, tout est prévu pour vous guider pas à
-                                    pas dans l’organisation et l’animation des activités
-                                    et des dégustations. ​ Kit co-construit avec
-                                    l’expertise de Kelly Frank, fondatrice de{" "}
-                                    <span className="font-bold">Goûm</span>, spécialiste
-                                    de la naturalité des ingrédients et du vrai goût des
-                                    aliments.    <span
+                                    Couleurs vives, jeux dans les pack, fausses promesses santé... Notre rôle ? Les protéger, les
+accompagner pour qu’ils puissent grandir en connaissant l’impact de leur alimentation sur leur santé.
+Proposez ces activités en temps scolaire ou périscolaire, tout est prévu pour vous guider pas à pas
+dans l’organisation et l’animation des activités et des dégustations.
+Kit inédit co-construit avec l’expertise de Kelly Frank, fondatrice de Goûm, spécialiste de la naturalité
+des ingrédients et du vrai goût des aliments. <span
                                         onClick={() => setIsPopupOpen(true)}
                                         className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
                                     >

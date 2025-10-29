@@ -20,7 +20,7 @@ export default function Teambuilding() {
                                 Le
                             </span>
                             <span className="text-[#ff8300] font-bold">
-                                Ti’Goûter entre collègue&nbsp;:
+                                Ti’Goûter entre collègue&nbsp;:&nbsp;
                             </span>
                             <span className="text-[#0a548d]">
                                 atelier team building palpitant
@@ -36,8 +36,7 @@ export default function Teambuilding() {
                            <div class="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6">
                             <ul class="flex flex-col gap-2 list-disc list-inside">
                                 <li>Team building d’1h, animé par un expert TiCO</li>
-                                <li>Jeu d’enquête immersif donnant les clés du décryptage de l’information sur les
-                                    produits alimentaires</li>
+                                <li className="whitespace-nowrap">Jeu d’enquête immersif donnant les clés du décryptage alimentaire</li>
                                 <li>Dégustations comparatives ingrédients simples VS ultra-transformation</li>
 
                             </ul>
@@ -53,7 +52,7 @@ export default function Teambuilding() {
                     <img
                         src="/autravailatelier.png"
                         alt="Suivi des demandes"
-                        className="w-52 md:w-96 lg:w-[23rem] 2xl:w-[26rem]"
+                        className="w-52 md:w-96 lg:w-[23rem] 2xl:w-[25rem]"
                     />
                 </div>
                 <BoxPopup

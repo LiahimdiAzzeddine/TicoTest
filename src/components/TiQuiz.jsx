@@ -30,7 +30,7 @@ export default function TiQuiz() {
                                 Ti’Quiz&nbsp;
                             </span>
                             <span className="text-[#0a548d]">
-                                disponiblesur
+                                disponible sur
                                 smartphone et ordinateur
                             </span>
                         </StepTitle>
@@ -44,8 +44,8 @@ export default function TiQuiz() {
                             <div class="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6 ">
                             <ul class="flex flex-col gap-2 list-disc list-inside">
                                 <li>Quiz solo ou multi-joueurs</li>
-                                <li>Pouvant s’implémenter sur l’application de votre organisation</li>
-                                <li>Plus de 200 questions à choix multiples sur l’alimentation</li>
+                                <li className="whitespace-nowrap">Pouvant s’implémenter sur l’application de votre organisation</li>
+                                <li className="whitespace-nowrap">Plus de 200 questions à choix multiples sur l’alimentation</li>
                                 <li>Réponses, explications et fun facts</li>
                                 <li>Organisation de challenges possible</li>
                             </ul>
@@ -61,7 +61,7 @@ export default function TiQuiz() {
                     <img
                         src="/travailquiz.png"
                         alt="Suivi des demandes"
-                        className="w-52 md:w-96 lg:w-[23rem] 2xl:w-[26rem]"
+                        className="h-52 md:h-auto md:max-w-96 lg:max-w-[23rem] 2xl:max-w-[26rem]"
                     />
                 </div>
                 <BoxPopup
