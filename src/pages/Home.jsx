@@ -1,7 +1,7 @@
 import React from "react";
 import HomeSection from "../Templates/HomeSection";
 import TransparenceTri from "../components/TransparenceTri";
-import Home2Content from "../components/sectionsHome/Home2Content.JSX";
+import Home2Content from "../components/sectionsHome/Home2Content";
 export default function Home() {
   return (
     <>
