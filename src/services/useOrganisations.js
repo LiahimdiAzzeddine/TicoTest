@@ -39,6 +39,8 @@ export function useOrganisations() {
 formData.append("c2", data.c2 ? 1 : 0);
 formData.append("c3", data.c3 ? 1 : 0);
 formData.append("optin", data.optin ? 1 : 0);
+       formData.append("for_checkout", data.for_checkout ?1:0);
+
 
 
       // Debug FormData

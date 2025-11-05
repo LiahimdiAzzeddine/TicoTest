@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { QtyControl } from "./TesComposants";
 
 export default function OrderSummary({ isOpen, onClose }) {
-  const { cart, updateQty, removeItem, clearCart, totalMaison, totalEcole,updateChildrenCount } = useCart();
+  const { cart, updateQty, removeItem, clearCart, totalMaison, totalEcole } = useCart();
   const navigate = useNavigate();
   if (!isOpen) return null;
 
@@ -72,13 +72,13 @@ export default function OrderSummary({ isOpen, onClose }) {
                           <div className="flex items-center gap-3 flex-1">
                             {/* Image du produit */}
                             <img
-                              src={(item.image).replace('Packimprime.webp','packimprimecarre.png')}
+                              src={(item.image).replace('pack_imprime.png', 'pack_imprime_carre.png')}
                               alt={item.name}
                               className="w-auto h-16 object-cover rounded-md border"
                             />
                             <div>
-                            <h4 className="font-semibold text-gray-800">{item.name}</h4>
-                            <p>{item.description}</p>
+                              <h4 className="font-semibold text-gray-800">{item.name}</h4>
+                              <p>{item.description}</p>
                             </div>
                           </div>
 
@@ -93,7 +93,7 @@ export default function OrderSummary({ isOpen, onClose }) {
 
                         <div className="flex items-center justify-between">
                           <QtyControl
-                          id={item.id}
+                            id={item.id}
                             qty={item.qty}
                             inc={() => updateQty("maison", item.id, item.qty + 1)}
                             dec={() => updateQty("maison", item.id, item.qty - 1)}
@@ -122,90 +122,65 @@ export default function OrderSummary({ isOpen, onClose }) {
                 </div>
               )}
 
-               {cart.ecole.length > 0 && (
-        <div className="mb-8 bg-blue-50/50 rounded-xl p-4 border-2 border-blue-200">
-          <h3 className="text-lg font-bold text-[#0a548d] mb-3 flex items-center gap-2">
-            À l'école
-            <span className="text-sm font-normal text-gray-500">
-              ({cart.ecole.length} {cart.ecole.length > 1 ? 'organisations' : 'organisation'})
-            </span>
-          </h3>
-          <div className="space-y-4 mb-2">
-            {cart.ecole.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white border border-gray-200 rounded-lg p-2 hover:shadow-md transition-shadow"
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <div className="flex items-center gap-3 flex-1">
-                    {/* Image du produit */}
-                    <img
-                      src={item.image}
-                      alt={item.orgName}
-                      className="w-auto h-16 object-cover rounded-md border"
-                    />
-                    <h4 className="font-semibold text-gray-800">Box(s) pour {item.orgName}</h4>
-                  </div>
-
-                  <button
-                    onClick={() => removeItem('ecole', item.id)}
-                    className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1 rounded transition-colors"
-                    aria-label="Supprimer"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3 bg-slate-50 rounded-lg px-3 py-2">
-   <button
-        type="button"
-       onClick={() => updateChildrenCount('ecole', item.id, item.childrenCount - 1)}
-        style={{ backgroundColor: "#0a548d" }}
-        className="w-8 h-6 rounded-lg bg-[#0a548d] text-white flex items-center justify-center font-bold hover:bg-blue-400 active:scale-95 shadow-2xl p-1"
-      >
-        <Minus className="w-4 h-4 text-white" />
-      </button>
-
-    <div className="text-center min-w-[100px]">
-                      <div className="text-base font-bold text-[#0a548d]">
-                        {item.childrenCount} enfant{item.childrenCount > 1 ? "s" : ""}
-                      </div>
-                    </div>
-
-      <button
-        type="button"
-       onClick={() => updateChildrenCount('ecole', item.id, item.childrenCount + 1)}
-        style={{ backgroundColor: "#0a548d" }}
-        className="w-8 h-6 rounded-lg bg-[#0a548d] text-white flex items-center justify-center font-bold hover:bg-blue-400 active:scale-95 shadow-2xl"
-      >
-        <Plus className="w-4 h-4 text-white" />
-      </button>
-
-
-
-                  </div>
-                  <p className="text-lg font-bold text-[#ff8300]">
-                    {(item.unitPrice * item.childrenCount).toFixed(2)} €
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-white rounded-lg p-4 border-2 border-blue-300">
-            <div className="flex justify-between items-center mb-3">
-              <span className="text-lg font-bold text-[#0a548d]">Total école:</span>
-              <span className="text-2xl font-bold text-[#ff8300]">{totalEcole.toFixed(2)} €</span>
-            </div>
-            <button
-              onClick={handleOrderEcole}
-              className="w-full bg-gradient-to-r from-[#0a548d] to-[#0d6ab8] text-white py-3 rounded-lg font-bold text-base hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
-            >
-              Commander (École)
-            </button>
-          </div>
+              {cart.ecole.length > 0 && (
+                <div className="mb-8 bg-blue-50/50 rounded-xl p-4 border-2 border-blue-200">
+                  <h3 className="text-lg font-bold text-[#0a548d] mb-3 flex items-center gap-2">
+                    À l'école
+                    <span className="text-sm font-normal text-gray-500">
+                      ({cart.ecole.length} {cart.ecole.length > 1 ? 'organisations' : 'organisation'})
+                    </span>
+                  </h3>
+                <div className="space-y-4 mb-2">
+  {cart.ecole.map((item) => (
+    <div
+      key={item.id}
+      className="bg-white border border-gray-200 rounded-lg p-2 hover:shadow-md transition-shadow"
+    >
+      <div className="flex justify-between items-start mb-2">
+        <div className="flex items-center gap-3 flex-1">
+          {/* Image du produit */}
+          <img
+            src={item.image}
+            alt={item.name} // ✅ texte alternatif
+            className="w-auto h-16 object-cover rounded-md border"
+          />
+          <div className="flex flex-col">
+          <h4 className="font-semibold text-gray-800">{item.name}</h4> {/* ✅ nom du produit */}
+          
+        <p className="text-lg font-bold text-[#ff8300]">
+          {(item.amount).toFixed(2)} €
+        </p></div>
         </div>
-      )}
+
+        <button
+          onClick={() => removeItem('ecole', item.id)}
+          className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1 rounded transition-colors"
+          aria-label="Supprimer"
+        >
+          <Trash2 className="w-4 h-4" />
+        </button>
+      </div>
+
+  
+    </div>
+  ))}
+</div>
+
+
+                  <div className="bg-white rounded-lg p-4 border-2 border-blue-300">
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="text-lg font-bold text-[#0a548d]">Total école:</span>
+                      <span className="text-2xl font-bold text-[#ff8300]">{totalEcole.toFixed(2)} €</span>
+                    </div>
+                    <button
+                      onClick={handleOrderEcole}
+                      className="w-full bg-gradient-to-r from-[#0a548d] to-[#0d6ab8] text-white py-3 rounded-lg font-bold text-base hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
+                    >
+                      Commander (École)
+                    </button>
+                  </div>
+                </div>
+              )}
               {totalItems > 0 && (
                 <button
                   onClick={clearCart}

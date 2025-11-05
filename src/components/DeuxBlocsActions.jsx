@@ -74,20 +74,6 @@ export default function DeuxBlocsActions({
           bg={fondImg2}
           title={
             <>
-              J’inscris mon
-              <br />
-              organisation pour
-              <br />
-            obtenir un kit
-            </>
-          }
-          onClick={onOrgClick}
-        />
-
-        <BlobCard
-          bg={fondImg}
-          title={
-            <>
             Je participeà
               <br />
              l’achat d’un kit pour
@@ -95,7 +81,22 @@ export default function DeuxBlocsActions({
             un groupe d’enfants
             </>
           }
-          onClick={onFundClick}
+         onClick={onFundClick}
+        />
+
+        <BlobCard
+          bg={fondImg}
+          title={<>
+              J’inscris mon
+              <br />
+              organisation pour
+              <br />
+            obtenir un kit
+            </>
+
+          }
+          onClick={onOrgClick}
+
         />
       </div>
     </div>

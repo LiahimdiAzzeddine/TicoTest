@@ -48,33 +48,29 @@ const addMaison = (productId, name, price, image, qty = 1,frais,originalPrice,de
 
 
   // Ajouter une box école
-const addEcole = (orgId, orgName, unitPrice = 4, image, childrenCount = 1) => {
+const addEcole = (orgId, name, id, amount, image) => {
+  console.log("🚀 ~ addEcole ~ orgId:", orgId)
   setCart((prev) => {
-    const exists = prev.ecole.find((b) => b.id === orgId);
+    const exists = prev.ecole.find((b) => b.id === orgId); // ✅ cohérence ici
     let updatedEcole;
+
     if (exists) {
       updatedEcole = prev.ecole.map((b) =>
-        b.id === orgId ? { ...b, childrenCount: b.childrenCount + childrenCount } : b
+        b.id === orgId ? { ...b, amount: b.amount + amount } : b
       );
     } else {
       updatedEcole = [
         ...prev.ecole,
-        { id: orgId, orgName, unitPrice, image, childrenCount },
+        { id:orgId, productId:id, name, amount, image },
       ];
     }
+
     return { ...prev, ecole: updatedEcole };
   });
 };
 
-// Utilisez
-const updateChildrenCount = (type, id, newCount) => {
-  setCart((prev) => ({
-    ...prev,
-    [type]: prev[type].map((item) =>
-      item.id === id ? { ...item, childrenCount: Math.max(1, newCount) } : item
-    ),
-  }));
-};
+
+
 
   // Supprimer un produit (maison ou école)
   const removeItem = (category, id) => {
@@ -99,6 +95,19 @@ const updateChildrenCount = (type, id, newCount) => {
     });
   };
 
+  // Modifier le montant d'une contribution école
+  const updateEcoleAmount = (id, amount) => {
+    if (amount <= 0) return removeItem('ecole', id);
+    setCart((prev) => {
+      return {
+        ...prev,
+        ecole: prev.ecole.map((item) =>
+          item.id === id ? { ...item, amount } : item
+        ),
+      };
+    });
+  };
+
   // Vider le panier
   const clearCart = () => setCart({ maison: [], ecole: [] });
   // Vider seulement les produits maison
@@ -114,7 +123,7 @@ const clearEcole = () => setCart((prev) => ({ ...prev, ecole: [] }));
   );
 
   const totalEcole = cart.ecole.reduce(
-    (acc, item) => acc + item.unitPrice * item.childrenCount,
+    (acc, item) => acc + item.amount,
     0
   );
 
@@ -126,11 +135,11 @@ const clearEcole = () => setCart((prev) => ({ ...prev, ecole: [] }));
         addEcole,
         removeItem,
         updateQty,
+        updateEcoleAmount,
         clearCart,
         totalMaison,
         totalEcole,
         clearMaison,
-        updateChildrenCount,
         clearEcole
       }}
     >

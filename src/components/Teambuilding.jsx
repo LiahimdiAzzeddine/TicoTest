@@ -33,8 +33,8 @@ export default function Teambuilding() {
                             alt="Box Ti’Conso"
                             className="w-80 mx-auto md:hidden"
                         />
-                           <div class="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6">
-                            <ul class="flex flex-col gap-2 list-disc list-inside">
+                           <div className="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6">
+                            <ul className="flex flex-col gap-2 list-disc list-inside">
                                 <li>Team building d’1h, animé par un expert TiCO</li>
                                 <li className="whitespace-nowrap">Jeu d’enquête immersif donnant les clés du décryptage alimentaire</li>
                                 <li>Dégustations comparatives ingrédients simples VS ultra-transformation</li>

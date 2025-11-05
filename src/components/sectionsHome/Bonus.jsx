@@ -1,6 +1,7 @@
 import React from "react";
 import StepTitle from "../ui/StepTitle";
 import { useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Bonus() {
     const navigate = useNavigate();
@@ -33,12 +34,14 @@ export default function Bonus() {
                         utilisation des produits. Des astuces du quotidien pour
                         une cuisine plus durable et plus saine !
                     </p>
-                    <a
-                        className="text-[#0a548d] text-base md:text-xl leading-relaxed md:leading-tight max-w-md ArchivoLight underline"
-                        onClick={() => navigate("/application#tips")}
-                    >
-                        En savoir plus
-                    </a>
+
+<HashLink
+  smooth
+  to="/application#tips"
+  className="text-[#0a548d] text-base md:text-xl leading-relaxed md:leading-tight max-w-md ArchivoLight underline"
+>
+  En savoir plus
+</HashLink>
                     {/* Illustration Étape 2 */}
                     <div className="flex justify-center md:hidden order-1 md:order-1 w-full items-center">
                         <img
@@ -61,12 +64,15 @@ export default function Bonus() {
                     <p className="text-base md:text-lg text-[#0a548d] ArchivoLight leading-relaxed md:leading-tight font-bold text-start">
                         Une base de données de recettes liées aux produits que tout le monde peut enrichir !
                     </p>
-                    <a
-                        className="text-[#0a548d] text-base md:text-xl leading-relaxed md:leading-tight max-w-md ArchivoLight underline"
-                        onClick={() => navigate("/application#recipes")}
-                    >
-                        En savoir plus
-                    </a>
+
+
+<HashLink
+  smooth
+  to="/application#recipes"
+  className="text-[#0a548d] text-base md:text-xl leading-relaxed md:leading-tight max-w-md ArchivoLight underline"
+>
+  En savoir plus
+</HashLink>
                     <div className="flex md:hidden items-center justify-center order-3 md:order-4 w-full">
                         <img
                             src="/images/bonus2.png"

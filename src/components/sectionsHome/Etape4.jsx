@@ -1,6 +1,7 @@
 import React from "react";
 import StepTitle from "../ui/StepTitle";
 import { useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Etape4() {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function Etape4() {
             {/* Texte étape 4 */}
             <div className="text-[#0a548d] max-w-md text-center md:text-left flex flex-col gap-6  md:gap-16 flex-1">
                 <div className="flex flex-col justify-start items-start gap-6  ">
-     
+
                       <StepTitle>
                         <div>
                        <div className="text-[#ff8200] pb-2">Étape 4 :</div>
@@ -43,12 +44,17 @@ export default function Etape4() {
                 </div>
 
                 <div>
-                    <button
-                        className="bg-[#0a548d] text-white shadow text-xl px-8 py-3 rounded-lg hover:bg-[#084b7a] transition ArchivoLight font-bold"
-                        onClick={() => navigate("/application#solliciter")}
-                    >
-                        En savoir plus
-                    </button>
+
+
+<HashLink
+  smooth
+  to="/application#solliciter"
+  className="text-xl bg-[#0a548d] text-white px-8 py-3 rounded-lg hover:bg-[#084b7a] transition ArchivoLight font-bold"
+>
+  En savoir plus
+</HashLink>
+
+
                 </div>
             </div>
         </div>

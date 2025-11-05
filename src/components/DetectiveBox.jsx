@@ -15,9 +15,9 @@ export default function DetectiveBox() {
 
   const setSelected = (value) => {
     setSelectedProduct(value)
-    setQuantity(1);
+    setQuantity(20);
   }
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(20);
   const { addMaison } = useCart();
   const showNotification = (message) => {
     toast.success(message, {
@@ -43,13 +43,13 @@ export default function DetectiveBox() {
   ];
 
   const products = [
-    { id: 0, idname: "detective_1", name: "Pour 1 détective", price: 59.99, image: "/images/1_detective-removebg-preview.png",poids:950 },
-    { id: 1, idname: "detective_2", name: "Pour 2 détectives", price: 67.99, image: "/images/2_detectives-removebg-preview.png",poids:950  },
-    { id: 2, idname: "detective_3", name: "Pour 3 détectives", price: 75.99, image: "/images/3_detectives-removebg-preview.png",poids:950  },
+    { id: 0, idname: "detective_1", name: "Pour 1 détective", price: 59.99, image: "/images/1_detective-removebg-preview.png", poids: 950 },
+    { id: 1, idname: "detective_2", name: "Pour 2 détectives", price: 67.99, image: "/images/2_detectives-removebg-preview.png", poids: 950 },
+    { id: 2, idname: "detective_3", name: "Pour 3 détectives", price: 75.99, image: "/images/3_detectives-removebg-preview.png", poids: 950 },
   ];
 
   const increaseQuantity = () => setQuantity(q => q + 1);
-  const decreaseQuantity = () => setQuantity(q => (q > 1 ? q - 1 : 1));
+  const decreaseQuantity = () => setQuantity(q => (q > 20 ? q - 1 : 20));
 
   const playAudio = (src) => {
     if (audioRef.current) {
@@ -80,14 +80,19 @@ export default function DetectiveBox() {
     const product = products[selectedProduct];
     if (!product) return;
 
-    addMaison(product.idname, "Box "+product.name, product.price, product.image, quantity, 0,null,'', product.poids);
+    addMaison(product.idname, "Box " + product.name, product.price, product.image, quantity, 0, null, '', product.poids);
     showNotification(`${quantity}x ${product.name} ajouté au panier`);
-    setQuantity(1);
+    setQuantity(20);
   };
 
 
   return (
-    <div className="w-full max-w-6xl mx-auto ">
+    <div className="w-full max-w-6xl mx-auto flex flex-col gap-12 ">
+      <div className="text-[#0a548d] text-center ArchivoBold flex flex-col gap-4">
+        Saviez-vous qu’une meilleure alimentation peut augmenter la concentration et réduire le stress au travail ?
+        Pour adopter de bonnes pratiques nous accompagnons vos équipes avec des jeux à faire avec leurs enfants, des ateliers et
+        conférences ludiques et immersives
+      </div>
       {/* Layout principal avec 2 colonnes sur desktop */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
 
@@ -124,12 +129,15 @@ export default function DetectiveBox() {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-[#0a548d] leading-relaxed">
-              Une aventure gourmande et éducative à vivre à la maison avec des jeux d'enquête pour apprendre à faire le tri dans les produits en magasin. Découvrez les secrets des ingrédients, déjouez les pièges du marketing et devenez des détectives du vrai goût en famille ! <span
-                                        onClick={() => setIsPopupOpen(true)}
-                                        className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
-                                    >
-                                        Voir le contenu
-                                    </span>
+              Offrez à vos collaborateurs une aventure gourmande et éducative à vivre avec leurs
+              enfants. Des jeux d’enquête pour apprendre à faire le tri dans les produits en
+              magasin; découvrir les secrets des ingrédients, déjouer les pièges du marketing et
+              devenir des détectives du vrai goût en famille !  <span
+                onClick={() => setIsPopupOpen(true)}
+                className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
+              >
+                Voir le contenu
+              </span>
             </p>
 
             {/* Audio extraits */}
@@ -149,7 +157,7 @@ export default function DetectiveBox() {
                       src={
                         activeAudio === sample.src
                           ? "/images/son actif.svg"
-                          : "/images/son inactif.svg"
+                          : "/images/son inactif.png"
                       }
                       alt="écouter"
                       className="w-16 h-16"
@@ -178,6 +186,7 @@ export default function DetectiveBox() {
                   quantity={quantity}
                   increaseQuantity={increaseQuantity}
                   decreaseQuantity={decreaseQuantity}
+                  minQuantity={20}
                 />
               ))}
               {/* Bouton Commander */}
@@ -194,9 +203,9 @@ export default function DetectiveBox() {
         </div>
       </div>
 
-     <BoxTPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
-  <ContentDetectiveBox />
-</BoxTPopup>
+      <BoxTPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
+        <ContentDetectiveBox />
+      </BoxTPopup>
     </div>
   );
 }

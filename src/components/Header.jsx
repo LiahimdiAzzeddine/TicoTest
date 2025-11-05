@@ -13,12 +13,12 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState('');
   const [isOrderSummaryOpen, setIsOrderSummaryOpen] = useState(false);
 const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
-                  cart.ecole.reduce((acc, item) => acc + item.childrenCount, 0);
+                  cart.ecole.reduce((acc, item) => acc + 1, 0);
 
   const path = location.pathname;
   const hash = location.hash;
   const navigationItems = [
-    { name: "Application", path: "/application/" },
+    { name: "L'application", path: "/application/" },
     { name: "À la maison", path: "/athome" },
     { name: "À l'école", path: "/atschool" },
     { name: "Au travail", path: "atwork" },

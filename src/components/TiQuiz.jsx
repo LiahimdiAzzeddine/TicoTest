@@ -41,8 +41,8 @@ export default function TiQuiz() {
                             alt="Box Ti’Conso"
                             className="w-80 mx-auto md:hidden"
                         />
-                            <div class="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6 ">
-                            <ul class="flex flex-col gap-2 list-disc list-inside">
+                            <div className="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6 ">
+                            <ul className="flex flex-col gap-2 list-disc list-inside">
                                 <li>Quiz solo ou multi-joueurs</li>
                                 <li className="whitespace-nowrap">Pouvant s’implémenter sur l’application de votre organisation</li>
                                 <li className="whitespace-nowrap">Plus de 200 questions à choix multiples sur l’alimentation</li>

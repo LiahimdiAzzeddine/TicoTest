@@ -34,9 +34,8 @@ export default function HomeContent() {
                     {/* Sous-titre */}
                     <div className="w-full flex justify-center items-center md:justify-start">
                         <p className="text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-[#0a548d] leading-relaxed px-3 py-2 md:px-0 md:py-0 bg-gray-50 rounded-xl md:bg-transparent border border-gray-200 md:border-none shadow-sm md:shadow-none">
-                         Scannez et demandez aux marques la
-transparence TiCO en dehors de toutes
-perturbations marketing.
+                       Scannez pour demander aux marques de jouer le jeu
+de la transparence TiCO
                         </p>
                     </div>
 

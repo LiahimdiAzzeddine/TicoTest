@@ -26,8 +26,8 @@ export default function Visio() {
                         </div>
 
                         {/* Paragraphes */}
-                        <div class="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6">
-                            <ul class="flex flex-col gap-2 list-disc list-inside">
+                        <div className="text-lg leading-relaxed ArchivoLight space-y-4 text-start md:px-6">
+                            <ul className="flex flex-col gap-2 list-disc list-inside">
                                 <li >Webinar d’1h, animée par un expert TiCO</li>
                                 <li className="whitespace-nowrap">Objectif : sensibiliser au lien entre l’alimentation, la santé et le bien-être au travail</li>
                                 <li>Quiz et sondages dynamiques favorisant l’engagement</li>

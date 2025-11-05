@@ -9,7 +9,7 @@ import { BoxTPopup, ContentCalendrier, ContentSection2 } from "./ui/BoxPopup";
 export default function CalendrierPage() {
     const [selectedProduct, setSelectedProduct] = useState(0);
     const [quantity, setQuantity] = useState(1);
-    const { addMaison } = useCart();
+    const { addMaison, cart } = useCart();
     const products = [
         {
             id: 0,
@@ -24,12 +24,11 @@ export default function CalendrierPage() {
             id: 1,
             idname: "calendrier-imprime",
             name: "La vérité si J’mange",
-            price: 15.99,
+            price: 12.99,
             image: "/images/Calendrier_imprimé-removebg-preview.png",
             frais: 0,
             description: "Calendrier imprimé",
             poids: 200,
-
         },
     ];
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -64,6 +63,32 @@ export default function CalendrierPage() {
         const product = products[selectedProduct];
         if (!product) return;
 
+        // Vérifie si le produit PDF est déjà dans le panier
+        const alreadyInCart = cart.maison.some(
+            (item) =>
+                item.id === "calendrier-pdf" &&
+                product.idname === "calendrier-pdf"
+        );
+
+        if (alreadyInCart) {
+            toast.error("Le calendrier PDF est déjà dans votre panier.", {
+                duration: 3000,
+                position: "top-right",
+                style: {
+                    background: "#B00020",
+                    color: "#fff",
+                    fontWeight: "600",
+                    padding: "16px",
+                    borderRadius: "10px",
+                },
+                iconTheme: {
+                    primary: "#fff",
+                    secondary: "#B00020",
+                },
+            });
+            return;
+        }
+
         addMaison(
             product.idname,
             product.name,
@@ -75,42 +100,45 @@ export default function CalendrierPage() {
             product.description,
             product.poids
         );
+
         showNotification(
-            `${quantity}x ${product.subname} ajouté au panier\u00A0\u00A0!`
+            `${quantity}x ${product.name} ajouté au panier\u00A0\u00A0!`
         );
         setQuantity(1);
     };
+
     return (
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-10">
             <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-y-8 md:gap-x-10 w-full max-w-6xl">
                 <div className="text-[#0a548d] text-center ArchivoBold flex flex-col gap-4">
                     <div>
-                        <span className="text-[#ff8300]">
-                            Changer l’alimentation
-                        </span>
-                        , ça commence par l’information. Pendant que la
-                        transparence se construit on s’est dit que vous aimeriez
-                        surement avoir des outils{" "}
-                        <span className="text-[#ff8300]">
-                            pour faire le tri dès maintenant
-                        </span>{" "}
-                        sur les produits alimentaires.
+                        Découvrez le Ti’Calendrier et le guide “La vérité si
+                        J’mange“ pour en mieux choisir sans vous prendre la tête
+                        et financer l’envoi de Kits pédagogiques dans les écoles
+                        !
                     </div>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-y-8 md:gap-x-12 w-full max-w-6xl">
                 {/* Illustration affichée uniquement sur desktop */}
-                <div className="hidden md:flex justify-center flex-[2]">
+                <div className="hidden md:flex flex-col justify-center w-full flex-[2]">
                     <img
                         src="/images/calendrier.png"
                         alt="Suivi des demandes"
                         className="w-96 md:w-full m-auto"
                     />
+                    <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                        Dont{" "}
+                        <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
+                            2€ finance
+                        </span>{" "}
+                        un kit pédagogique pour une école
+                    </div>
                 </div>
 
                 {/* Texte étape 4 */}
-                <div className="text-[#0a548d] md:flex-[3] text-center md:text-left flex flex-col gap-8 md:gap-14 w-full ">
-                    <div className="flex flex-col justify-start items-start gap-8 md:gap-12">
+                <div className="text-[#0a548d] md:flex-[3] text-center md:text-left flex flex-col gap-8 md:gap-8 w-full ">
+                    <div className="flex flex-col justify-start items-start gap-8 md:gap-8">
                         <StepTitle center={false}>
                             <span className="text-[#0a548d]">
                                 Calendrier perpétuel de fruits <br></br>et
@@ -122,39 +150,46 @@ export default function CalendrierPage() {
                         </StepTitle>
 
                         {/* Illustration affichée uniquement sur mobile (entre titre et description) */}
-                        <div className="flex justify-center w-full md:hidden">
+                        <div className="flex flex-col justify-center w-full w-full md:hidden">
                             <img
                                 src="/images/calendrier.png"
                                 alt="Suivi des demandes"
                                 className="w-96 sm:w-60"
                             />
+                            <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                                Dont{" "}
+                                <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
+                                    2€ finance
+                                </span>{" "}
+                                un kit pédagogique pour une école
+                            </div>
                         </div>
 
                         <div className="flex flex-col gap-4">
                             <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                                Il est beau et surtout réutilisable d’année en
-                                année !<br></br>
-                                C’est un pense-bête idéal pour faciliter la
-                                consommation de fruits et légumes de saison.
+                                En plus d’être beau il est surtout réutilisable
+                                d’année en année ! C’est un pense-bête idéal
+                                pour faciliter la consommation de fruits et
+                                légumes de saison.
                             </p>
 
                             <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
                                 En plus d’idées recettes, il contient des
                                 astuces et informations qu’il est bon de garder
                                 à l’œil, comme un comparatif des huiles de
-                                cuisine par exemple.{" "}
+                                cuisine par exemple.
                                 <span
                                     onClick={() => setIsPopupOpen(true)}
                                     className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
                                 >
-                                    Voir le contenu
+                                    Voir ce qu’il contient.
                                 </span>
                             </p>
                         </div>
                     </div>
 
                     {/* Section produits */}
-                    <div className="flex flex-col gap-4 mt-6">
+                    <div className="flex flex-col gap-4 mt-2">
                         {products.map((product) => (
                             <ProductCard
                                 key={product.id}

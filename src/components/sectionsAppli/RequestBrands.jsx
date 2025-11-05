@@ -29,7 +29,8 @@ const RequestBrands = () => {
   return (
     <div className="flex flex-col max-w-6xl gap-8 md:gap-14 w-full">
       <StepTitle center={false}>
-        <span className="text-[#50916e]">Solliciter les&nbsp;</span>
+
+        <span className="text-[#50916e]">Demander aux&nbsp;</span>
         <span className="text-[#ff8300] font-bold">marques</span>
       </StepTitle>
           <div className="flex flex-col  w-full">
@@ -40,7 +41,9 @@ const RequestBrands = () => {
           {/* Bloc Gauche : texte + image */}
           <div className="flex flex-col items-center lg:items-start justify-start text-center lg:text-start w-full lg:w-3/5 xl:w-1/3 gap-4 sm:gap-6">
             <p className="text-[#50916e] max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg ArchivoLight font-bold text-base lg:text-lg leading-relaxed pt-4 md:pt-0">
-              Pour demander aux marques de dévoiler toutes les informations sur les produits, un clic sur ce bouton suffit !
+             Pour demander aux marques de
+jouer le jeu de la transparence sur
+TiCO un clic sur ce bouton suffit !
             </p>
           </div>
 

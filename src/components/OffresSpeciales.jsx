@@ -92,7 +92,7 @@ const BUNDLES = {
     id: "starterpack-print",
     name: "Le Starter Pack Ti'Conso (Imprimé)",
     price: 49.99,
-    image:"/images/Packimprime.webp",
+    image:"/images/pack_imprime.png",
     frais:0,
     originalPrice:59.97,
     description:"Calendrier, guide et jeu",
@@ -105,7 +105,7 @@ export default function OffresSpeciales({
   guideImg = "/images/guidep.webp",
   jeuImg = "/images/jeup.webp",
 }) {
-  const { addMaison } = useCart();
+  const { addMaison,cart } = useCart();
 
   const showNotification = (message) => {
     toast.success(message, {
@@ -125,10 +125,47 @@ export default function OffresSpeciales({
     });
   };
 
-  const handleAddTiPack = (qty) => {
-    addMaison(BUNDLES.tiPackPdf.id, BUNDLES.tiPackPdf.name, BUNDLES.tiPackPdf.price,BUNDLES.tiPackPdf.image,qty,BUNDLES.tiPackPdf.frais,BUNDLES.tiPackPdf.originalPrice,BUNDLES.tiPackPdf.description,BUNDLES.tiPackPdf.poids);
-    showNotification(`${qty}x Le Ti'Pack (PDF) ajouté au panier !`);
-  };
+const handleAddTiPack = (qty) => {
+  // 🔎 Vérifie si le Ti'Pack PDF est déjà dans le panier
+  const alreadyInCart = cart.maison.some(
+    (item) => item.id === "tipack-pdf" || item.id === "tipack-pdf"
+  );
+
+  if (alreadyInCart) {
+    toast.error("Le Ti’Pack (PDF) est déjà dans votre panier.", {
+      duration: 3000,
+      position: "top-right",
+      style: {
+        background: "#B00020",
+        color: "#fff",
+        fontWeight: "600",
+        padding: "16px",
+        borderRadius: "10px",
+      },
+      iconTheme: {
+        primary: "#fff",
+        secondary: "#B00020",
+      },
+    });
+    return;
+  }
+
+  // ✅ Si pas encore présent, on ajoute normalement
+  addMaison(
+    BUNDLES.tiPackPdf.id,
+    BUNDLES.tiPackPdf.name,
+    BUNDLES.tiPackPdf.price,
+    BUNDLES.tiPackPdf.image,
+    qty,
+    BUNDLES.tiPackPdf.frais,
+    BUNDLES.tiPackPdf.originalPrice,
+    BUNDLES.tiPackPdf.description,
+    BUNDLES.tiPackPdf.poids
+  );
+
+  showNotification(`${qty}x Le Ti'Pack (PDF) ajouté au panier !`);
+};
+
 
   const handleAddStarterPack = (qty) => {
     addMaison(BUNDLES.starterPackPrint.id, BUNDLES.starterPackPrint.name, BUNDLES.starterPackPrint.price,BUNDLES.starterPackPrint.image,qty,BUNDLES.starterPackPrint.frais,BUNDLES.starterPackPrint.originalPrice,BUNDLES.starterPackPrint.description,BUNDLES.starterPackPrint.poids);
@@ -156,7 +193,7 @@ export default function OffresSpeciales({
           />
 
           <BundleRow
-            visual={"/images/Packimprime.webp"}
+            visual={"/images/pack_imprime.png"}
             title="Le Starter Pack Ti'Conso"
             id={"starterpack-print"}
             lines={["Calendrier, guide et jeu", "Version imprimé"]}

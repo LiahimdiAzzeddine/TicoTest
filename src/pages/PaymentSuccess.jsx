@@ -39,7 +39,7 @@ export default function PaymentSuccess() {
 
         <p className="text-gray-600 mb-4 text-lg">
           {type === 'org'
-            ? "Merci pour votre don !"
+            ? "Merci pour votre contribution  !"
             : "Merci pour votre commande ! Nous avons bien reçu votre paiement et nous préparons votre commande."}
         </p>
 

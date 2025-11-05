@@ -1,20 +1,19 @@
-import React, { useMemo, useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useMemo, useState, useEffect } from "react";
 import { useGetOrganisations } from "../services/useGetOrgs";
+import ContributionPopupContent from "./ui/ContributionPopup";
 
 const BLUE = "#0a548d";
 const ORANGE = "#ff7a00";
 
 /* ---- Carte organisme ---- */
 
-function OrgCard({ org, bg = "/images/fondbeige-old.png", pricePerBox = 120 }) {
-  const target = (org.boxes ?? 1) * pricePerBox;
-  const navigate = useNavigate();
+function OrgCard({ org, bg = "/images/fondbeige-old.png", onClick }) {
+  const target = 250;
 
   return (
     <button
       type="button"
-      onClick={() => navigate(`/organization/${org.id}`)}
+      onClick={() => onClick(org)}
       className="relative w-[290px] h-[275px] grid place-items-center text-center"
     >
       {/* Image de fond */}
@@ -44,7 +43,7 @@ function OrgCard({ org, bg = "/images/fondbeige-old.png", pricePerBox = 120 }) {
         </div>
 
         <div className="mt-2 font-extrabold text-base ArchivoLight" style={{ color: BLUE }}>
-          Collectés : {org.collected ?? 0} / {target}€
+          Collectés : {org.total_collected ?? 0} / {target}€
         </div>
       </div>
     </button>
@@ -96,8 +95,8 @@ function SearchBar({ value, onChange, placeholder = "Rechercher", resultCount })
             aria-label="Effacer la recherche"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         )}
@@ -133,7 +132,6 @@ function EmptyState({ hasSearch }) {
           <circle cx="12" cy="12" r="10" />
           <line x1="12" y1="8" x2="12" y2="12" />
           <line x1="12" y1="16" x2="12" y2="16" />
-          {/* point d’info (utiliser x2=y2= même coord pour avoir un vrai point) */}
         </svg>
       </div>
       <h3 className="text-xl font-bold text-slate-700 mb-2">
@@ -148,15 +146,60 @@ function EmptyState({ hasSearch }) {
   );
 }
 
+/* ---- Barre de catégories ---- */
+function CategoryBar({ activeCategory, onCategoryChange, successCount, inProgressCount }) {
+  return (
+    <div className="flex items-center justify-center gap-4 w-full max-w-2xl mx-auto">
+      <button
+        onClick={() => onCategoryChange("in-progress")}
+        className={`flex-1 py-1 px-6 rounded-xl font-semibold transition-all duration-300 ${activeCategory === "in-progress"
+            ? "shadow-lg transform scale-105"
+            : "hover:shadow-md"
+          }`}
+        style={{
+          backgroundColor: activeCategory === "in-progress" ? ORANGE : "white",
+          color: activeCategory === "in-progress" ? "white" : BLUE,
+          borderWidth: "2px",
+          borderColor: activeCategory === "in-progress" ? ORANGE : BLUE,
+        }}
+      >
+        <div className="flex flex-col items-center gap-1">
+          <span>En cours</span>
+          <span className="text-sm opacity-90">{inProgressCount}</span>
+        </div>
+      </button>
+
+      <button
+        onClick={() => onCategoryChange("success")}
+        className={`flex-1 py-1 px-6 rounded-xl font-semibold transition-all duration-300 ${activeCategory === "success"
+            ? "shadow-lg transform scale-105"
+            : "hover:shadow-md"
+          }`}
+        style={{
+          backgroundColor: activeCategory === "success" ? "#22c55e" : "white",
+          color: activeCategory === "success" ? "white" : BLUE,
+          borderWidth: "2px",
+          borderColor: activeCategory === "success" ? "#22c55e" : BLUE,
+        }}
+      >
+        <div className="flex flex-col items-center gap-1">
+          <span>Objectif atteint</span>
+          <span className="text-sm opacity-90">{successCount}</span>
+        </div>
+      </button>
+    </div>
+  );
+}
+
 
 /* ---- Composant principal ---- */
 export default function OrganismesGrid({
-  pricePerBox = 120,
   fondPath = "/images/fondbeige-old.png",
-  onSelect = (org) => console.log("select org:", org),
 }) {
   const [q, setQ] = useState("");
-  const navigate = useNavigate();
+  const [category, setCategory] = useState("in-progress");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedOrg, setSelectedOrg] = useState(null);
 
   const { organisations, loading, error, getOrganisations } = useGetOrganisations();
 
@@ -164,22 +207,38 @@ export default function OrganismesGrid({
     getOrganisations("public");
   }, []);
 
+  const { inProgress, success } = useMemo(() => {
+    const orgs = organisations || [];
+    const target = 250;
+    const inProgress = orgs.filter((o) => {
+      const collected = o.total_collected ?? o.collected ?? 0;
+      return collected < target;
+    });
+    const success = orgs.filter((o) => {
+      const collected = o.total_collected ?? o.collected ?? 0;
+      return collected >= target;
+    });
+    return { inProgress, success };
+  }, [organisations]);
+
   const filtered = useMemo(() => {
     const t = q.trim().toLowerCase();
-    if (!t) return organisations || [];
-    return (organisations || []).filter((o) =>
+    const baseList = category === "success" ? success : inProgress;
+
+    if (!t) return baseList;
+    return baseList.filter((o) =>
       [o.orgName, o.forme, o.ville, o.cp].some((v) =>
         String(v || "").toLowerCase().includes(t)
       )
     );
-  }, [organisations, q]);
+  }, [q, category, inProgress, success]);
 
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-20">
         <div className="relative w-16 h-16">
-          <div className="absolute inset-0 rounded-full border-4 border-slate-200"/>
-          <div className="absolute inset-0 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: `${BLUE} transparent transparent transparent` }}/>
+          <div className="absolute inset-0 rounded-full border-4 border-slate-200" />
+          <div className="absolute inset-0 rounded-full border-4 border-t-transparent animate-spin" style={{ borderColor: `${BLUE} transparent transparent transparent` }} />
         </div>
         <p className="mt-4 text-slate-600 font-medium">Chargement des organisations...</p>
       </div>
@@ -191,9 +250,9 @@ export default function OrganismesGrid({
       <div className="flex flex-col items-center justify-center py-20 px-4">
         <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-4">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="15" y1="9" x2="9" y2="15"/>
-            <line x1="9" y1="9" x2="15" y2="15"/>
+            <circle cx="12" cy="12" r="10" />
+            <line x1="15" y1="9" x2="9" y2="15" />
+            <line x1="9" y1="9" x2="15" y2="15" />
           </svg>
         </div>
         <p className="text-red-600 font-medium text-center">Erreur : {error}</p>
@@ -210,6 +269,13 @@ export default function OrganismesGrid({
         resultCount={filtered.length}
       />
 
+      <CategoryBar
+        activeCategory={category}
+        onCategoryChange={setCategory}
+        successCount={success.length}
+        inProgressCount={inProgress.length}
+      />
+
       {filtered.length === 0 ? (
         <EmptyState hasSearch={q.trim().length > 0} />
       ) : (
@@ -219,11 +285,25 @@ export default function OrganismesGrid({
               key={org.id || i}
               org={org}
               bg={fondPath}
-              pricePerBox={pricePerBox}
-              onClick={onSelect}
+              onClick={(org) => {
+                const target = 250;
+                const collected = org.total_collected ?? org.collected ?? 0;
+                if (collected < target) {
+                  setSelectedOrg(org);
+                  setIsPopupOpen(true);
+                }
+              }}
             />
           ))}
         </div>
+      )}
+
+      {isPopupOpen && (
+        <ContributionPopupContent
+          isOpen={isPopupOpen}
+          setIsOpen={setIsPopupOpen}
+          organization={selectedOrg}
+        />
       )}
     </div>
   );

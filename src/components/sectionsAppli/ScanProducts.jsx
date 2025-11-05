@@ -31,8 +31,9 @@ détaillant toutes les informations essentielles à connaître.
             <p className="ArchivoLight font-bold">
               <span className="text-[#ff8300] ArchivoBold font-bold">Impact</span> <br />
               <span className="font-semibold">TiCO</span> vous donne la
-              possibilité d’interpeller les marques pour qu’elles lèvent le voile
-              sur leurs produits.
+             L’application donne à chacun la possibilité de demander aux marques de
+jouer le jeu de la transparence sur TiCO
+
             </p>
 
             <p className="ArchivoLight font-bold">

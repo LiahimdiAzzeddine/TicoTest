@@ -2,6 +2,7 @@ import React from "react";
 import StepTitle from "../ui/StepTitle";
 import { useNavigate } from "react-router-dom";
 import { useSelectedIndex } from "../../contexts/SelectedIndexProvider";
+    import { HashLink } from 'react-router-hash-link';
 
 export default function Etap1() {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ export default function Etap1() {
                         </div>
                     </StepTitle>
                     <p className="text-lg text-[#0a548d] ArchivoLight leading-relaxed font-bold text-start lg:text-left">
-                        TiCO est le premier référentiel à encadrer la
-                        transparence sur les produits alimentaires.
+                       TiCO est le premier référentiel à proposer un cadre pour
+la&nbsp;transparence sur les produits alimentaires.
                     </p>
                 </div>
 
@@ -99,12 +100,15 @@ export default function Etap1() {
 
       {/* Bouton En savoir plus */}
       <div className="mt-6">
-      <button
-      className="text-xl bg-[#0a548d] text-white px-8 py-3 rounded-lg hover:bg-[#084b7a] transition ArchivoLight font-bold"
-      onClick={() => navigate("/application")}
-    >
-      En savoir plus
-    </button>
+
+<HashLink
+  smooth
+  to="/application#transparence"
+  className="text-xl bg-[#0a548d] text-white px-8 py-3 rounded-lg hover:bg-[#084b7a] transition ArchivoLight font-bold"
+>
+  En savoir plus
+</HashLink>
+
 
       </div>
     </div>

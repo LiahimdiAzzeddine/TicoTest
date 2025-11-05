@@ -6,8 +6,8 @@ function Transparence() {
       {/* Titre principal */}
       <TitleSection center={true}>
       <div className="leading-none md:leading-tight">
-        La transparence, pour l'avoir<br></br> il faut la
-        demander
+        La transparence, une histoire de collaboration
+
         </div>
       </TitleSection>
 
@@ -34,7 +34,7 @@ function Transparence() {
             <img className="2xl:w-48 2xl:h-48 md:w-40 md:h-40 w-32 h-32" src="/images/22.png" alt="Bulles" />
           </div>
           <p className="text-base 2xl:text-xl text-[#0a548d] leading-4 ArchivoLight ">
-            Demandons-leur de<br />toutes les dévoiler<br />selon un cadre établi
+            Demandons leur de<br />nous les mettre à<br />disposition selon un<br/>cadre établi
           </p>
         </div>
 
@@ -49,7 +49,7 @@ function Transparence() {
             <img className="2xl:w-48 2xl:h-48 md:w-40 md:h-40 w-32 h-32" src="/images/24.png" alt="Loupe" />
           </div>
           <p className="text-base 2xl:text-xl text-[#0a548d] leading-4 ArchivoLight  ">
-            Et de les faire décrypter<br />par des experts<br />indépendants
+           Pour y voir plus clair<br />sur nos choix<br />alimentaires
           </p>
         </div>
       </div>

@@ -18,8 +18,8 @@ export default function Organization() {
   return (
     <StartSection pb={"md:pb-20 pb-16"}>
       <div className="flex flex-col gap-14 min-h-screen  items-center">
-        <div className="flex flex-col md:flex-row-reverse items-center justify-start md:justify-between gap-y-8 md:gap-x-10 max-w-2xl ">
-          <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1">
+        <div className="flex flex-col md:flex-row-reverse items-center justify-start md:justify-between gap-y-8 md:gap-x-10 max-w-2xl min-h-screen ">
+          <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1 min-h-screen ">
               {/* 🔥 Ici on injecte les infos récupérées dans ton composant */}
               <SelectableDonationBox
                wishLabel = {organisation.boxes+" box Ti'Conso"}

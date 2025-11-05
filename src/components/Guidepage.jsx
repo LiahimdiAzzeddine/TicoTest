@@ -11,7 +11,7 @@ export default function Guidepage() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(0);
     const [quantity, setQuantity] = useState(1);
-    const { addMaison } = useCart();
+    const { addMaison,cart } = useCart();
 
     const products = [
         {
@@ -19,7 +19,7 @@ export default function Guidepage() {
             idname: "guide-pdf",
             name: "La vérité si J’mange",
             subname: "Le guide PDF",
-            price: 14.99,
+            price: 11.99,
             image: "/images/guide_PDF-removebg-preview.png",
              poids:0,
         },
@@ -28,7 +28,7 @@ export default function Guidepage() {
             idname: "guide-imprime",
             name: "La vérité si J’mange",
             subname: "Guide imprimé",
-            price: 20.99,
+            price: 15.99,
             image: "/images/guide_imprimé-removebg-preview.png",
             frais: 0,
              poids:200,
@@ -60,16 +60,56 @@ export default function Guidepage() {
             },
         });
     };
-    const HandelCommand = () => {
-        if (selectedProduct === null || selectedProduct === undefined) return;
+const HandelCommand = () => {
+    if (selectedProduct === null || selectedProduct === undefined) return;
 
-        const product = products[selectedProduct];
-        if (!product) return;
+    const product = products[selectedProduct];
+    if (!product) return;
 
-        addMaison(product.idname, product.name, product.price, product.image, quantity, 0,null,product.subname,product.poids);
-        showNotification(`${quantity}x ${product.subname} ajouté au panier\u00A0\u00A0!`);
-        setQuantity(1);
-    };
+    // ⚠️ Vérifie si le guide PDF est déjà dans le panier
+    const alreadyInCart = cart.maison.some(
+        (item) => item.id === "guide-pdf" && product.idname === "guide-pdf"
+    );
+
+    if (alreadyInCart) {
+        toast.error("Le guide PDF est déjà dans votre panier.", {
+            duration: 3000,
+            position: "top-right",
+            style: {
+                background: "#B00020",
+                color: "#fff",
+                fontWeight: "600",
+                padding: "16px",
+                borderRadius: "10px",
+            },
+            iconTheme: {
+                primary: "#fff",
+                secondary: "#B00020",
+            },
+        });
+        return;
+    }
+
+    // ✅ Si pas encore dans le panier, on ajoute normalement
+    addMaison(
+        product.idname,
+        product.name,
+        product.price,
+        product.image,
+        quantity,
+        0,
+        null,
+        product.subname,
+        product.poids
+    );
+
+    showNotification(
+        `${quantity}x ${product.subname} ajouté au panier\u00A0\u00A0!`
+    );
+
+    setQuantity(1);
+};
+
 
     return (
         <>
@@ -77,7 +117,7 @@ export default function Guidepage() {
 
                 {/* Texte étape 4 */}
                 <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 flex-[3]">
-                    <div className="flex flex-col justify-start items-start gap-8 md:gap-12">
+                    <div className="flex flex-col justify-start items-start gap-8 md:gap-8">
 
                         {/* Titre */}
                         <StepTitle center={false}>
@@ -87,12 +127,19 @@ export default function Guidepage() {
                         </StepTitle>
 
                         {/* ✅ Image au milieu pour mobile */}
-                        <div className="md:hidden w-full flex justify-center">
+                        <div className="md:hidden w-full flex flex-col justify-center w-full">
                             <img
                                 src="/images/guide.png"
                                 alt="Suivi des demandes"
                                 className="w-full md:w-80 lg:w-[23rem] 2xl:w-[26rem]"
                             />
+                            <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                        Dont         <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
+4€ finance</span> un
+kit pédagogique
+pour une école
+                    </div>
+
                         </div>
 
                         {/* Paragraphes */}
@@ -113,7 +160,7 @@ export default function Guidepage() {
 
                     </div>
                     {/* Section produits */}
-                    <div className="flex flex-col gap-4 mt-6">
+                    <div className="flex flex-col gap-4 mt-4">
                         {products.map((product) => (
                             <ProductCard
                                 key={product.id}
@@ -139,12 +186,18 @@ export default function Guidepage() {
                 </div>
 
                 {/* ✅ Image à droite pour desktop */}
-                <div className="hidden md:flex justify-center w-full md:w-auto mt-8 md:mt-0 flex-[2]">
+                <div className="hidden md:flex flex-col justify-center w-full md:w-auto mt-8 md:mt-0 flex-[2]">
                     <img
                         src="/images/guide.png"
                         alt="Suivi des demandes"
                         className="w-96 md:w-full m-auto"
                     />
+                    <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                        Dont         <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
+4€ finance</span> un
+kit pédagogique
+pour une école
+                    </div>
                 </div>
 
             </div>
