@@ -70,10 +70,10 @@ Public : salariés, grand public, événement RSE/QVT
         </div>
             <div className="space-y-4">
                 <div className="flex flex-col  items-center text-center">
-                    <span className={`text-[#ff8300] font-semibold text-base ArchivoLight text-center`}>
+                    <span className={`text-[#ff8200] font-semibold text-base ArchivoLight text-center`}>
                        Escape Food Game : 
                     </span>
-                    <div className="flex-1 mx-3 border-b border-dotted border-[#ff8300]"></div>
+                    <div className="flex-1 mx-3 border-b border-dotted border-[#ff8200]"></div>
                     <span className={`text-[#0a548d] ArchivoLight font-bold text-base`}>
                         Mettez à l’épreuve vos perceptions, enquêtez sur les produits, les scores, les labels et la réglementation  pour déjouer les pièges et devenir un As en lecture d’étiquettes.
                     </span>
@@ -82,10 +82,10 @@ Public : salariés, grand public, événement RSE/QVT
         </div>
          <div className="space-y-4">
                 <div className="flex flex-col justify-between items-center">
-                    <span className={`text-[#ff8300] font-semibold text-base ArchivoLight`}>
+                    <span className={`text-[#ff8200] font-semibold text-base ArchivoLight`}>
                        & dégustations guidées :
                     </span>
-                    <div className="flex-1 mx-3 border-b border-dotted border-[#ff8300]"></div>
+                    <div className="flex-1 mx-3 border-b border-dotted border-[#ff8200]"></div>
                     <span className={`text-[#0a548d] ArchivoLight font-bold text-base`}>
 Rendez-vous à la découverte du vrai goût !                   </span>
                 </div>

@@ -2,11 +2,11 @@ import React from 'react';
 
 const SommairePopup = ({ isOpen, onClose }) => {
     const menuItems = [
-        { title: "Liste d'ingrédients", page: "P4", color: "text-[#ff8300]" },
-        { title: "Informations nutritionnelles", page: "P6", color: "text-[#ff8300]" },
-        { title: "Scores", page: "P10", color: "text-[#ff8300]" },
-        { title: "Labels et certifications", page: "P14", color: "text-[#ff8300]" },
-        { title: "Mentions marketing", page: "P18", color: "text-[#ff8300]" }
+        { title: "Liste d'ingrédients", page: "P4", color: "text-[#ff8200]" },
+        { title: "Informations nutritionnelles", page: "P6", color: "text-[#ff8200]" },
+        { title: "Scores", page: "P10", color: "text-[#ff8200]" },
+        { title: "Labels et certifications", page: "P14", color: "text-[#ff8200]" },
+        { title: "Mentions marketing", page: "P18", color: "text-[#ff8200]" }
     ];
 
     const bonusItems = [
@@ -76,7 +76,7 @@ const ContentSection = ({ menuItems, bonusItems }) => (
                     <span className={`${item.color} font-semibold text-base ArchivoLight`}>
                         {item.title}
                     </span>
-                    <div className="flex-1 mx-3 border-b border-dotted border-[#ff8300]"></div>
+                    <div className="flex-1 mx-3 border-b border-dotted border-[#ff8200]"></div>
                     <span className={`${item.color} ArchivoLight font-bold text-base`}>
                         {item.page}
                     </span>

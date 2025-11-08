@@ -19,7 +19,7 @@ const Decryptages = () => {
       <div className="flex flex-col items-start justify-between gap-5 md:gap-10 flex-1">
         <StepTitle center={false}>
           <span className="text-[#0a548d]">Décryptages&nbsp;</span>
-          <span className="text-[#ff8300] font-bold">indépendants</span>
+          <span className="text-[#ff8200] font-bold">indépendants</span>
         </StepTitle>
 
         <div className="space-y-4 text-[#0a548d] text-base md:text-lg leading-relaxed ArchivoLight font-bold w-full">
@@ -27,7 +27,7 @@ const Decryptages = () => {
             Notre équipe analyse les informations transmises par les marques
             pour vous offrir un maximum de détails. Ce travail demande du temps
             et de l’expertise, c’est pourquoi nous avons mis en place une{" "}
-            <span className="text-[#ff8300] font-bold">
+            <span className="text-[#ff8200] font-bold">
               méthodologie stricte
             </span>{" "}
             qui garantit notre indépendance - un élément clé pour assurer une

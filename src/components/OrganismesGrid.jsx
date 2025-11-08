@@ -1,11 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useGetOrganisations } from "../services/useGetOrgs";
 import ContributionPopupContent from "./ui/ContributionPopup";
 
 const BLUE = "#0a548d";
 const ORANGE = "#ff7a00";
-
-/* ---- Carte organisme ---- */
 
 function OrgCard({ org, bg = "/images/fondbeige-old.png", onClick }) {
   const target = 250;
@@ -16,7 +15,6 @@ function OrgCard({ org, bg = "/images/fondbeige-old.png", onClick }) {
       onClick={() => onClick(org)}
       className="relative w-[290px] h-[275px] grid place-items-center text-center"
     >
-      {/* Image de fond */}
       <img
         src={bg}
         alt=""
@@ -24,7 +22,6 @@ function OrgCard({ org, bg = "/images/fondbeige-old.png", onClick }) {
         className="pointer-events-none absolute inset-0 m-auto h-full w-full object-contain"
       />
 
-      {/* Contenu */}
       <div className="relative z-[1] px-6">
         <h3
           className="font-extrabold leading-tight text-2xl"
@@ -49,7 +46,7 @@ function OrgCard({ org, bg = "/images/fondbeige-old.png", onClick }) {
     </button>
   );
 }
-/* ---- Barre de recherche ---- */
+
 function SearchBar({ value, onChange, placeholder = "Rechercher", resultCount }) {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -69,7 +66,6 @@ function SearchBar({ value, onChange, placeholder = "Rechercher", resultCount })
           }}
         />
 
-        {/* Icône de recherche */}
         <div className={`absolute left-4 top-1/2 -translate-y-1/2 transition-transform duration-300 ${isFocused ? 'scale-110' : ''}`}>
           <svg
             width="20"
@@ -87,7 +83,6 @@ function SearchBar({ value, onChange, placeholder = "Rechercher", resultCount })
           </svg>
         </div>
 
-        {/* Bouton clear */}
         {value && (
           <button
             onClick={() => onChange("")}
@@ -102,7 +97,6 @@ function SearchBar({ value, onChange, placeholder = "Rechercher", resultCount })
         )}
       </div>
 
-      {/* Compteur de résultats */}
       {value && (
         <div className="mt-2 text-center text-sm text-slate-500 animate-fade-in">
           {resultCount} résultat{resultCount > 1 ? 's' : ''} trouvé{resultCount > 1 ? 's' : ''}
@@ -112,7 +106,6 @@ function SearchBar({ value, onChange, placeholder = "Rechercher", resultCount })
   );
 }
 
-/* ---- État vide ---- */
 function EmptyState({ hasSearch }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
@@ -146,7 +139,6 @@ function EmptyState({ hasSearch }) {
   );
 }
 
-/* ---- Barre de catégories ---- */
 function CategoryBar({ activeCategory, onCategoryChange, successCount, inProgressCount }) {
   return (
     <div className="flex items-center justify-center gap-4 w-full max-w-2xl mx-auto">
@@ -176,13 +168,13 @@ function CategoryBar({ activeCategory, onCategoryChange, successCount, inProgres
             : "hover:shadow-md"
           }`}
         style={{
-          backgroundColor: activeCategory === "success" ? "#22c55e" : "white",
+          backgroundColor: activeCategory === "success" ? "#0a548d" : "white",
           color: activeCategory === "success" ? "white" : BLUE,
           borderWidth: "2px",
-          borderColor: activeCategory === "success" ? "#22c55e" : BLUE,
+          borderColor: activeCategory === "success" ? "#0a4d81" : BLUE,
         }}
       >
-        <div className="flex flex-col items-center gap-1">
+        <div className="flex flex-col items-center gap-1 ">
           <span>Objectif atteint</span>
           <span className="text-sm opacity-90">{successCount}</span>
         </div>
@@ -191,21 +183,42 @@ function CategoryBar({ activeCategory, onCategoryChange, successCount, inProgres
   );
 }
 
-
-/* ---- Composant principal ---- */
 export default function OrganismesGrid({
   fondPath = "/images/fondbeige-old.png",
 }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [q, setQ] = useState("");
   const [category, setCategory] = useState("in-progress");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedOrg, setSelectedOrg] = useState(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const { organisations, loading, error, getOrganisations } = useGetOrganisations();
 
   useEffect(() => {
     getOrganisations("public");
   }, []);
+
+  useEffect(() => {
+    if (isInitialized) return;
+
+    const orgId = searchParams.get('org');
+
+    if (orgId && organisations && organisations.length > 0) {
+      const org = organisations.find(o => String(o.id) === String(orgId));
+
+      if (org) {
+        const target = 250;
+        const collected = org.total_collected ?? org.collected ?? 0;
+
+        if (collected < target) {
+          setSelectedOrg(org);
+          setIsPopupOpen(true);
+        }
+      }
+      setIsInitialized(true);
+    }
+  }, [organisations]);
 
   const { inProgress, success } = useMemo(() => {
     const orgs = organisations || [];
@@ -291,6 +304,7 @@ export default function OrganismesGrid({
                 if (collected < target) {
                   setSelectedOrg(org);
                   setIsPopupOpen(true);
+                  setSearchParams({ org: org.id });
                 }
               }}
             />
@@ -301,7 +315,13 @@ export default function OrganismesGrid({
       {isPopupOpen && (
         <ContributionPopupContent
           isOpen={isPopupOpen}
-          setIsOpen={setIsPopupOpen}
+          setIsOpen={(value) => {
+            setIsPopupOpen(value);
+            if (!value) {
+              setSearchParams({}, { replace: true });
+              setIsInitialized(false);
+            }
+          }}
           organization={selectedOrg}
         />
       )}

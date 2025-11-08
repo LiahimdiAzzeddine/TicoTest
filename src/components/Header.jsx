@@ -18,10 +18,11 @@ const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
   const path = location.pathname;
   const hash = location.hash;
   const navigationItems = [
-    { name: "L'application", path: "/application/" },
+    
     { name: "À la maison", path: "/athome" },
     { name: "À l'école", path: "/atschool" },
     { name: "Au travail", path: "atwork" },
+    { name: "L'application", path: "/application/" },
   ];
 
   useEffect(() => {
@@ -77,7 +78,7 @@ const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
 
   return (
     <>
-      <header className={`bg-white/95 backdrop-blur-sm border-b border-orange-400 px-3 sm:px-4 lg:px-6 xl:px-8 py-2 sm:py-3 fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-sm ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+      <header className={`bg-white/95 backdrop-blur-sm border-b border-orange-400 px-3 sm:px-4 lg:px-6 xl:px-8 py-2 sm:py-3 fixed top-0 left-0 right-0 z-40 transition-all duration-300 shadow-sm ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="flex items-center justify-between max-w-screen-lg md:max-w-screen-xl mx-auto">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 transition-transform duration-200 hover:scale-105">
@@ -99,13 +100,13 @@ const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
               }
               return item.external ? (
                 <a key={item.name} href={item.path} target="_blank" rel="noopener noreferrer"
-                   className="text-sm lg:text-base xl:text-lg 2xl:text-xl font-medium text-[#0a548d] hover:text-[#ff8300] transition-all duration-200 ClashDisplayBold px-2 py-1 rounded-md hover:bg-orange-50 whitespace-nowrap">
+                   className="text-sm lg:text-base xl:text-lg 2xl:text-xl font-medium text-[#0a548d] hover:text-[#ff8200] transition-all duration-200 ClashDisplayBold px-2 py-1 rounded-md hover:bg-orange-50 whitespace-nowrap">
                   {item.name}
                 </a>
               ) : (
                 <HashLink key={item.name} to={item.path}
                           className={`text-sm lg:text-base xl:text-lg 2xl:text-xl font-medium transition-all duration-200 ClashDisplayBold px-2 py-1 rounded-md whitespace-nowrap ${
-                            isActive ? "text-[#ff8300] bg-orange-50" : "text-[#0a548d] hover:text-[#ff8300] hover:bg-orange-50"
+                            isActive ? "text-[#ff8200] bg-orange-50" : "text-[#0a548d] hover:text-[#ff8200] hover:bg-orange-50"
                           }`}>
                   {item.name}
                 </HashLink>
@@ -148,7 +149,7 @@ const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="text-[#0a548d] hover:text-[#ff8300] transition-all duration-200 p-2 rounded-md hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-opacity-50"
+              className="text-[#0a548d] hover:text-[#ff8200] transition-all duration-200 p-2 rounded-md hover:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-opacity-50"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -175,7 +176,7 @@ const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
             <img src="/images/tico.webp" className="w-24 h-auto" alt="TiCO logo" />
 
             <button onClick={closeMobileMenu}
-                    className="text-gray-500 hover:text-[#ff8300] transition-colors p-2 rounded-md hover:bg-gray-100"
+                    className="text-gray-500 hover:text-[#ff8200] transition-colors p-2 rounded-md hover:bg-gray-100"
                     aria-label="Fermer le menu">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -204,7 +205,7 @@ const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMobileMenu}
-                  className="text-base font-medium text-[#0a548d] hover:text-[#ff8300] px-4 py-3 rounded-lg transition-all duration-200 hover:bg-orange-50 border-l-4 border-transparent hover:border-orange-300 transform hover:translate-x-1 ClashDisplayBold"
+                  className="text-base font-medium text-[#0a548d] hover:text-[#ff8200] px-4 py-3 rounded-lg transition-all duration-200 hover:bg-orange-50 border-l-4 border-transparent hover:border-orange-300 transform hover:translate-x-1 ClashDisplayBold"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <div className="flex items-center justify-between">
@@ -220,8 +221,8 @@ const cartCount = cart.maison.reduce((acc, item) => acc + item.qty, 0) +
                   to={item.path}
                   onClick={closeMobileMenu}
                   className={`text-base font-medium px-4 py-3 rounded-lg transition-all duration-200 border-l-4 transform hover:translate-x-1 ClashDisplayBold ${
-                    isActive ? 'text-[#ff8300] bg-orange-50 border-orange-300'
-                             : 'text-[#0a548d] hover:text-[#ff8300] hover:bg-orange-50 border-transparent hover:border-orange-300'
+                    isActive ? 'text-[#ff8200] bg-orange-50 border-orange-300'
+                             : 'text-[#0a548d] hover:text-[#ff8200] hover:bg-orange-50 border-transparent hover:border-orange-300'
                   }`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >

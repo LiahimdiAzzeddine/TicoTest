@@ -19,7 +19,7 @@ export default function Teambuilding() {
                             <span className="text-[#0a548d]">
                                 Le
                             </span>
-                            <span className="text-[#ff8300] font-bold">
+                            <span className="text-[#ff8200] font-bold">
                                 Ti’Goûter entre collègue&nbsp;:&nbsp;
                             </span>
                             <span className="text-[#0a548d]">

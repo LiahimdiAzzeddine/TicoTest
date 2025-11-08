@@ -26,7 +26,7 @@ export default function TiQuiz() {
                             <span className="text-[#0a548d]">
                                 Le
                             </span>
-                            <span className="text-[#ff8300] font-bold">
+                            <span className="text-[#ff8200] font-bold">
                                 Ti’Quiz&nbsp;
                             </span>
                             <span className="text-[#0a548d]">

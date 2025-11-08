@@ -113,7 +113,7 @@ export default function CalendrierPage() {
                 <div className="text-[#0a548d] text-center ArchivoBold flex flex-col gap-4">
                     <div>
                         Découvrez le Ti’Calendrier et le guide “La vérité si
-                        J’mange“ pour en mieux choisir sans vous prendre la tête
+                        J’mange“ pour mieux choisir sans vous prendre la tête
                         et financer l’envoi de Kits pédagogiques dans les écoles
                         !
                     </div>
@@ -129,8 +129,8 @@ export default function CalendrierPage() {
                     />
                     <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
                         Dont{" "}
-                        <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
-                            2€ finance
+                        <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
+                            2€ financent
                         </span>{" "}
                         un kit pédagogique pour une école
                     </div>
@@ -144,7 +144,7 @@ export default function CalendrierPage() {
                                 Calendrier perpétuel de fruits <br></br>et
                                 légumes&nbsp;
                             </span>
-                            <span className="text-[#ff8300] font-bold">
+                            <span className="text-[#ff8200] font-bold">
                                 de saison
                             </span>
                         </StepTitle>
@@ -158,8 +158,8 @@ export default function CalendrierPage() {
                             />
                             <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
                                 Dont{" "}
-                                <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
-                                    2€ finance
+                                <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
+                                    2€ financent
                                 </span>{" "}
                                 un kit pédagogique pour une école
                             </div>
@@ -174,10 +174,7 @@ export default function CalendrierPage() {
                             </p>
 
                             <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                                En plus d’idées recettes, il contient des
-                                astuces et informations qu’il est bon de garder
-                                à l’œil, comme un comparatif des huiles de
-                                cuisine par exemple.
+                                Il contient des d’idées recettes, des astuces et des informations qu’il est bon de garder à l’œil, comme un comparatif des huiles de cuisine par exemple.
                                 <span
                                     onClick={() => setIsPopupOpen(true)}
                                     className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"

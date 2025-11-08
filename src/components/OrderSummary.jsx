@@ -33,7 +33,7 @@ export default function OrderSummary({ isOpen, onClose }) {
       <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform transition-transform duration-300 flex flex-col">
         <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-orange-50 to-white">
           <div className="flex items-center gap-3">
-            <ShoppingBag className="w-6 h-6 text-[#ff8300]" />
+            <ShoppingBag className="w-6 h-6 text-[#ff8200]" />
             <h2 className="text-2xl font-bold text-[#0a548d]">Mon Panier</h2>
           </div>
           <button
@@ -98,7 +98,7 @@ export default function OrderSummary({ isOpen, onClose }) {
                             inc={() => updateQty("maison", item.id, item.qty + 1)}
                             dec={() => updateQty("maison", item.id, item.qty - 1)}
                           />
-                          <p className="text-lg font-bold text-[#ff8300]">
+                          <p className="text-lg font-bold text-[#ff8200]">
                             {(item.price * item.qty).toFixed(2)} €
                           </p>
                         </div>
@@ -110,13 +110,13 @@ export default function OrderSummary({ isOpen, onClose }) {
                   <div className="bg-white rounded-lg p-4 border-2 border-orange-300">
                     <div className="flex justify-between items-center mb-3">
                       <span className="text-lg font-bold text-[#0a548d]">Total maison:</span>
-                      <span className="text-2xl font-bold text-[#ff8300]">{totalMaison.toFixed(2)} €</span>
+                      <span className="text-2xl font-bold text-[#ff8200]">{totalMaison.toFixed(2)} €</span>
                     </div>
                     <button
                       onClick={handleOrderMaison}
-                      className="w-full bg-gradient-to-r from-[#ff8300] to-[#ff9933] text-white py-3 rounded-lg font-bold text-base hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
+                      className="w-full bg-gradient-to-r from-[#ff8200] to-[#ff9933] text-white py-3 rounded-lg font-bold text-base hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
                     >
-                      Commander (Maison)
+                      Commander 
                     </button>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function OrderSummary({ isOpen, onClose }) {
           <div className="flex flex-col">
           <h4 className="font-semibold text-gray-800">{item.name}</h4> {/* ✅ nom du produit */}
           
-        <p className="text-lg font-bold text-[#ff8300]">
+        <p className="text-lg font-bold text-[#ff8200]">
           {(item.amount).toFixed(2)} €
         </p></div>
         </div>
@@ -170,13 +170,13 @@ export default function OrderSummary({ isOpen, onClose }) {
                   <div className="bg-white rounded-lg p-4 border-2 border-blue-300">
                     <div className="flex justify-between items-center mb-3">
                       <span className="text-lg font-bold text-[#0a548d]">Total école:</span>
-                      <span className="text-2xl font-bold text-[#ff8300]">{totalEcole.toFixed(2)} €</span>
+                      <span className="text-2xl font-bold text-[#ff8200]">{totalEcole.toFixed(2)} €</span>
                     </div>
                     <button
                       onClick={handleOrderEcole}
                       className="w-full bg-gradient-to-r from-[#0a548d] to-[#0d6ab8] text-white py-3 rounded-lg font-bold text-base hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
                     >
-                      Commander (École)
+                      Commander 
                     </button>
                   </div>
                 </div>

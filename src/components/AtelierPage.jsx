@@ -22,7 +22,7 @@ export default function AtelierPage() {
                 <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1">
                     <div className="flex flex-col justify-start items-start gap-8 md:gap-10">
                         <StepTitle center={false}>
-                            <span className="text-[#ff8300] font-bold">
+                            <span className="text-[#ff8200] font-bold">
                                 Organiser un Ti’Gouter,&nbsp;​
                             </span>
                             <span className="text-[#0a548d]">

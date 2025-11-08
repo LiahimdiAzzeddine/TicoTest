@@ -40,7 +40,8 @@ export default function RechercheOrganisation({
         "outline-none ring-1 ring-white/60 focus:ring-2 focus:ring-sky-300",
         "transition-all duration-200",
        "",
-      ].join(" ")}                maxLength={searchType === "siret" ? 14 : 9}
+      ].join(" ")}              
+  
               />
               <button
                 type="button"

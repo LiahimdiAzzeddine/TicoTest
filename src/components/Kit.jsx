@@ -42,7 +42,7 @@ export default function Kit() {
         {
             id: 0,
             idname: "detective_kit_4",
-            name: "kit - 4 activités",
+            name: "Kit pédagogique TiCO",
             price: 250,
             image: "/images/Boxmaison.png",
         },
@@ -87,7 +87,8 @@ const handleOrganisationCreated = (orgId) => {
     product.name,
     product.idname,
     product.price,
-    product.image
+    product.image,
+''
   );
 
   // Notification locale classique
@@ -99,7 +100,7 @@ const handleOrganisationCreated = (orgId) => {
     message: `Souhaitez-vous passer au paiement ou continuer votre découverte ?`,
     buttons: [
       {
-        label: 'Aller au checkout',
+        label: 'Passer commande',
         onClick: () => {
           // Par exemple : rediriger vers la page de paiement
           window.location.href = '/checkoutEcole';
@@ -148,7 +149,8 @@ const handleOrganisationCreated = (orgId) => {
             product.name,
             product.idname,
             product.price,
-            product.image
+            product.image,
+            ''
         );
 
         showNotification(`${product.name} ajouté au panier`);
@@ -204,7 +206,7 @@ const handleOrganisationCreated = (orgId) => {
                         </p>
 
                         <div className="flex flex-col items-center gap-4">
-                            <p className="text-lg text-[#ff8300]  text-center">
+                            <p className="text-lg text-[#ff8200]  text-center">
                                 Écoutez comme les enfants se prennent au jeu !
                             </p>
 
@@ -227,7 +229,7 @@ const handleOrganisationCreated = (orgId) => {
                                         <span
                                             className={`font-bold underline underline-offset-2 ${activeAudio === sample.src
                                                     ? "text-[#0a548d]"
-                                                    : "text-[#ff8300]"
+                                                    : "text-[#ff8200]"
                                                 }`}
                                         >
                                             {sample.label}
@@ -251,6 +253,7 @@ const handleOrganisationCreated = (orgId) => {
                 isOpen={isOrgPopupOpen}
                 onClose={() => setIsOrgPopupOpen(false)}
                 onSuccess={handleOrganisationCreated}
+                isForBuy={true}
             />
         </div>
     );

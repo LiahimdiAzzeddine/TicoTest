@@ -119,7 +119,7 @@ export default function DetectiveBox() {
               <span className="text-[#0a548d]">
                 La box de détective gourmand pour&nbsp;
               </span>
-              <span className="text-[#ff8300] font-bold">
+              <span className="text-[#ff8200] font-bold">
                 sensibiliser les 8-12 ans
               </span>
             </StepTitle>
@@ -142,7 +142,7 @@ export default function DetectiveBox() {
 
             {/* Audio extraits */}
             <div className="flex flex-col items-center gap-4">
-              <p className="text-lg text-[#ff8300] font-bold text-center">
+              <p className="text-lg text-[#ff8200] font-bold text-center">
                 Écoutez comme les enfants se prennent au jeu !
               </p>
 
@@ -165,7 +165,7 @@ export default function DetectiveBox() {
                     <span
                       className={`font-bold underline underline-offset-2 ${activeAudio === sample.src
                         ? "text-[#0a548d]"
-                        : "text-[#ff8300]"
+                        : "text-[#ff8200]"
                         }`}
                     >
                       {sample.label}

@@ -47,7 +47,7 @@ export default function TransparenceTri() {
                 className="block md:hidden"
             >
                 <div className="leading-tight text-center">
-                    <span className="text-[#ff8300]">L’alimentation</span>&nbsp;
+                    <span className="text-[#ff8200]">L’alimentation</span>&nbsp;
                     <span>est un pilier incontournable</span><span>&nbsp;d’une bonne santé,</span>
                     <span>encore faut-il comprendre</span>
                   &nbsp;
@@ -55,7 +55,7 @@ export default function TransparenceTri() {
                     &nbsp;
                     <span>Ensemble redonnons</span>
                     &nbsp;
-                    <span className="text-[#ff8300]">
+                    <span className="text-[#ff8200]">
                         du sens à nos choix !
                     </span>
                 </div>
@@ -69,7 +69,7 @@ export default function TransparenceTri() {
                 className="hidden md:block"
             >
                 <div className="leading-tight md:leading-none text-center">
-                    <span className="text-[#ff8300]">
+                    <span className="text-[#ff8200]">
                         L’alimentation est un pilier&nbsp;incontournable
                     </span>
                     &nbsp;
@@ -80,7 +80,7 @@ export default function TransparenceTri() {
                     </span>
                     <br className="hidden md:block" />
                     <span className="block md:inline">Ensemble redonnons </span>
-                    <span className="text-[#ff8300]">
+                    <span className="text-[#ff8200]">
                         du sens à nos choix !
                     </span>
                 </div>

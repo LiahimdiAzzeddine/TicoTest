@@ -5,7 +5,7 @@ const ScanProducts = () => {
   return (
     <div className="flex flex-col justify-between w-full max-w-6xl gap-8 md:gap-14">
       <StepTitle center={false}>
-        <span className="text-[#ff8300] font-bold">Scannez</span>{" "}
+        <span className="text-[#ff8200] font-bold">Scannez</span>{" "}
         <span className="text-[#0a548d]">vos produits alimentaires</span>
       </StepTitle>
       <div className="flex flex-col md:flex-row items-center justify-between w-full  ">
@@ -22,14 +22,14 @@ const ScanProducts = () => {
         <div className="flex-[2] text-left">
           <div className="space-y-2 md:space-y-4 text-[#0a548d] text-base md:text-lg leading-relaxed Archivo">
             <p className="ArchivoLight font-bold">
-              <span className="text-[#ff8300] ArchivoBold font-bold">Transparence</span> <br />
+              <span className="text-[#ff8200] ArchivoBold font-bold">Transparence</span> <br />
               <span className="font-semibold">TiCO</span> propose de définir et d’évaluer la transparence des marques en
 détaillant toutes les informations essentielles à connaître.
 
             </p>
 
             <p className="ArchivoLight font-bold">
-              <span className="text-[#ff8300] ArchivoBold font-bold">Impact</span> <br />
+              <span className="text-[#ff8200] ArchivoBold font-bold">Impact</span> <br />
               <span className="font-semibold">TiCO</span> vous donne la
              L’application donne à chacun la possibilité de demander aux marques de
 jouer le jeu de la transparence sur TiCO
@@ -37,13 +37,13 @@ jouer le jeu de la transparence sur TiCO
             </p>
 
             <p className="ArchivoLight font-bold">
-              <span className="text-[#ff8300] ArchivoBold font-bold">Astuces</span> <br />
+              <span className="text-[#ff8200] ArchivoBold font-bold">Astuces</span> <br />
               Retrouvez tous les mois de nouveaux Ti’Conseils santé, cuisine,
               antigaspillage, conservation et bien d’autres.
             </p>
 
             <p className="ArchivoLight font-bold">
-              <span className="text-[#ff8300] ArchivoBold font-bold">Recettes</span> <br />
+              <span className="text-[#ff8200] ArchivoBold font-bold">Recettes</span> <br />
               Découvrez et ajoutez vos recettes préférées pour les retrouver sur
               une interface pratique et sans publicité.
             </p>

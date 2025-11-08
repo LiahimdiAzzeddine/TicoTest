@@ -39,6 +39,7 @@ function BundleRow({
   const dec = () => setQty((q) => Math.max(1, q - 1));
 
   return (
+    <>
     <div className="w-full flex flex-col gap-4 py-8 md:flex-row items-center md:items-center md:justify-between border-b border-slate-200">
       {/* Visuels */}
       <BundleVisuals url={visual} />
@@ -74,6 +75,14 @@ function BundleRow({
         <AddButton onClick={() => onAdd?.(qty)} />
       </div>
     </div>
+    <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                        Dont{" "}
+                        <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
+                            6€ financent
+                        </span>{" "}
+                        un kit pédagogique pour une école
+                    </div>
+    </>
   );
 }
 
@@ -88,17 +97,18 @@ const BUNDLES = {
     description:"Calendrier et guide",
     poids:0
   },
-  starterPackPrint: {
-    id: "starterpack-print",
-    name: "Le Starter Pack Ti'Conso (Imprimé)",
-    price: 49.99,
-    image:"/images/pack_imprime.png",
-    frais:0,
-    originalPrice:59.97,
-    description:"Calendrier, guide et jeu",
-    poids:700
-  },
+
 };
+  // starterPackPrint: {
+  //   id: "starterpack-print",
+  //   name: "Le Starter Pack Ti'Conso (Imprimé)",
+  //   price: 49.99,
+  //   image:"/images/pack_imprime.png",
+  //   frais:0,
+  //   originalPrice:59.97,
+  //   description:"Calendrier, guide et jeu",
+  //   poids:700
+  // },
 
 export default function OffresSpeciales({
   calImg = "/images/calendrierp.webp",
@@ -192,7 +202,7 @@ const handleAddTiPack = (qty) => {
             onAdd={handleAddTiPack}
           />
 
-          <BundleRow
+          {/* <BundleRow
             visual={"/images/pack_imprime.png"}
             title="Le Starter Pack Ti'Conso"
             id={"starterpack-print"}
@@ -201,7 +211,7 @@ const handleAddTiPack = (qty) => {
             newPrice="49,99€"
             shippingNote="+ frais de port"
             onAdd={handleAddStarterPack}
-          />
+          /> */}
         </div>
       </div>
     </>

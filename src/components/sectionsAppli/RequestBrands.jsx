@@ -31,7 +31,7 @@ const RequestBrands = () => {
       <StepTitle center={false}>
 
         <span className="text-[#50916e]">Demander aux&nbsp;</span>
-        <span className="text-[#ff8300] font-bold">marques</span>
+        <span className="text-[#ff8200] font-bold">marques</span>
       </StepTitle>
           <div className="flex flex-col  w-full">
 
@@ -52,7 +52,7 @@ TiCO un clic sur ce bouton suffit !
             <div className="flex md:justify-end items-center h-full w-full mb-8 md:mb-0">
               <StepTitle center={false}>
                 <span className="text-[#50916e]">Suivre les&nbsp;</span>
-                <span className="text-[#ff8300] font-bold">demandes</span>
+                <span className="text-[#ff8200] font-bold">demandes</span>
               </StepTitle>
             </div>
 

@@ -116,26 +116,26 @@ export const BoxTPopup = ({
 export const ContentCalendrier = () => (
   <div className="w-full  md:mt-6 space-y-4 sm:space-y-5">
     {/* Titre principal */}
-    <h2 className="text-[#ff8300] text-2xl sm:text-3xl font-bold text-center ClashDisplayBold mb-6">
+    <h2 className="text-[#ff8200] text-2xl sm:text-3xl font-bold text-center ClashDisplayBold mb-6">
       Ce qu'il contient
     </h2>
 
     {/* Liste des contenus */}
     <ul className="space-y-3 text-[#0a548d] font-bold leading-relaxed px-2 text-base sm:text-lg md:text-lg list-none">
       <li className="flex items-start gap-3">
-        <span className="text-[#ff8300] text-xl mt-1">•</span>
+        <span className="text-[#ff8200] text-xl mt-1">•</span>
         <span>Les fruits, légumes, céréales et légumineuses de saison.</span>
       </li>
       <li className="flex items-start gap-3">
-        <span className="text-[#ff8300] text-xl mt-1">•</span>
+        <span className="text-[#ff8200] text-xl mt-1">•</span>
         <span>De nombreuses astuces saines et durables faciles à mettre en pratique.</span>
       </li>
       <li className="flex items-start gap-3">
-        <span className="text-[#ff8300] text-xl mt-1">•</span>
+        <span className="text-[#ff8200] text-xl mt-1">•</span>
         <span>Un récapitulatif des huiles, leurs bénéfices et leurs usages.</span>
       </li>
       <li className="flex items-start gap-3">
-        <span className="text-[#ff8300] text-xl mt-1">•</span>
+        <span className="text-[#ff8200] text-xl mt-1">•</span>
         <span>Des recettes variées et gourmandes pour cuisiner les légumes différemment !</span>
       </li>
     </ul>
@@ -152,7 +152,7 @@ export const ContentSection2 = ({ isMobile }) => (
 
         {/* Poster */}
         <div className="text-center ArchivoLight">
-            <span className={`text-[#ff8300] font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
+            <span className={`text-[#ff8200] font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
                 1 poster&nbsp;
             </span>
             <span className={`text-[#0a548d] ArchivoLight ${isMobile ? 'text-xs sm:text-sm' : 'text-base'} leading-relaxed`}>
@@ -162,7 +162,7 @@ export const ContentSection2 = ({ isMobile }) => (
 
         {/* 3 activités */}
         <div className="space-y-1">
-            <div className={`text-[#ff8300] text-center font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
+            <div className={`text-[#ff8200] text-center font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
                 3 activités :
             </div>
 
@@ -204,7 +204,7 @@ export const ContentSection2 = ({ isMobile }) => (
 
         {/* 3 dégustations guidées */}
         <div className="space-y-1">
-                        <div className={`text-[#ff8300] text-center font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
+                        <div className={`text-[#ff8200] text-center font-bold ArchivoLight ${isMobile ? 'text-base sm:text-lg' : 'text-lg'}`}>
                Et en bonus :
             </div>
             <div className={`text-[#0a548d] text-center ${isMobile ? 'text-xs sm:text-sm' : 'text-base'} leading-relaxed px-2`}>
@@ -240,7 +240,7 @@ export const ContentSection2 = ({ isMobile }) => (
 export const ContentGuide = () => (
   <div className="w-full md:mt-4 space-y-6">
     {/* Titre principal */}
-    <h2 className="text-[#ff8300] text-3xl sm:text-4xl font-bold text-center ClashDisplayBold mb-8">
+    <h2 className="text-[#ff8200] text-3xl sm:text-4xl font-bold text-center ClashDisplayBold mb-8">
       Le sommaire
     </h2>
 
@@ -290,7 +290,7 @@ export const ContentGuide = () => (
 export const ContentDetectiveBox = () => (
   <div className="w-full pt-10 md:mt-0 space-y-6">
     {/* Titre principal */}
-    <h2 className="text-[#ff8300] text-2xl sm:text-3xl font-bold text-center ClashDisplayBold mb-6">
+    <h2 className="text-[#ff8200] text-2xl sm:text-3xl font-bold text-center ClashDisplayBold mb-6">
       Contenu de la Box
     </h2>
 

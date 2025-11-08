@@ -30,7 +30,7 @@ export default function Organizations() {
                         {/* Texte étape 4 */}
                         <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1">
                             <StepTitle center={true}>
-                                <span className="text-[#ff8300]">
+                                <span className="text-[#ff8200]">
                                     Participer au financement&nbsp;
                                 </span>
                                 <span className="text-[#0a548d] font-bold">

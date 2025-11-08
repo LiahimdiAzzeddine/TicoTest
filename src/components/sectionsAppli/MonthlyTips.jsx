@@ -8,7 +8,7 @@ export default function MonthlyTips() {
           <div className="opacity-0 translate-y-[-20px] animate-[fadeInDown_0.8s_ease-out_0.3s_forwards]">
             <StepTitle center={false}>
               <span className="text-[#0a548d]">Des Ti'conseils&nbsp;</span>
-              <span className="text-[#ff8300] font-bold">réguliers</span>
+              <span className="text-[#ff8200] font-bold">réguliers</span>
             </StepTitle>
           </div>
 
@@ -21,12 +21,12 @@ export default function MonthlyTips() {
           </div>
 
           <div className="flex flex-col gap-4 opacity-0 translate-y-[20px] animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]">
-            <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start transition-colors duration-300 hover:text-[#ff8300]">
+            <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start transition-colors duration-300 hover:text-[#ff8200]">
               Tous les mois de nouveaux Ti'Conseils pour apprendre des astuces
               pratiques sur l'utilisation, la conservation ou les intérêts santé
               des produits.
             </p>
-            <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start transition-colors duration-300 hover:text-[#ff8300]">
+            <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start transition-colors duration-300 hover:text-[#ff8200]">
               Mais aussi des conseils antigaspi, techniques culinaires, cuisine
               durable, pour se faire plaisir ou encore pour comprendre le dessous
               des étiquettes.

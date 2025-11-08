@@ -24,9 +24,11 @@ export default function CheckoutEcole() {
     updateEcoleAmount(id, newAmount);
   };
 
-  const handleIncrement = (id, currentAmount) => {
+  const handleIncrement = (id, currentAmount, remaining) => {
+  if (currentAmount <remaining) {
     updateEcoleAmount(id, currentAmount + 1);
-  };
+  }
+};
 
   const handleUserInfoChange = (field, value) => {
     setUserInfo(prev => ({
@@ -102,8 +104,13 @@ export default function CheckoutEcole() {
       </StartSection>
     );
   }
-const handleAmountChange = (id, newAmount) => {
- updateEcoleAmount(id,newAmount)
+const handleAmountChange = (id, newAmount,remaining) => {
+  if(newAmount<= remaining){
+     updateEcoleAmount(id,newAmount)
+  }else{
+    updateEcoleAmount(id,remaining)
+  }
+
 };
 
 
@@ -132,7 +139,7 @@ const handleAmountChange = (id, newAmount) => {
                          Vos informations
                     </h3>
                     <p className="text-sm text-gray-600">
-                      Renseignez vos coordonnées pour recevoir l'email de confirmation
+                     Renseignez vos coordonnées pour être tenu informé lorsque l’objectif sera atteint
                     </p>
                 </div>
             </div>
@@ -219,7 +226,7 @@ const handleAmountChange = (id, newAmount) => {
 
                         {/* Description du produit */}
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-bold text-[#ff8300] text-xl mb-2">
+                          <h4 className="font-bold text-[#ff8200] text-xl mb-2">
                             {item.name}
                           </h4>
                           {item.description && (
@@ -228,8 +235,8 @@ const handleAmountChange = (id, newAmount) => {
 
                           <p className="text-xs sm:text-sm text-gray-500">
 
-                            {item.amount && (
-                              <span className="ml-1">{item.amount.toFixed(2)}€</span>
+                            {item.orgName && (
+                              <span className="ml-1">Contribution pour {item.orgName}</span>
                             )}
 
                           </p>
@@ -256,15 +263,15 @@ const handleAmountChange = (id, newAmount) => {
         if (item.productId === 'detective_kit_4') return; // désactive modification
         const value = Number(e.target.value);
         if (!isNaN(value) && value > 0) {
-          handleAmountChange(item.id, value);
+          handleAmountChange(item.id, value,item.remaining);
         } else if (e.target.value === "") {
-          handleAmountChange(item.id, ""); 
+          handleAmountChange(item.id, "",item.remaining); 
         }
       }}
       onBlur={() => {
         if (item.productId === 'detective_kit_4') return; // désactive modification
         if (!item.amount || item.amount <= 0) {
-          handleAmountChange(item.id, 1);
+          handleAmountChange(item.id, 1,item.remaining);
         }
       }}
       className="font-bold text-[#0a548d] text-sm sm:text-base text-center w-full outline-none"
@@ -274,7 +281,7 @@ const handleAmountChange = (id, newAmount) => {
   </div>
 
   <button
-    onClick={() => handleIncrement(item.id, item.amount)}
+    onClick={() => handleIncrement(item.id, item.amount,item.remaining)}
      className="text-[#0a548d] hover:bg-gray-100 rounded-full p-1 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
     disabled={item.amount <= 1 || item.productId === 'detective_kit_4'}
   >

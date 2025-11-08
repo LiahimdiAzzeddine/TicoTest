@@ -120,7 +120,7 @@ export default function SelectableDonationBox({
 
                         <a
                             onClick={() => setIsPopupOpen(true)}
-                            className="inline-flex items-center gap-1 text-[#0a548d] underline underline-offset-2 hover:text-[#ff8300] transition cursor-pointer"
+                            className="inline-flex items-center gap-1 text-[#0a548d] underline underline-offset-2 hover:text-[#ff8200] transition cursor-pointer"
                         >
                             <Info className="w-4 h-4" />
                             voir le contenu de la box

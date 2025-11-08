@@ -68,7 +68,7 @@ const Faq = () => {
         <div className="text-center mb-8 sm:mb-12">
           <SubTitle center={true}>
             <span className="text-[#0a548d]">Foire aux&nbsp;</span>
-            <span className="text-[#ff8300] font-bold">questions</span>
+            <span className="text-[#ff8200] font-bold">questions</span>
           </SubTitle>
 
           <p className="mt-4 text-base sm:text-lg text-[#0a548d] max-w-2xl mx-auto leading-relaxed ArchivoLight">
@@ -123,7 +123,7 @@ const Faq = () => {
                 Posez-la nous directement via notre{' '}
                 <Link
                   to={"/contact"}
-                  className="text-[#ff8300] hover:text-[#e6750a] font-medium underline decoration-2 underline-offset-2 hover:underline-offset-4 transition-all duration-200"
+                  className="text-[#ff8200] hover:text-[#e6750a] font-medium underline decoration-2 underline-offset-2 hover:underline-offset-4 transition-all duration-200"
                 >
                   formulaire de contact
                 </Link>
@@ -194,11 +194,11 @@ const Faq = () => {
                       </div>
                       <div className="flex-shrink-0">
                         <div
-                          className={`w-8 h-8 rounded-full bg-[#ff8300] bg-opacity-10 flex items-center justify-center transition-all duration-300 ${
+                          className={`w-8 h-8 rounded-full bg-[#ff8200] bg-opacity-10 flex items-center justify-center transition-all duration-300 ${
                             activeIndex === index ? 'rotate-180 bg-opacity-20' : 'group-hover:bg-opacity-20'
                           }`}
                         >
-                          <ChevronDown className="w-4 h-4 text-[#ff8300]" />
+                          <ChevronDown className="w-4 h-4 text-[#ff8200]" />
                         </div>
                       </div>
                     </div>

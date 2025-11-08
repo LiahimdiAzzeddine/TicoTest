@@ -21,7 +21,7 @@ export default function JeuPage() {
                     {/* Titre */}
                     <StepTitle center={false}>
                         <span className="text-[#0a548d]">Info ou pipeau : le jeu de cartes pour&nbsp;</span>
-                        <span className="text-[#ff8300] font-bold">pimper l’apéro &nbsp;​</span>
+                        <span className="text-[#ff8200] font-bold">pimper l’apéro &nbsp;​</span>
                         <span className="text-[#0a548d]">sur un sujet d’actualité (qui nous concerne tous)&nbsp;! ​</span>
                     </StepTitle>
 

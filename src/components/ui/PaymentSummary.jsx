@@ -154,7 +154,7 @@ useEffect(() => {
           {/* Paiement sécurisé */}
           {/* ======================= */}
           <div className="flex items-center justify-center gap-2 text-xs sm:text-sm">
-            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-[#ff8300] flex-shrink-0" />
+            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-[#ff8200] flex-shrink-0" />
             <span className="font-semibold text-[#0a548d]">
               Paiement sécurisé via STRIPE
             </span>

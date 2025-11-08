@@ -12,7 +12,7 @@ export default function Visio() {
 
                         {/* Titre */}
                         <StepTitle center={false}>
-                            <span className="text-[#ff8300] font-bold">Sors tes couverts&nbsp;​​!&nbsp;</span>
+                            <span className="text-[#ff8200] font-bold">Sors tes couverts&nbsp;​​!&nbsp;</span>
                             <span className="text-[#0a548d]">La visio conférence pour tous​</span>
                         </StepTitle>
 

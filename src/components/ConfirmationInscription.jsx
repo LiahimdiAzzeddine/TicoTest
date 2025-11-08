@@ -1,7 +1,7 @@
 import React from "react";
 
-const ORANGE_FROM = "#ff8300";
-const ORANGE_TO = "#ff8300";
+const ORANGE_FROM = "#ff8200";
+const ORANGE_TO = "#ff8200";
 
 const BLUE = "#0a548d";
 const PANEL = "#dff3f4";

@@ -21,7 +21,8 @@ export default function OrganisationForm({
     hookLoading,
     organisation,
     BLUE,
-    PANEL
+    PANEL,
+    isForBuy=false
 }) {
     return (
 <>
@@ -290,6 +291,7 @@ export default function OrganisationForm({
             </div>
 
             {/* ===== Vérification de l'existence ===== */}
+            {!isForBuy&&(<>
             <SectionTitle>Vérification de l'existence</SectionTitle>
 
             <div className="text-sm text-slate-700 mb-4">
@@ -301,7 +303,8 @@ export default function OrganisationForm({
                     <li>Capture d'écran de l'annuaire officiel de l'éducation nationale</li>
                 </ul>
             </div>
-
+            </>)}
+{!isForBuy&&(
             <div className="grid md:grid-cols-[1fr_auto] gap-4 items-center">
                 <div className="flex-1">
                     <TextInput
@@ -332,7 +335,7 @@ export default function OrganisationForm({
                     onChange={handleFileChange}
                     accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                 />
-            </div>
+            </div>)}
 
             {/* Captcha + checkboxes */}
             <div className="mt-8 grid md:grid-cols-[300px_1fr] gap-6">
@@ -353,6 +356,8 @@ export default function OrganisationForm({
 
                 {/* Mentions */}
                 <div className="space-y-4 text-sm text-slate-800">
+                    {!isForBuy&&(
+                        <>
                     <label className="flex gap-3 items-start cursor-pointer hover:bg-white/30 p-2 rounded-lg transition-colors">
                         <input
                             name="c1"
@@ -391,27 +396,37 @@ export default function OrganisationForm({
                                 </div>
                             )}
                         </div>
-                    </label>
+                    </label></>)}
 
-                    <label className="flex gap-3 items-start cursor-pointer hover:bg-white/30 p-2 rounded-lg transition-colors">
-                        <input
-                            name="c3"
-                            type="checkbox"
-                            className={`mt-1 w-4 h-4 ${errors.c3 ? 'ring-2 ring-red-500' : ''}`}
-                            checked={values.c3}
-                            onChange={update("c3")}
-                        />
-                        <div className="text-start">
-                            <span>
-                                J'ai lu et j'accepte les conditions générales de vente et d'utilisation
-                            </span>
-                            {errors.c3 && (
-                                <div className="text-red-600 text-xs mt-1">
-                                    {Array.isArray(errors.c3) ? errors.c3[0] : errors.c3}
-                                </div>
-                            )}
-                        </div>
-                    </label>
+                  <label className="flex gap-3 items-start cursor-pointer hover:bg-white/30 p-2 rounded-lg transition-colors">
+  <input
+    name="c3"
+    type="checkbox"
+    className={`mt-1 w-4 h-4 ${errors.c3 ? 'ring-2 ring-red-500' : ''}`}
+    checked={values.c3}
+    onChange={update("c3")}
+  />
+  <div className="text-start">
+    <span>
+      J'ai lu et j'accepte les{" "}
+      <a
+        href="/pdfs/CGU_KIT_TiCO.pdf" // 👉 remplace ce chemin par le tien (ex: /cgu.pdf)
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()} // évite de cocher la case
+        className="text-blue-600 underline hover:text-blue-800"
+      >
+        conditions générales de vente et d'utilisation
+      </a>
+    </span>
+    {errors.c3 && (
+      <div className="text-red-600 text-xs mt-1">
+        {Array.isArray(errors.c3) ? errors.c3[0] : errors.c3}
+      </div>
+    )}
+  </div>
+</label>
+{!isForBuy&&(
 
                     <label className="flex gap-3 items-start cursor-pointer hover:bg-white/30 p-2 rounded-lg transition-colors">
                         <input
@@ -424,7 +439,7 @@ export default function OrganisationForm({
                             Je souhaite être tenu informé par mail du financement de la box pour l'organisation que j'inscris
                         </span>
                     </label>
-
+)}
 
                 </div>
             </div>

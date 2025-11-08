@@ -12,8 +12,8 @@ export default function BoxPage() {
             <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-y-8 md:gap-x-10 w-full max-w-6xl" >
                 <div className="text-[#0a548d] text-center ArchivoBold flex flex-col gap-4">
                     <div>
-                        Les enfants sont des cibles privilégiées du marketing alimentaire. L’éducation alimentaire est essentielle mais souvent très théorique.
-                        Alors nous proposons aux enseignants qui le souhaitent de bénéficier d’un kit ludique et clé en main pour aborder le sujet !                    </div>
+                      Les enfants sont des cibles privilégiées du marketing alimentaire. Alors nous proposons aux enseignants qui le souhaitent de bénéficier d’un kit ludique et facile à mettre en oeuvre pour aborder le sujet de manière inédite !
+                  </div>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row-reverse items-center justify-start md:justify-between gap-y-8 md:gap-x-10 w-full max-w-6xl ">
@@ -24,12 +24,11 @@ export default function BoxPage() {
                             <span className="text-[#0a548d]">
                                 Graine de Ti’Conso,&nbsp;
                             </span>
-                            <span className="text-[#ff8300] font-bold">
-                                la box clé en mains&nbsp;
+                            <span className="text-[#ff8200] font-bold">
+                              le kit pedagogique &nbsp;
                             </span>
                             <span className="text-[#0a548d]">
-                                pour sensibiliser les plus jeunes dans la joie et la
-                                bonne humeur&nbsp;!
+                                pour sensibiliser les plus jeunes dans la joie et la bonne humeur&nbsp;!
                             </span>
                         </StepTitle>
 
@@ -42,7 +41,7 @@ export default function BoxPage() {
                         <div className="flex flex-col gap-4">
                             <StatsComponent />
                             <div className="flex flex-col gap-4">
-                            
+
                                 <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
                                     Couleurs vives, jeux dans les pack, fausses promesses santé... Notre rôle ? Les protéger, les
 accompagner pour qu’ils puissent grandir en connaissant l’impact de leur alimentation sur leur santé.
@@ -99,7 +98,7 @@ des ingrédients et du vrai goût des aliments. <span
                     onClose={() => setIsPopupOpen(false)}
                 />
             </div>
-            
+
         </div>
     );
 }

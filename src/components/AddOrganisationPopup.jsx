@@ -8,7 +8,7 @@ import RechercheOrganisation from "./ui/RechercheOrganisation";
 
 const BLUE = "#0a548d";
 
-export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
+export default function AddOrganisationPopup({ isOpen, onClose, onSuccess, isForBuy = false }) {
   const { createOrganisation, organisation, loading: hookLoading, error: hookError } = useOrganisations();
 
   const [formMode, setFormMode] = useState('create'); // 'create' ou 'search'
@@ -46,68 +46,68 @@ export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
 
   // Fonction de recherche d'organisations
   async function handleSearchOrganisation() {
-  const cleanValue = searchQuery.replace(/\D/g, '');
+    const cleanValue = searchQuery.replace(/\D/g, '');
 
-  if (!cleanValue) return;
+    if (!cleanValue) return;
 
-  let validationResult;
-  if (cleanValue.length === 14) {
-    validationResult = validateSiret(cleanValue);
-  } else if (cleanValue.length === 9) {
-    validationResult = validateSiren(cleanValue);
-  } else {
-    alert("Veuillez saisir un identifiant valide : 9 chiffres pour le SIREN ou 14 chiffres pour le SIRET.");
-    return;
-  }
-
-  if (!validationResult.valid) {
-    alert(validationResult.error);
-    return;
-  }
-
-  setSearchLoading(true);
-  setSearchResults([]);
-
-  try {
-    // 🔥 Appel API vers ton backend Laravel
-    const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/api/organisations/lookfor/${cleanValue}`);
-
-    if (!response.ok) {
-      if (response.status === 404) {
-        alert(`Aucune organisation trouvée pour le SIRET ${cleanValue}.`);
-        return;
-      }
-      throw new Error(`Erreur serveur (${response.status})`);
-    }
-
-    const result = await response.json();
-
-    if (result && result.data) {
-      const data = result.data;
-      console.log("🚀 ~ handleSearchOrganisation ~ data:", data);
-
-      const orgData = {
-        id: data.id,
-        orgName: data.orgName || data.denominationUniteLegale || data.nomUniteLegale || "Non disponible",
-        forme: data.forme || (data.categorieJuridiqueUniteLegale ? getFormeJuridique(data.categorieJuridiqueUniteLegale) : ""),
-        siret: data.siret || cleanValue,
-        siren: data.siren || cleanValue.slice(0, 9),
-        adresse: data.adresse || "",
-        ville: data.ville || "",
-        cp: data.cp || "",
-      };
-
-      setSearchResults([orgData]);
+    let validationResult;
+    if (cleanValue.length === 14) {
+      validationResult = validateSiret(cleanValue);
+    } else if (cleanValue.length === 9) {
+      validationResult = validateSiren(cleanValue);
     } else {
-      alert(`Aucune organisation trouvée pour le SIRET ${cleanValue}.`);
+      alert("Veuillez saisir un identifiant valide : 9 chiffres pour le SIREN ou 14 chiffres pour le SIRET.");
+      return;
     }
-  } catch (err) {
-    console.error(err);
-    alert(err.message || "Erreur lors de la recherche de l'organisation");
-  } finally {
-    setSearchLoading(false);
+
+    if (!validationResult.valid) {
+      alert(validationResult.error);
+      return;
+    }
+
+    setSearchLoading(true);
+    setSearchResults([]);
+
+    try {
+      // 🔥 Appel API vers ton backend Laravel
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/api/organisations/lookfor/${cleanValue}`);
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          alert(`Aucune organisation trouvée pour le SIRET ${cleanValue}.`);
+          return;
+        }
+        throw new Error(`Erreur serveur (${response.status})`);
+      }
+
+      const result = await response.json();
+
+      if (result && result.data) {
+        const data = result.data;
+        console.log("🚀 ~ handleSearchOrganisation ~ data:", data);
+
+        const orgData = {
+          id: data.id,
+          orgName: data.orgName || data.denominationUniteLegale || data.nomUniteLegale || "Non disponible",
+          forme: data.forme || (data.categorieJuridiqueUniteLegale ? getFormeJuridique(data.categorieJuridiqueUniteLegale) : ""),
+          siret: data.siret || cleanValue,
+          siren: data.siren || cleanValue.slice(0, 9),
+          adresse: data.adresse || "",
+          ville: data.ville || "",
+          cp: data.cp || "",
+        };
+
+        setSearchResults([orgData]);
+      } else {
+        alert(`Aucune organisation trouvée pour le SIRET ${cleanValue}.`);
+      }
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "Erreur lors de la recherche de l'organisation");
+    } finally {
+      setSearchLoading(false);
+    }
   }
-}
 
 
 
@@ -359,19 +359,25 @@ export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
     }
 
     // Validation du document
-    if (!values.docName || values.docName.trim().length === 0) {
+    if(!isForBuy){
+      if (!values.docName || values.docName.trim().length === 0) {
       newErrors.docName = "Veuillez télécharger un document justificatif";
     }
+    }
+    
 
 
 
     // Validation des checkboxes obligatoires
-    if (!values.c1) {
+    if(!isForBuy){
+      if (!values.c1) {
       newErrors.c1 = "Vous devez certifier sur l'honneur l'exactitude des informations";
     }
     if (!values.c2) {
       newErrors.c2 = "Vous devez accepter les vérifications nécessaires";
     }
+    }
+    
     if (!values.c3) {
       newErrors.c3 = "Vous devez accepter les conditions générales";
     }
@@ -444,7 +450,6 @@ export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
 
         {/* Header fixe avec titre et bouton de fermeture */}
         <div className="relative flex-shrink-0 pt-6 px-6 md:px-8 pb-4 bg-[#dff3f4] rounded-t-2xl">
-          {/* Close Button */}
           <button
             onClick={onClose}
             className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 md:-top-6 md:-right-5 p-1 sm:p-2 z-50 w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 flex items-center justify-center"
@@ -458,7 +463,7 @@ export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
           </h2>
 
           {/* Toggle entre les deux modes */}
-          <div className="flex gap-2 justify-center">
+          {/* <div className="flex gap-2 justify-center">
             <button
               type="button"
               onClick={() => {
@@ -488,7 +493,7 @@ export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
             >
               Rechercher mon organisation
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Contenu scrollable */}
@@ -506,6 +511,7 @@ export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
               searchResults={searchResults}
               selectedOrg={selectedOrg}
               handleSelectOrganisation={handleSelectOrganisation}
+              
             />
           ) : (
             /* Mode Création - Formulaire existant */
@@ -529,6 +535,7 @@ export default function AddOrganisationPopup({ isOpen, onClose, onSuccess }) {
                 setSearchType={setSearchType}
                 setSiretStatus={setSiretStatus}
                 organisation={organisation}
+                isForBuy={true}
               />
             </form>
           )}

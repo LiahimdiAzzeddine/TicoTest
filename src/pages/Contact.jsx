@@ -109,7 +109,7 @@ const Contact = () => {
         <div className="text-center mb-8 sm:mb-12">
           <SubTitle center={true}>
             <span className="text-[#0a548d]">Contactez&nbsp;</span>
-            <span className="text-[#ff8300] font-bold">nous</span>
+            <span className="text-[#ff8200] font-bold">nous</span>
           </SubTitle>
 
           <p className="mt-4 text-base sm:text-lg text-[#0a548d] max-w-2xl mx-auto leading-relaxed ArchivoLight ">
@@ -123,25 +123,25 @@ const Contact = () => {
           <div className="space-y-6">
             <div className="bg-gradient-to-br from-blue-50 to-orange-50 p-6 rounded-2xl border border-blue-100">
               <h3 className="text-xl font-bold text-[#0a548d] mb-4 flex items-center gap-2 Clashdisplay">
-                <MessageCircle className="w-6 h-6 text-[#ff8300]" />
+                <MessageCircle className="w-6 h-6 text-[#ff8200]" />
                 Pourquoi nous contacter ?
               </h3>
 
               <div className="space-y-4 ArchivoLight">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[#ff8200] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-gray-700">Questions sur l'utilisation de l'application</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[#ff8200] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-gray-700">Signaler un problème technique</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[#ff8200] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-gray-700">Suggestions d'amélioration</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[#ff8200] rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-gray-700">Partenariats et collaborations</p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ const Contact = () => {
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
               <h3 className="text-lg font-bold text-[#0a548d] mb-3">Temps de réponse</h3>
               <p className="text-gray-600 text-sm ArchivoLight">
-                Nous nous engageons à vous répondre dans les <span className="font-semibold text-[#ff8300]">24 heures</span> suivant la réception de votre message.
+                Nous nous engageons à vous répondre dans les <span className="font-semibold text-[#ff8200]">24 heures</span> suivant la réception de votre message.
               </p>
             </div>
           </div>

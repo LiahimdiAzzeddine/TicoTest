@@ -33,7 +33,7 @@ export default function Inscription() {
                                 <span className="text-[#0a548d]">
                                     Inscrivez votre structure pour qu’ellebénéficie d’une box&nbsp;
                                 </span>
-                                <span className="text-[#ff8300] font-bold">
+                                <span className="text-[#ff8200] font-bold">
                                     co-financées par des citoyens soucieux &nbsp;
                                 </span>
                                 <span className="text-[#0a548d]">

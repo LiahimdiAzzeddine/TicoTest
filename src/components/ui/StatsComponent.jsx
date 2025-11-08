@@ -37,10 +37,10 @@ const StatsComponent = () => {
               className="w-8 h-8 opacity-80 mb-2"
             />
             <div className="flex items-baseline gap-1">
-              <span className="font-bold text-[#ff8300] text-xl">
+              <span className="font-bold text-[#ff8200] text-xl">
                 {stat.number}
               </span>
-              <span className="text-[#ff8300] text-sm font-medium">
+              <span className="text-[#ff8200] text-sm font-medium">
                 {stat.label}
               </span>
             </div>
@@ -58,10 +58,10 @@ const StatsComponent = () => {
               className="w-8 h-8 opacity-80 mb-2"
             />
             <div className="flex items-baseline gap-1">
-              <span className="font-bold text-[#ff8300] text-lg">
+              <span className="font-bold text-[#ff8200] text-lg">
                 {stat.number}
               </span>
-              <span className="text-[#ff8300] text-sm font-medium">
+              <span className="text-[#ff8200] text-sm font-medium">
                 {stat.label}
               </span>
             </div>
@@ -78,10 +78,10 @@ const StatsComponent = () => {
               alt={stat.label}
               className="h-9 opacity-80"
             />
-            <span className="font-bold text-[#ff8300] text-lg">
+            <span className="font-bold text-[#ff8200] text-lg">
               {stat.number}
             </span>
-            <span className="text-[#ff8300] text-sm font-medium">
+            <span className="text-[#ff8200] text-sm font-medium">
               {stat.label}
             </span>
           </div>

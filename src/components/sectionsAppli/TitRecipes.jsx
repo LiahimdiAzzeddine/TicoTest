@@ -38,7 +38,7 @@ export default function TitRecipes() {
           <p className="text-lg text-[#0a548d] ArchivoLight leading-tight font-bold text-start transition-colors duration-300 hover:text-[#c22823]">
             Partagez vos recettes préférées pour les faire connaître et les
             retrouver en un clic dans{" "}
-            <span className="text-[#ff8300] font-bold ArchivoBold">TiCO</span>.
+            <span className="text-[#ff8200] font-bold ArchivoBold">TiCO</span>.
           </p>
           <img
             src="/images/Design1.png"

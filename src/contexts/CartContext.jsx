@@ -48,8 +48,7 @@ const addMaison = (productId, name, price, image, qty = 1,frais,originalPrice,de
 
 
   // Ajouter une box école
-const addEcole = (orgId, name, id, amount, image) => {
-  console.log("🚀 ~ addEcole ~ orgId:", orgId)
+const addEcole = (orgId, name, id, amount, image,orgName,remaining) => {
   setCart((prev) => {
     const exists = prev.ecole.find((b) => b.id === orgId); // ✅ cohérence ici
     let updatedEcole;
@@ -61,7 +60,7 @@ const addEcole = (orgId, name, id, amount, image) => {
     } else {
       updatedEcole = [
         ...prev.ecole,
-        { id:orgId, productId:id, name, amount, image },
+        { id:orgId, productId:id, name, amount, image,orgName,remaining },
       ];
     }
 

@@ -60,7 +60,7 @@ const EmailValidation = () => {
   const getStatusIcon = () => {
     switch (validationState) {
       case 'loading':
-        return <Loader className="w-16 h-16 text-[#ff8300] animate-spin" />;
+        return <Loader className="w-16 h-16 text-[#ff8200] animate-spin" />;
       case 'success':
         return <CheckCircle className="w-16 h-16 text-green-600" />;
       case 'error':
@@ -102,7 +102,7 @@ const EmailValidation = () => {
         <div className="text-center mb-8 sm:mb-12">
           <SubTitle center={true}>
             <span className="text-[#0a548d]">Validation&nbsp;</span>
-            <span className="text-[#ff8300] font-bold">Compte TiCO</span>
+            <span className="text-[#ff8200] font-bold">Compte TiCO</span>
           </SubTitle>
 
           <p className="mt-4 text-base sm:text-lg text-[#0a548d] max-w-2xl mx-auto leading-relaxed ArchivoLight">
@@ -173,7 +173,7 @@ const EmailValidation = () => {
                   <button
                     onClick={retryValidation}
                     disabled={isValidating}
-                    className="inline-flex items-center gap-2 bg-[#ff8300] hover:bg-[#e6750a] text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center gap-2 bg-[#ff8200] hover:bg-[#e6750a] text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isValidating ? (
                       <>
@@ -205,15 +205,15 @@ const EmailValidation = () => {
             <h3 className="text-lg font-bold text-[#0a548d] mb-3 Clashdisplay">À propos de la validation</h3>
             <div className="space-y-3 ArchivoLight text-sm text-gray-600">
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-[#ff8200] rounded-full mt-2 flex-shrink-0"></div>
                 <p>La validation de votre email est nécessaire pour activer votre compte TiCO</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-[#ff8200] rounded-full mt-2 flex-shrink-0"></div>
                 <p>Une fois validé, vous recevrez un email de confirmation</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-[#ff8300] rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-[#ff8200] rounded-full mt-2 flex-shrink-0"></div>
                 <p>Les liens de validation expirent après 24 heures pour votre sécurité</p>
               </div>
             </div>

@@ -6,7 +6,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import OrganisationForm from "./ui/OrganisationForm";
 
 const BLUE = "#0a548d";
-const ORANGE = "#ff8300";
+const ORANGE = "#ff8200";
 const PANEL = "#dff3f4";
 
 

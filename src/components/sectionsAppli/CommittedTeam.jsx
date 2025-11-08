@@ -6,7 +6,7 @@ const CommittedTeam = () => {
     <div className="flex flex-col w-full max-w-6xl gap-8 md:gap-14">
       <StepTitle center={false}>
         <span className="text-[#0a548d]">Une équipe&nbsp;</span>
-        <span className="text-[#ff8300] font-bold">engagée</span>{" "}
+        <span className="text-[#ff8200] font-bold">engagée</span>{" "}
       </StepTitle>
       <div className="flex flex-col items-center justify-between w-full gap-8 md:gap-12 ">
 

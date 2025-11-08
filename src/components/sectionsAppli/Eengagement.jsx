@@ -6,7 +6,7 @@ const Eengagement = () => {
       {/* Titre */}
       <StepTitle center={false}>
         <span className="text-[#50916e]">Votre engagement est&nbsp;</span>
-        <span className="text-[#ff8300] font-bold">récompensé</span>{" "}
+        <span className="text-[#ff8200] font-bold">récompensé</span>{" "}
       </StepTitle>
 
       {/* Image visible sur mobile seulement (entre titre et texte) */}

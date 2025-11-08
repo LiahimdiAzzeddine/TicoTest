@@ -104,7 +104,7 @@ const scroll = (direction) => {
     <div className="flex flex-col w-full max-w-6xl mx-auto gap-8 md:gap-14">
       <StepTitle center={false}>
         <span className="text-[#0a548d]">Transparence &nbsp;</span>
-        <span className="text-[#ff8300] font-bold">TiCO</span>
+        <span className="text-[#ff8200] font-bold">TiCO</span>
       </StepTitle>
 
       <div className="flex flex-col-reverse lg:flex-row items-start justify-between w-full gap-6 lg:gap-8">
@@ -122,7 +122,7 @@ const scroll = (direction) => {
             // }}
           >
             {/* Selected item title */}
-            <h2 className="text-xl font-bold mb-3 sm:mb-4 text-[#ff8300] border-b-2 border-[#ff8300] pb-2">
+            <h2 className="text-xl font-bold mb-3 sm:mb-4 text-[#ff8200] border-b-2 border-[#ff8200] pb-2">
               {selectedItem.title}
             </h2>
 
@@ -134,10 +134,10 @@ const scroll = (direction) => {
 
               {/* Additional styling for Planet-Score link if it's the first item */}
               {selectedIndex === 0 && (
-                <div className="mt-3 p-3 bg-[#ffe5b4] rounded-lg border-l-4 border-[#ff8300]">
+                <div className="mt-3 p-3 bg-[#ffe5b4] rounded-lg border-l-4 border-[#ff8200]">
                   <p className="text-xs sm:text-sm">
                     <strong>Focus :</strong> Le{" "}
-                    <a href="https://www.planet-score.org/"  target="_blank" className="font-bold underline text-[#0a548d] hover:text-[#ff8300] transition-colors">
+                    <a href="https://www.planet-score.org/"  target="_blank" className="font-bold underline text-[#0a548d] hover:text-[#ff8200] transition-colors">
                       Planet-Score
                     </a>{" "}
                     est notre référentiel de choix pour une évaluation complète.
@@ -145,10 +145,10 @@ const scroll = (direction) => {
                 </div>
               )}
                {selectedIndex === 10 && (
-                <div className="mt-3 p-3 bg-[#ffe5b4] rounded-lg border-l-4 border-[#ff8300]">
+                <div className="mt-3 p-3 bg-[#ffe5b4] rounded-lg border-l-4 border-[#ff8200]">
                   <p className="text-xs sm:text-sm">
                     <strong>Focus :</strong> {"  "}
-                    <a href="https://goum.co/"  target="_blank" className="font-bold underline text-[#0a548d] hover:text-[#ff8300] transition-colors">
+                    <a href="https://goum.co/"  target="_blank" className="font-bold underline text-[#0a548d] hover:text-[#ff8200] transition-colors">
                       Goûm
                     </a>{" "}
 est notre référentiel de choix pour une évaluation robuste
@@ -174,7 +174,7 @@ est notre référentiel de choix pour une évaluation robuste
           <div className="hidden md:flex flex-col items-center gap-2">
             <button
               onClick={() => scroll("up")}
-              className={`p-2 rounded-full transition-all bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md`}
+              className={`p-2 rounded-full transition-all bg-[#ff8200] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md`}
             >
               <ChevronUp size={16} />
             </button>
@@ -182,7 +182,7 @@ est notre référentiel de choix pour une évaluation robuste
             {/* Compact container for 3 items */}
             <div className="relative flex flex-col gap-1 w-full max-w-xs">
               {/* Fixed orange background in center */}
-              <div className="absolute top-[calc(50%-20px)] left-0 right-0 h-[40px] bg-[#ff8300] rounded-lg shadow-md z-0"></div>
+              <div className="absolute top-[calc(50%-20px)] left-0 right-0 h-[40px] bg-[#ff8200] rounded-lg shadow-md z-0"></div>
 
               {(() => {
                 const getVisibleItems = () => {
@@ -240,7 +240,7 @@ est notre référentiel de choix pour une évaluation robuste
                       className={`min-w-[240px] cursor-pointer text-xs font-medium py-2 px-3 rounded-lg transition-all min-h-[40px] flex items-center justify-center relative z-10 ${
                         item.isCenter
                           ? "text-white font-bold text-sm"
-                          : "hover:bg-[#ffe5b4] bg-white border border-gray-200 hover:border-[#ff8300] text-gray-700"
+                          : "hover:bg-[#ffe5b4] bg-white border border-gray-200 hover:border-[#ff8200] text-gray-700"
                       }`}
                     >
                       <span className="truncate">{item.title}</span>
@@ -252,7 +252,7 @@ est notre référentiel de choix pour une évaluation robuste
 
             <button
               onClick={() => scroll("down")}
-              className={`p-2 rounded-full transition-all bg-[#ff8300] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md`}
+              className={`p-2 rounded-full transition-all bg-[#ff8200] text-white hover:bg-[#e26e00] hover:scale-110 shadow-md`}
             >
               <ChevronDown size={16} />
             </button>
@@ -268,13 +268,13 @@ est notre référentiel de choix pour une évaluation robuste
                 disabled={selectedIndex === 0}
                 className={`flex-shrink-0 p-2.5 rounded-full transition-all ${selectedIndex === 0
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-[#ff8300] text-white hover:bg-[#e26e00] active:scale-95 shadow-md'
+                    : 'bg-[#ff8200] text-white hover:bg-[#e26e00] active:scale-95 shadow-md'
                   }`}
               >
                 <ChevronLeft size={16} />
               </button>
 
-              <div className="flex-1 min-w-0 bg-gradient-to-r from-[#ff8300] to-[#ff9500] text-white rounded-lg py-3 px-3 text-center font-semibold shadow-lg">
+              <div className="flex-1 min-w-0 bg-gradient-to-r from-[#ff8200] to-[#ff9500] text-white rounded-lg py-3 px-3 text-center font-semibold shadow-lg">
                 <div className="text-xs leading-tight break-words hyphens-auto" style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                   {selectedItem.title}
                 </div>
@@ -285,7 +285,7 @@ est notre référentiel de choix pour une évaluation robuste
                 disabled={selectedIndex === infoItems.length - 1}
                 className={`flex-shrink-0 p-2.5 rounded-full transition-all ${selectedIndex === infoItems.length - 1
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-[#ff8300] text-white hover:bg-[#e26e00] active:scale-95 shadow-md'
+                    : 'bg-[#ff8200] text-white hover:bg-[#e26e00] active:scale-95 shadow-md'
                   }`}
               >
                 <ChevronRight size={16} />
@@ -300,7 +300,7 @@ est notre référentiel de choix pour une évaluation robuste
                   onClick={() => handleSelect(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     index === selectedIndex
-                      ? 'bg-[#ff8300] scale-125'
+                      ? 'bg-[#ff8200] scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                 />

@@ -87,7 +87,7 @@ export default function Application() {
           <div className="w-full ">
             <StepTitle center={false}>
               <span className="text-[#50916e]">Solliciter les&nbsp;</span>
-              <span className="text-[#ff8300] font-bold">marques</span>
+              <span className="text-[#ff8200] font-bold">marques</span>
             </StepTitle>
             </div>
             </div>

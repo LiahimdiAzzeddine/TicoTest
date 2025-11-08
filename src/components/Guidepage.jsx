@@ -122,7 +122,7 @@ const HandelCommand = () => {
                         {/* Titre */}
                         <StepTitle center={false}>
                             <span className="text-[#0a548d]">« La Vérité si J’mange » , apprendre à&nbsp;</span>
-                            <span className="text-[#ff8300] font-bold">déjouer les pièges&nbsp;​​</span>
+                            <span className="text-[#ff8200] font-bold">déjouer les pièges&nbsp;​​</span>
                             <span className="text-[#0a548d]">sur les produits alimentaires​</span>
                         </StepTitle>
 
@@ -134,8 +134,8 @@ const HandelCommand = () => {
                                 className="w-full md:w-80 lg:w-[23rem] 2xl:w-[26rem]"
                             />
                             <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
-                        Dont         <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
-4€ finance</span> un
+                        Dont         <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
+4€ financent</span> un
 kit pédagogique
 pour une école
                     </div>
@@ -147,7 +147,7 @@ pour une école
                             <p>
                                 Que vous soyez débutant ou averti, ce guide vous permettra rapidement de devenir un As en lecture d’étiquettes.
                                 Grâce à un bon marketing, on peut nous vendre n’importe quoi. Choisir dans les rayons peut vite devenir un calvaire.<br></br>
-                                ce guide, vous avez les clés pour choisir mieux sans vous prendre la tête. <span
+                                Avec ce guide, vous avez les clés pour mieux choisir sans vous prendre la tête. <span
                                         onClick={() => setIsPopupOpen(true)}
                                         className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
                                     >
@@ -193,8 +193,8 @@ pour une école
                         className="w-96 md:w-full m-auto"
                     />
                     <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
-                        Dont         <span className=" font-black text-[#ff8300] mb-2 ClashDisplayBold">
-4€ finance</span> un
+                        Dont         <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
+4€ financent</span> un
 kit pédagogique
 pour une école
                     </div>

@@ -184,7 +184,7 @@ const ChangePassword = () => {
         <div className="text-center mb-8">
           <SubTitle center={true}>
             <span className="text-[#0a548d]">Nouveau&nbsp;</span>
-            <span className="text-[#ff8300] font-bold">mot de passe</span>
+            <span className="text-[#ff8200] font-bold">mot de passe</span>
           </SubTitle>
 
           <p className="mt-4 text-sm text-[#0a548d] ArchivoLight">

@@ -6,7 +6,7 @@ const LegalNoticesPage = () => {
         <div className="flex flex-col w-full max-w-6xl gap-8 md:gap-16 min-h-screen">
             <SubTitle center={false}>
                 <span className="text-[#0a548d]">Mentions &nbsp;</span>
-                <span className="text-[#ff8300] font-bold">légales​</span>{" "}
+                <span className="text-[#ff8200] font-bold">légales​</span>{" "}
             </SubTitle>
             <div className="flex flex-col items-start justify-center w-full gap-12 ">
                 {/* Description */}
