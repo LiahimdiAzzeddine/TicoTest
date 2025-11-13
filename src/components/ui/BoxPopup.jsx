@@ -273,7 +273,7 @@ export const ContentGuide = () => (
       <h3 className="text-[#0a548d] text-2xl sm:text-3xl font-bold ClashDisplayBold">
         Bonus
       </h3>
-      
+
       <ul className="space-y-2 text-[#0a548d] font-bold text-lg sm:text-xl md:text-xl px-2 list-none">
         <li className="flex items-start gap-3">
           <span className="text-[#0a548d] text-xl mt-1">•</span>
@@ -296,8 +296,9 @@ export const ContentDetectiveBox = () => (
 
     {/* Sous-titre */}
     <p className="text-[#0a548d] text-lg sm:text-xl text-start mb-4 ArchivoLight">
-      Un carnet par détective contenant 5 activités :
-    </p>
+  Un carnet par détective contenant 5 activités inédites :
+</p>
+
 
     {/* Liste numérotée des activités */}
     <ol className="space-y-3 text-[#0a548d] font-bold text-base sm:text-lg md:text-xl px-6 mb-6 Archivo">
@@ -329,10 +330,7 @@ export const ContentDetectiveBox = () => (
         <span className="text-[#0a548d]">+</span>
         <span>Un jeu de cartes ingrédients</span>
       </p>
-      <p className="flex items-start gap-2">
-        <span className="text-[#0a548d]">+</span>
-        <span>Un set de pastilles scratch</span>
-      </p>
+
       <p className="flex items-start gap-2">
         <span className="text-[#0a548d]">+</span>
         <span>Indications de mise en oeuvre</span>

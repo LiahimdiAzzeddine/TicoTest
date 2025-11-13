@@ -11,7 +11,8 @@ export function DeliveryForm({
     errors,
     touched,
     allProductsArePdf = false,
-    setMode
+    setMode,
+    mode
 }) {
     const [isRelayModalOpen, setRelayModalOpen] = useState(false);
     const [relayPointWasSelected, setRelayPointWasSelected] = useState(false);
@@ -157,7 +158,7 @@ export function DeliveryForm({
                         {/* Adresse */}
                         <div className="group">
                             <label className="block text-sm font-semibold text-[#0a548d] mb-2">
-                                Adresse complète <span className="text-red-500">*</span>
+                                Adresse complète {mode=== "domicile"&&( <span className="text-red-500">*</span>)}
                             </label>
                             <input
                                 type="text"
@@ -171,7 +172,6 @@ export function DeliveryForm({
                                         ? "border-red-400 focus:border-red-500"
                                         : "border-[#d9f2f2] focus:border-[#0a548d] focus:bg-white"
                                 }`}
-                                required
                             />
                             {errors.adresse && touched.adresse && (
                                 <p className="mt-2 text-xs text-red-600 flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1">
@@ -185,7 +185,7 @@ export function DeliveryForm({
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div className="group">
                                 <label className="block text-sm font-semibold text-[#0a548d] mb-2">
-                                    Ville <span className="text-red-500">*</span>
+                                    Ville {mode=== "domicile"&&( <span className="text-red-500">*</span>)}
                                 </label>
                                 <input
                                     type="text"
@@ -199,7 +199,6 @@ export function DeliveryForm({
                                             ? "border-red-400 focus:border-red-500"
                                             : "border-[#d9f2f2] focus:border-[#0a548d] focus:bg-white"
                                     }`}
-                                    required
                                 />
                                 {errors.ville && touched.ville && (
                                     <p className="mt-2 text-xs text-red-600 flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1">
@@ -242,7 +241,7 @@ export function DeliveryForm({
                             <label className="block text-sm font-semibold text-[#0a548d] mb-4">
                                 Mode de livraison
                             </label>
-                            
+
                             {!formData.codePostal && (
                                 <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-start gap-2">
                                     <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />

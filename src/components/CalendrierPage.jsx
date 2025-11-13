@@ -113,21 +113,20 @@ export default function CalendrierPage() {
                 <div className="text-[#0a548d] text-center ArchivoBold flex flex-col gap-4">
                     <div>
                         Découvrez le Ti’Calendrier et le guide “La vérité si
-                        J’mange“ pour mieux choisir sans vous prendre la tête
-                        et financer l’envoi de Kits pédagogiques dans les écoles
-                        !
+                        J’mange“ pour mieux choisir sans vous prendre la tête <br/>et
+                        financer l’envoi de Kits pédagogiques dans les écoles&nbsp;!
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-y-8 md:gap-x-12 w-full max-w-6xl">
+            <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-y-8 md:gap-x-12 w-full max-w-6xl h-full">
                 {/* Illustration affichée uniquement sur desktop */}
-                <div className="hidden md:flex flex-col justify-center w-full flex-[2]">
+                <div className="hidden md:flex flex-col justify-around items-center w-full flex-[2] gap-y-16">
                     <img
                         src="/images/calendrier.png"
                         alt="Suivi des demandes"
-                        className="w-96 md:w-full m-auto"
+                        className="w-96 md:w-full"
                     />
-                    <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                    <div className="ClashDisplayBold text-[#0a548d] text-2xl lg:text-2xl xl:text-3xl text-center">
                         Dont{" "}
                         <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
                             2€ financent
@@ -140,23 +139,33 @@ export default function CalendrierPage() {
                 <div className="text-[#0a548d] md:flex-[3] text-center md:text-left flex flex-col gap-8 md:gap-8 w-full ">
                     <div className="flex flex-col justify-start items-start gap-8 md:gap-8">
                         <StepTitle center={false}>
-                            <span className="text-[#0a548d]">
-                                Calendrier perpétuel de fruits <br></br>et
+                            {/* Version desktop */}
+                            <span className="hidden md:inline text-[#0a548d]">
+                                Calendrier perpétuel de fruits <br /> et
                                 légumes&nbsp;
                             </span>
-                            <span className="text-[#ff8200] font-bold">
+                            <span className="hidden md:inline text-[#ff8200] font-bold">
                                 de saison
+                            </span>
+
+                            {/* Version mobile */}
+                            <span className="inline md:hidden text-[#0a548d]">
+                               Calendrier perpétuel de fruits et
+                                légumes&nbsp;
+                            </span>
+                            <span className="inline md:hidden text-[#ff8200] font-bold">
+                             de saison
                             </span>
                         </StepTitle>
 
                         {/* Illustration affichée uniquement sur mobile (entre titre et description) */}
-                        <div className="flex flex-col justify-center w-full w-full md:hidden">
+                        <div className="flex flex-col justify-center w-full md:hidden gap-8">
                             <img
                                 src="/images/calendrier.png"
                                 alt="Suivi des demandes"
                                 className="w-96 sm:w-60"
                             />
-                            <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                            <div className="ClashDisplayBold text-[#0a548d] text-2xl lg:text-2xl  text-center">
                                 Dont{" "}
                                 <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
                                     2€ financent
@@ -167,19 +176,21 @@ export default function CalendrierPage() {
 
                         <div className="flex flex-col gap-4">
                             <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                                En plus d’être beau il est surtout réutilisable
-                                d’année en année ! C’est un pense-bête idéal
-                                pour faciliter la consommation de fruits et
-                                légumes de saison.
+                                Réutilisable d’année en année, c’est un
+                                pense-bête idéal pour faciliter la consommation
+                                de fruits et légumes de saison.
                             </p>
 
                             <p className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start">
-                                Il contient des d’idées recettes, des astuces et des informations qu’il est bon de garder à l’œil, comme un comparatif des huiles de cuisine par exemple.
+                                Il contient des d’idées recettes, des astuces et
+                                des informations qu’il est bon de garder à
+                                l’œil, comme un comparatif des huiles de cuisine
+                                par&nbsp;exemple.<br/>
                                 <span
                                     onClick={() => setIsPopupOpen(true)}
                                     className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
                                 >
-                                    Voir ce qu’il contient.
+                                Voir&nbsp;ce&nbsp;qu’il&nbsp;contient.
                                 </span>
                             </p>
                         </div>

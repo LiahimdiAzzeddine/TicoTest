@@ -28,7 +28,7 @@ export function CartProvider({ children }) {
   /* -------- MÉTHODES -------- */
 
   // Ajouter produit/offre (catégorie maison)
-const addMaison = (productId, name, price, image, qty = 1,frais,originalPrice,description, poids) => {
+const addMaison = (productId, name, price, image, qty = 1,frais,originalPrice,description, poids,minQt) => {
   setCart((prev) => {
     const exists = prev.maison.find((p) => p.id === productId);
     let updatedMaison;
@@ -39,7 +39,7 @@ const addMaison = (productId, name, price, image, qty = 1,frais,originalPrice,de
     } else {
       updatedMaison = [
         ...prev.maison,
-        { id: productId, name, price, image, qty,frais,originalPrice,description,poids },
+        { id: productId, name, price, image, qty,frais,originalPrice,description,poids,minQt },
       ];
     }
     return { ...prev, maison: updatedMaison };

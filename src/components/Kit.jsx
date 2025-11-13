@@ -80,7 +80,7 @@ const handleOrganisationCreated = (orgId) => {
 
   const product = products[selectedProduct];
   if (!product) return;
-  
+
 
   addEcole(
     orgId,
@@ -172,11 +172,11 @@ const handleOrganisationCreated = (orgId) => {
                 <div className="flex-[3] w-full">
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-2">
-                            <div className="text-[#0a548d] text-2xl font-bold">
-                                Commander le kit - 4 activités
+                            <div className="text-[#0a548d] text-2xl  ">
+                                Commander <span className="font-bold ArchivoBold">le kit pédagogique</span>
                             </div>
                             <div className="text-[#0a548d] text-2xl">
-                                Durée : environ 5h
+                                Durée : <span className="font-bold ArchivoBold">environ 5h</span>
                             </div>
                         </div>
 
@@ -191,12 +191,10 @@ const handleOrganisationCreated = (orgId) => {
                         <p className="text-base sm:text-lg text-[#0a548d] leading-relaxed">
                             Ce kit est conçu pour une seule structure
                             utilisatrice (école, association, entreprise...).
-                            Chaque exemplaire est personnalisé afin de préserver
-                            la qualité pédagogique et la valeur du travail
-                            réalisé. Le partage et la reproduction des documents
-                            est interdit sans accord préalable — cela nous aide
+                            Chaque exemplaire est identifié par watermark afin de préserver la valeur du travail réalisé. Le partage et la reproduction des documents
+                            est interdit sans accord préalable cela nous aide
                             à continuer de créer des outils de sensibilisation
-                            accessibles à tous&nbsp;!&nbsp;&nbsp;
+                            pour tous&nbsp;!&nbsp;&nbsp;
                             <span
                                 onClick={() => setIsPopupOpen(true)}
                                 className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline cursor-pointer"

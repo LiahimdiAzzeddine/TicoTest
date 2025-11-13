@@ -67,13 +67,10 @@ export default function DeuxBlocsActions({
     <div className="flex flex-col justify-start items-center  gap-8 md:gap-10">
       <StepTitle center={true}>
         <span className="text-[#0a548d]">
-          Achat participatif&nbsp;
+          Achat participatif pour&nbsp;
         </span>
         <span className="text-[#ff8200] font-bold">
-          pour aider des&nbsp;
-        </span>
-        <span className="text-[#0a548d]">
-          organisations&nbsp;
+           aider des organisations&nbsp;
         </span>
         <br></br>
         <span> à bénéficier du kit TiCO</span>
@@ -87,6 +84,7 @@ export default function DeuxBlocsActions({
         <BlobCard
           bg={fondImg2}
           img={Img2}
+
           title={
             <>
             Je participe à
@@ -102,6 +100,7 @@ export default function DeuxBlocsActions({
         <BlobCard
           bg={fondImg}
           img={Img}
+          buttonText={'C’est par ici'}
           title={<>
               J’inscris mon
               <br />

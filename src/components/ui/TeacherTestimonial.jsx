@@ -42,11 +42,11 @@ export default function TeacherTestimonial() {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    
+
     if (isLeftSwipe) {
       nextSlide();
     }
@@ -62,14 +62,14 @@ export default function TeacherTestimonial() {
           Ce qu'en pense les enseignants :
         </h2>
 
-        <div 
+        <div
           className="relative flex items-center justify-center"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
           {/* Bouton Précédent */}
-       
+
           <button
             onClick={prevSlide}
             className="absolute -left-5 z-10 flex items-center justify-center transition-transform hover:scale-110 w-12 h-24 md:w-24 md:h-48"
@@ -83,9 +83,9 @@ export default function TeacherTestimonial() {
           {/* Contenu du témoignage */}
           <div className="px-10 md:px-4 md:mx-24 w-full">
             <div className="text-center">
-              
+
               <p className="text-sm md:text-lg text-[#0a548d] ArchivoLight leading-tight text-center" >
-                 <span className="text-sm md:text-lg font-bold">
+                 <span className="text-sm md:text-lg font-bold ArchivoBold">
                   {testimonials[currentIndex].name}, {testimonials[currentIndex].role} :{' '}
                 </span>{testimonials[currentIndex].text}
               </p>
@@ -95,7 +95,7 @@ export default function TeacherTestimonial() {
           {/* Bouton Suivant */}
            <button
             onClick={nextSlide}
-            
+
             className="absolute -right-5 z-10 flex items-center justify-center transition-transform hover:scale-110 w-12 h-24 md:w-24 md:h-48 "
             aria-label="Témoignage suivant"
           >

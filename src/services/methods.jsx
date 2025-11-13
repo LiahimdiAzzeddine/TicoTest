@@ -1,5 +1,5 @@
 
-    export const validateField = (name, value) => {
+    export const validateField = (name, value,mode) => {
         switch (name) {
             case 'email':
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,12 +15,12 @@
                 if (value.trim().length < 2) return 'Le prénom doit contenir au moins 2 caractères';
                 return '';
             case 'adresse':
-                if (!value.trim()) return 'L\'adresse est requise';
-                if (value.trim().length < 5) return 'L\'adresse doit contenir au moins 5 caractères';
+                if ((!value.trim() && mode=="domicile")) return 'L\'adresse est requise';
+                if ((value.trim().length < 5 && mode=="")) return 'L\'adresse doit contenir au moins 5 caractères';
                 return '';
             case 'ville':
-                if (!value.trim()) return 'La ville est requise';
-                if (value.trim().length < 2) return 'La ville doit contenir au moins 2 caractères';
+                if ((!value.trim() && mode=="domicile")) return 'La ville est requise';
+                if ((value.trim().length < 2 && mode=="")) return 'La ville doit contenir au moins 2 caractères';
                 return '';
             case 'codePostal':
                 if (!value.trim()) return 'Le code postal est requis';

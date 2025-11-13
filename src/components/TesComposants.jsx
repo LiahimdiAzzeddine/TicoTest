@@ -1,19 +1,20 @@
 import { Minus, Plus } from "lucide-react";
 
 
-export function QtyControl({ id, qty, inc, dec }) {
+export function QtyControl({ id, qty, inc, dec, minQt }) {
   const isPdfProduct = id.includes("-pdf"); // ✅ vérifie si l'id contient "-pdf"
+  const disableMinus = isPdfProduct || (minQt !== undefined && qty <= minQt);
 
   return (
     <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-1">
       <button
         type="button"
         aria-label={`Diminuer la quantité de ${id}`}
-        onClick={!isPdfProduct ? dec : undefined}
-        disabled={isPdfProduct}
-        style={{ backgroundColor: isPdfProduct ? "#ccc" : "#0a548d" }}
+        onClick={!disableMinus ? dec : undefined}
+        disabled={disableMinus}
+        style={{ backgroundColor: disableMinus ? "#ccc" : "#0a548d" }}
         className={`w-8 h-6 rounded-lg text-white flex items-center justify-center font-bold shadow-2xl p-1 transition-all ${
-          isPdfProduct
+          disableMinus
             ? "cursor-not-allowed opacity-60"
             : "hover:bg-blue-400 active:scale-95"
         }`}
@@ -42,6 +43,7 @@ export function QtyControl({ id, qty, inc, dec }) {
     </div>
   );
 }
+
 export function QtyControlEuro({ title, qty, inc, dec }) {
   return (
     <div className="flex items-center gap-3 bg-gray-50 rounded-lg p-1">

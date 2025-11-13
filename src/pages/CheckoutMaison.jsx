@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useCart } from '../contexts/CartContext';
-import StartSection from '../Templates/StartSection';
-import { useStripeCheckout } from '../services/useStripeCheckout';
-import { validateField } from '../services/methods'
-import PaymentSummary from '../components/ui/PaymentSummary';
-import { CartSummary } from '../components/ui/CartSummary';
-import { DeliveryForm } from '../components/ui/DeliveryForm';
+import { useState } from "react";
+import { useCart } from "../contexts/CartContext";
+import StartSection from "../Templates/StartSection";
+import { useStripeCheckout } from "../services/useStripeCheckout";
+import { validateField } from "../services/methods";
+import PaymentSummary from "../components/ui/PaymentSummary";
+import { CartSummary } from "../components/ui/CartSummary";
+import { DeliveryForm } from "../components/ui/DeliveryForm";
 
 export default function CheckoutMaison() {
     const { cart, updateQty, totalMaison, removeItem } = useCart();
@@ -14,84 +14,93 @@ export default function CheckoutMaison() {
     const [shippingCost, setShippingCost] = useState(0);
 
     const [formData, setFormData] = useState({
-        email: '',
-        nom: '',
-        prenom: '',
-        adresse: '',
-        ville: '',
-        codePostal: '',
-        livraison: 'domicile',
-        relayPoint: null
+        email: "",
+        nom: "",
+        prenom: "",
+        adresse: "",
+        ville: "",
+        codePostal: "",
+        livraison: "domicile",
+        relayPoint: null,
     });
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
 
-    const allProductsArePdf = cart.maison.every(item => item.id.endsWith('-pdf'));
+    const allProductsArePdf = cart.maison.every((item) =>
+        item.id.endsWith("-pdf")
+    );
 
     const totalWithShipping = totalMaison + shippingCost;
-    const tva = totalWithShipping * 0.20;
-
+    const tva = totalWithShipping * 0.2;
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(`🚀 ~ handleInputChange ~ { name, value }:`, { name, value })
-        setFormData(prev => ({
+        setFormData((prev) => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }));
 
         if (touched[name]) {
-            const error = validateField(name, value);
-            setErrors(prev => ({
+            const error = validateField(name, value, mode);
+            setErrors((prev) => ({
                 ...prev,
-                [name]: error
+                [name]: error,
             }));
         }
     };
 
     const handleBlur = (e) => {
         const { name, value } = e.target;
-        setTouched(prev => ({
+        setTouched((prev) => ({
             ...prev,
-            [name]: true
+            [name]: true,
         }));
 
-        const error = validateField(name, value);
-        setErrors(prev => ({
+        const error = validateField(name, value, mode);
+        setErrors((prev) => ({
             ...prev,
-            [name]: error
+            [name]: error,
         }));
     };
 
     const handleDeliveryChange = (method) => {
-        setFormData(prev => ({
+        setFormData((prev) => ({
             ...prev,
             livraison: method,
-            relayPoint: method === 'domicile' ? null : prev.relayPoint
+            relayPoint: method === "domicile" ? null : prev.relayPoint,
         }));
     };
 
     const handleRelayPointSelect = (relayPoint) => {
-        setFormData(prev => ({
+        setFormData((prev) => ({
             ...prev,
-            relayPoint: relayPoint
+            relayPoint: relayPoint,
         }));
     };
+const validateForm = () => {
+  const newErrors = {};
 
-    const validateForm = () => {
-        const newErrors = {};
-        const fields = allProductsArePdf
-            ? ['email', 'nom', 'prenom']
-            : ['email', 'nom', 'prenom', 'adresse', 'ville', 'codePostal'];
+  // Définition initiale des champs obligatoires
+  let fields = allProductsArePdf
+    ? ["email", "nom", "prenom"]
+    : ["email", "nom", "prenom", "codePostal"];
 
-        fields.forEach(field => {
-            const error = validateField(field, formData[field]);
-            if (error) {
-                newErrors[field] = error;
-            }
-        });
-        return newErrors;
-    };
+  // Ajout de champs supplémentaires si mode = "domicile"
+  if (mode === "domicile") {
+    fields = [...fields, "adresse", "ville"];
+  }
+
+  // Validation de chaque champ
+  fields.forEach((field) => {
+    const error = validateField(field, formData[field], mode);
+    if (error) {
+      newErrors[field] = error;
+    }
+  });
+
+  return newErrors;
+};
+
 
     const isFormValid = () => {
         const validationErrors = validateForm();
@@ -101,18 +110,18 @@ export default function CheckoutMaison() {
     const handleSubmit = async () => {
         const newTouched = allProductsArePdf
             ? {
-                email: true,
-                nom: true,
-                prenom: true
-            }
+                  email: true,
+                  nom: true,
+                  prenom: true,
+              }
             : {
-                email: true,
-                nom: true,
-                prenom: true,
-                adresse: true,
-                ville: true,
-                codePostal: true
-            };
+                  email: true,
+                  nom: true,
+                  prenom: true,
+                  adresse: true,
+                  ville: true,
+                  codePostal: true,
+              };
         setTouched(newTouched);
 
         const validationErrors = validateForm();
@@ -124,42 +133,52 @@ export default function CheckoutMaison() {
                     email: formData.email,
                     nom: formData.nom,
                     prenom: formData.prenom,
-                    adresse:formData.adresse,
-                    ville: formData.livraison === 'domicile' ? formData.ville : null,
+                    adresse: formData.adresse,
+                    ville:
+                        formData.livraison === "domicile"
+                            ? formData.ville
+                            : null,
                     codePostal: formData.codePostal,
                     livraison: formData.livraison,
-                    relayPoint: formData.livraison === 'relais' ? formData.relayPoint : null
+                    relayPoint:
+                        formData.livraison === "relais"
+                            ? formData.relayPoint
+                            : null,
                 },
-                items: cart.maison.map(item => ({
+                items: cart.maison.map((item) => ({
                     id: item.id,
                     name: item.name,
                     price: item.price,
                     quantity: item.qty,
                 })),
                 total: totalWithShipping,
-                shippingCost: shippingCost
+                shippingCost: shippingCost,
             };
 
             createCheckoutSession(orderData);
-
         } else {
             const firstErrorField = Object.keys(validationErrors)[0];
-            const element = document.querySelector(`[name="${firstErrorField}"]`);
+            const element = document.querySelector(
+                `[name="${firstErrorField}"]`
+            );
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                element.scrollIntoView({ behavior: "smooth", block: "center" });
                 element.focus();
             }
         }
     };
-
 
     if (cart.maison.length === 0) {
         return (
             <StartSection>
                 <div className="min-h-screen bg-white flex items-center justify-center p-4">
                     <div className="text-center">
-                        <h1 className="text-xl sm:text-2xl font-bold text-[#0a548d] mb-4">Votre panier maison est vide</h1>
-                        <p className="text-gray-600">Ajoutez des produits pour continuer</p>
+                        <h1 className="text-xl sm:text-2xl font-bold text-[#0a548d] mb-4">
+                            Votre panier maison est vide
+                        </h1>
+                        <p className="text-gray-600">
+                            Ajoutez des produits pour continuer
+                        </p>
                     </div>
                 </div>
             </StartSection>
@@ -174,7 +193,6 @@ export default function CheckoutMaison() {
                         Récapitulatif de votre commande
                     </h1>
                     <div>
-
                         {error && <p style={{ color: "red" }}>{error}</p>}
                     </div>
 
@@ -192,6 +210,7 @@ export default function CheckoutMaison() {
                                 touched={touched}
                                 allProductsArePdf={allProductsArePdf}
                                 setMode={setMode}
+                                mode={mode}
                             />
                         </div>
                         {/* Colonne droite - Récapitulatif de paiement */}
@@ -211,6 +230,7 @@ export default function CheckoutMaison() {
                     </div>
                 </div>
             </StartSection>
-            <div className="mb-32"></div></>
+            <div className="mb-32"></div>
+        </>
     );
 }

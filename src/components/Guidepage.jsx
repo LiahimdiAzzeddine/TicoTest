@@ -11,27 +11,27 @@ export default function Guidepage() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(0);
     const [quantity, setQuantity] = useState(1);
-    const { addMaison,cart } = useCart();
+    const { addMaison, cart } = useCart();
 
     const products = [
         {
             id: 0,
             idname: "guide-pdf",
             name: "La vérité si J’mange",
-            subname: "Le guide PDF",
+            description: "Le guide PDF",
             price: 11.99,
             image: "/images/guide_PDF-removebg-preview.png",
-             poids:0,
+            poids: 0,
         },
         {
             id: 1,
             idname: "guide-imprime",
             name: "La vérité si J’mange",
-            subname: "Guide imprimé",
+            description: "Guide imprimé",
             price: 15.99,
             image: "/images/guide_imprimé-removebg-preview.png",
             frais: 0,
-             poids:200,
+            poids: 200,
         },
 
     ];
@@ -60,55 +60,55 @@ export default function Guidepage() {
             },
         });
     };
-const HandelCommand = () => {
-    if (selectedProduct === null || selectedProduct === undefined) return;
+    const HandelCommand = () => {
+        if (selectedProduct === null || selectedProduct === undefined) return;
 
-    const product = products[selectedProduct];
-    if (!product) return;
+        const product = products[selectedProduct];
+        if (!product) return;
 
-    // ⚠️ Vérifie si le guide PDF est déjà dans le panier
-    const alreadyInCart = cart.maison.some(
-        (item) => item.id === "guide-pdf" && product.idname === "guide-pdf"
-    );
+        // ⚠️ Vérifie si le guide PDF est déjà dans le panier
+        const alreadyInCart = cart.maison.some(
+            (item) => item.id === "guide-pdf" && product.idname === "guide-pdf"
+        );
 
-    if (alreadyInCart) {
-        toast.error("Le guide PDF est déjà dans votre panier.", {
-            duration: 3000,
-            position: "top-right",
-            style: {
-                background: "#B00020",
-                color: "#fff",
-                fontWeight: "600",
-                padding: "16px",
-                borderRadius: "10px",
-            },
-            iconTheme: {
-                primary: "#fff",
-                secondary: "#B00020",
-            },
-        });
-        return;
-    }
+        if (alreadyInCart) {
+            toast.error("Le guide PDF est déjà dans votre panier.", {
+                duration: 3000,
+                position: "top-right",
+                style: {
+                    background: "#B00020",
+                    color: "#fff",
+                    fontWeight: "600",
+                    padding: "16px",
+                    borderRadius: "10px",
+                },
+                iconTheme: {
+                    primary: "#fff",
+                    secondary: "#B00020",
+                },
+            });
+            return;
+        }
 
-    // ✅ Si pas encore dans le panier, on ajoute normalement
-    addMaison(
-        product.idname,
-        product.name,
-        product.price,
-        product.image,
-        quantity,
-        0,
-        null,
-        product.subname,
-        product.poids
-    );
+        // ✅ Si pas encore dans le panier, on ajoute normalement
+        addMaison(
+            product.idname,
+            product.name,
+            product.price,
+            product.image,
+            quantity,
+            0,
+            null,
+            product.description,
+            product.poids
+        );
 
-    showNotification(
-        `${quantity}x ${product.subname} ajouté au panier\u00A0\u00A0!`
-    );
+        showNotification(
+            `${quantity}x ${product.description} ajouté au panier\u00A0\u00A0!`
+        );
 
-    setQuantity(1);
-};
+        setQuantity(1);
+    };
 
 
     return (
@@ -127,18 +127,18 @@ const HandelCommand = () => {
                         </StepTitle>
 
                         {/* ✅ Image au milieu pour mobile */}
-                        <div className="md:hidden w-full flex flex-col justify-center w-full">
+                        <div className="md:hidden w-full flex flex-col justify-center gap-8">
                             <img
                                 src="/images/guide.png"
                                 alt="Suivi des demandes"
-                                className="w-full md:w-80 lg:w-[23rem] 2xl:w-[26rem]"
+                                className="w-72 m-auto"
                             />
-                            <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
-                        Dont         <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
-4€ financent</span> un
-kit pédagogique
-pour une école
-                    </div>
+                            <div className="ClashDisplayBold text-[#0a548d] text-2xl lg:text-2xl  text-center">
+                                Dont         <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
+                                    4€ financent</span> un
+                                kit pédagogique
+                                pour une école
+                            </div>
 
                         </div>
 
@@ -147,12 +147,12 @@ pour une école
                             <p>
                                 Que vous soyez débutant ou averti, ce guide vous permettra rapidement de devenir un As en lecture d’étiquettes.
                                 Grâce à un bon marketing, on peut nous vendre n’importe quoi. Choisir dans les rayons peut vite devenir un calvaire.<br></br>
-                                Avec ce guide, vous avez les clés pour mieux choisir sans vous prendre la tête. <span
-                                        onClick={() => setIsPopupOpen(true)}
-                                        className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
-                                    >
-                                        Voir le contenu
-                                    </span>
+                                Avec ce guide, vous avez les clés pour mieux choisir sans vous prendre la tête.<br/> <span
+                                    onClick={() => setIsPopupOpen(true)}
+                                    className="text-lg text-[#0a548d] ArchivoLight leading-tight text-start underline"
+                                >
+                                 Voir&nbsp;ce&nbsp;qu’il&nbsp;contient.
+                                </span>
                             </p>
 
                         </div>
@@ -186,24 +186,24 @@ pour une école
                 </div>
 
                 {/* ✅ Image à droite pour desktop */}
-                <div className="hidden md:flex flex-col justify-center w-full md:w-auto mt-8 md:mt-0 flex-[2]">
+                <div className="hidden md:flex flex-col justify-center w-full md:w-auto mt-8 md:mt-0 flex-[2] gap-16">
                     <img
                         src="/images/guide.png"
                         alt="Suivi des demandes"
-                        className="w-96 md:w-full m-auto"
+                        className="w-96 m-auto"
                     />
-                    <div className="ClashDisplayBold text-[#0a548d] text-3xl text-center">
+                    <div className="ClashDisplayBold text-[#0a548d] text-2xl lg:text-2xl xl:text-3xl text-center">
                         Dont         <span className=" font-black text-[#ff8200] mb-2 ClashDisplayBold">
-4€ financent</span> un
-kit pédagogique
-pour une école
+                            4€ financent</span> un
+                        kit pédagogique
+                        pour une école
                     </div>
                 </div>
 
             </div>
-              <BoxTPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
-  <ContentGuide />
-</BoxTPopup>
+            <BoxTPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)}>
+                <ContentGuide />
+            </BoxTPopup>
         </>
     );
 }

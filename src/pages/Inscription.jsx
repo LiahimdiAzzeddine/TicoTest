@@ -18,10 +18,7 @@ export default function Inscription() {
                     <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-y-8 md:gap-x-10 w-full max-w-6xl" >
                         <div className="text-[#0a548d] text-center ArchivoBold flex flex-col gap-4">
                             <div>
-                                Vous êtes enseignants, animateurs dans un centre de loisir, une colonie de vacances, une maison des jeunes et de la culture, une
-                                médiathèque ou tout autre acteur souhaitant bénéficier de la Box des Ti’Conso pour aborder le sujet de l’alimentation avec les enfants que
-
-                                vous encadrez ?
+                                Vous êtes enseignants, animateurs d’un centre de loisir, d’une colonie de vacances, d’une maison des jeunes et de la culture, d’une médiathèque ou tout autre acteur souhaitant bénéficier du kit pédagogique pour aborder le sujet de l’alimentation avec les enfants que vous encadrez ?
                             </div>
                         </div>
                     </div>
@@ -31,7 +28,7 @@ export default function Inscription() {
                         <div className="text-[#0a548d] text-center md:text-left flex flex-col gap-8 md:gap-14 flex-1">
                             <StepTitle center={true}>
                                 <span className="text-[#0a548d]">
-                                    Inscrivez votre structure pour qu’ellebénéficie d’une box&nbsp;
+                                    Inscrivez votre structure pour qu’elle bénéficie d’une box&nbsp;
                                 </span>
                                 <span className="text-[#ff8200] font-bold">
                                     co-financées par des citoyens soucieux &nbsp;

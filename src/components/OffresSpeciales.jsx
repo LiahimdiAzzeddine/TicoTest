@@ -46,7 +46,7 @@ function BundleRow({
 
       {/* Texte */}
       <div className="flex-1 md:px-4 text-center md:text-start">
-        <h3 className="font-bold text-lg" style={{ color: BLUE }}>
+        <h3 className="font-bold text-lg ArchivoBold" style={{ color: BLUE }}>
           {title}
         </h3>
         {lines.map((t, idx) => (
@@ -61,7 +61,7 @@ function BundleRow({
                 {oldPrice}
               </span>
             )}
-            {newPrice && <span className="font-semibold text-[#0a548d] text-base">{newPrice}</span>}
+            {newPrice && <span className="font-semibold text-[#0a548d] text-base ArchivoBold">{newPrice}</span>}
           </div>
         )}
         {shippingNote && (
@@ -197,8 +197,8 @@ const handleAddTiPack = (qty) => {
             title="Le Ti'Pack"
             id={"tipack-pdf"}
             lines={["Calendrier et guide", "Version PDF"]}
-            oldPrice="24,90€"
-            newPrice="19,99€"
+            oldPrice="21,98€"
+            newPrice="18,99€"
             onAdd={handleAddTiPack}
           />
 

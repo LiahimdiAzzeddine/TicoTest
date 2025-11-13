@@ -97,6 +97,7 @@ export default function OrderSummary({ isOpen, onClose }) {
                             qty={item.qty}
                             inc={() => updateQty("maison", item.id, item.qty + 1)}
                             dec={() => updateQty("maison", item.id, item.qty - 1)}
+                            minQt={item.minQt}
                           />
                           <p className="text-lg font-bold text-[#ff8200]">
                             {(item.price * item.qty).toFixed(2)} €
@@ -116,7 +117,7 @@ export default function OrderSummary({ isOpen, onClose }) {
                       onClick={handleOrderMaison}
                       className="w-full bg-gradient-to-r from-[#ff8200] to-[#ff9933] text-white py-3 rounded-lg font-bold text-base hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
                     >
-                      Commander 
+                      Commander
                     </button>
                   </div>
                 </div>
@@ -146,7 +147,7 @@ export default function OrderSummary({ isOpen, onClose }) {
           />
           <div className="flex flex-col">
           <h4 className="font-semibold text-gray-800">{item.name}</h4> {/* ✅ nom du produit */}
-          
+
         <p className="text-lg font-bold text-[#ff8200]">
           {(item.amount).toFixed(2)} €
         </p></div>
@@ -161,7 +162,7 @@ export default function OrderSummary({ isOpen, onClose }) {
         </button>
       </div>
 
-  
+
     </div>
   ))}
 </div>
@@ -176,7 +177,7 @@ export default function OrderSummary({ isOpen, onClose }) {
                       onClick={handleOrderEcole}
                       className="w-full bg-gradient-to-r from-[#0a548d] to-[#0d6ab8] text-white py-3 rounded-lg font-bold text-base hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200"
                     >
-                      Commander 
+                      Commander
                     </button>
                   </div>
                 </div>

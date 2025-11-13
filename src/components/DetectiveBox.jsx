@@ -43,9 +43,9 @@ export default function DetectiveBox() {
   ];
 
   const products = [
-    { id: 0, idname: "detective_1", name: "Pour 1 détective", price: 59.99, image: "/images/1_detective-removebg-preview.png", poids: 950 },
-    { id: 1, idname: "detective_2", name: "Pour 2 détectives", price: 67.99, image: "/images/2_detectives-removebg-preview.png", poids: 950 },
-    { id: 2, idname: "detective_3", name: "Pour 3 détectives", price: 75.99, image: "/images/3_detectives-removebg-preview.png", poids: 950 },
+    { id: 0, idname: "detective_1", name: "Pour 1 détective", price: 59.99, image: "/images/1_detective-removebg-preview.png", poids: 950,minQt:20 },
+    { id: 1, idname: "detective_2", name: "Pour 2 détectives", price: 67.99, image: "/images/2_detectives-removebg-preview.png", poids: 950,minQt:20 },
+    { id: 2, idname: "detective_3", name: "Pour 3 détectives", price: 75.99, image: "/images/3_detectives-removebg-preview.png", poids: 950,minQt:20 },
   ];
 
   const increaseQuantity = () => setQuantity(q => q + 1);
@@ -80,7 +80,7 @@ export default function DetectiveBox() {
     const product = products[selectedProduct];
     if (!product) return;
 
-    addMaison(product.idname, "Box " + product.name, product.price, product.image, quantity, 0, null, '', product.poids);
+    addMaison(product.idname, "Box " + product.name, product.price, product.image, quantity, 0, null, '', product.poids,product.minQt);
     showNotification(`${quantity}x ${product.name} ajouté au panier`);
     setQuantity(20);
   };
